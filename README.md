@@ -4,6 +4,8 @@ O ConstruDelas é um programa de capacitação para mulheres na área de program
 
 Este bootcamp possui duração de 21 semanas, sendo mais de 200 horas de capacitação técnica.
 
+## Ementas e projetos
+
 - [x] [Front-end](./ementa-frontend.md)
 
 - [x] [Projeto Front-end](https://github.com/iW90/azavital)
