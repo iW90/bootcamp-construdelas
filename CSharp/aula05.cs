@@ -149,7 +149,7 @@ class aulasD {
         Console.Write("Digite uma palavra: ");
         string word = Console.ReadLine();
 
-        foreach (char letra in word) {
+        foreach (int letra in word) {
             Console.WriteLine(letra);
         }
 
@@ -240,5 +240,4 @@ class aulasD {
 
             Console.WriteLine($"Primeira raiz: {primeiraRaiz}\nSegunda raiz: {segundaRaiz}");
     }
-
 }
