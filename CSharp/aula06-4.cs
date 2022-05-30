@@ -1,4 +1,4 @@
-
+/*
 var animal = new Animal("pato");
 animal.SomDoAnimal();
 animal = new Animal("cachorro");
@@ -33,3 +33,4 @@ class Animal {
         }
     }
 }
+*/
