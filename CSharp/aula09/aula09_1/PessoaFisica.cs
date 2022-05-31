@@ -1,6 +1,6 @@
 ﻿class PessoaFisica : Pessoa {
     public string cpf;
-    public PessoaFisica(string nome, string email, string cpf) : base(nome, email) { // :base significa que herdou da classe pai
+    public PessoaFisica(string nome, string email, string cpf) : base(nome, email) { // :base significa que herdou da classe pai.
         this.cpf = cpf;
     }
 
