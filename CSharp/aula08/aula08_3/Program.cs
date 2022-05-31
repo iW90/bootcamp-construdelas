@@ -1,4 +1,4 @@
-﻿/* EXERCÍCIO 01
+﻿/* EXERCÍCIO 01:
 1. Crie um programa que peça pro usuário digitar 0 se a forma geométrica for quadrado, 1 se a forma geométrica for retângulo. (main) (tentem usar enum)
 2. Crie uma classe chamada Retangulo com 2 construtores. (retangulo)
 3. Um construtor vai receber somente o valor da largura e atribuir o mesmo valor para a altura, já que em um quadrado os lado são iguais. (retangulo)

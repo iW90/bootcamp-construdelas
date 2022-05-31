@@ -1,4 +1,4 @@
-﻿/* EXERCÍCIO 02
+﻿/* EXERCÍCIO 02:
  * (relacionado à aula06-4.cs)
 1. Crie um enum com os valores: cachorro, gato, pato, passaro e desconhecido, o nome da enum é AnimalTipo
 2. Crie um main que pergunte quantos animais vamos levar na arca.

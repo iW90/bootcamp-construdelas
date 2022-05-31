@@ -1,11 +1,12 @@
-﻿/* EXERCÍCIO 01
+﻿/* EXERCÍCIO 01:
 1. Faça um programa principal, que leia quantos alunos tem na sala de aula e guarde na variável qtdeAlunos do tipo int.
 2. Faça um loop para ler o nome do aluno, a nota1, nota2, nota3, nota4 do aluno. (notas tipo double)
 3. Crie uma classe chamada Aluno em outro arquivo que não seja onde está o programa principal.
 4. A classe aluno terá um construtor que receberá o nome do aluno e as notas do aluno como parâmetro.
 5. A classe também terá um método que calculará a média anual do aluno e retornará um double.
 6. Crie um objeto do tipo Aluno e armazene em um array chamado alunoArray
-7. Depois disso imprima o nome de cada aluno e APROVADO caso a média dele seja maior ou igual a 7. */
+7. Depois disso imprima o nome de cada aluno e APROVADO caso a média dele seja maior ou igual a 7.
+*/
 
 
 Console.Write("Quantidade de alunos: ");

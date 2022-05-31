@@ -35,5 +35,7 @@ Caso seja declarado o mesmo Namespace em outro arquivo.cs, é possível continua
 
 * `partial`: Divide a classe em dois arquivos. Útil para arquivos muito grandes.
 * `sealed`: Não pode ser herdada.
-* `static`: Para constantes. Não pode criar novos objetos ("new"), só pode ser chamado.
+* `static`: Para constantes. Não pode criar novos objetos ("new", "this"), só pode ser chamado.
 * `abstract`: Não permite criar novos objetos ("new"). Serve para herdar.
+* `override`: Sobrescreve o virtual
+* `virtual`: Permite que override sobrescreva

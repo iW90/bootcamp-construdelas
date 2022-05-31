@@ -24,10 +24,11 @@ class aulasB {
 
     public static void aula03b() {
         Console.WriteLine("\n\tExercício 05: ");
-        /* Exercício:
+        /* EXERCÍCIO 01:
         1. Pergunte o dia, mês e ano do aniversário de uma pessoa.
         2. Exiba no console o dia da semana em que a pessoa nasceu.
-        3. Exiba no console o dia do ano em que a pessoa nasceu.*/
+        3. Exiba no console o dia do ano em que a pessoa nasceu.
+        */
 
         Console.WriteLine("Digite o dia: ");
         String niverDia = Console.ReadLine();
@@ -95,11 +96,12 @@ class aulasB {
 
     public static void aula03f() {
         Console.WriteLine("\n\tExercício 02: ");
-        /* Exercício:
+        /* EXERCÍCIO 02:
         1. Digite duas frases (a primeira precisa conter a segunda).
         2. Concatene ambas.
         3. Mostre a posição da segunda frase na primeira.
-        4. Mostre a terceira letra.*/
+        4. Mostre a terceira letra.
+        */
 
         Console.WriteLine("Digite a primeira frase: ");
         String texto1 = Console.ReadLine();
@@ -126,10 +128,11 @@ class aulasB {
 
     public static void aula03h() {
         Console.WriteLine("\n\tExercício 03: ");
-        /*Exercício:
+        /* EXERCÍCIO 03:
         1. Peça uma frase.
         2. Exiba as 10 primeiras letras da frase.
-        3. Substitua todas as letras "a" por letras "u".*/
+        3. Substitua todas as letras "a" por letras "u".
+        */
 
         Console.WriteLine("Digite uma frase: ");
         String texto1 = Console.ReadLine();
@@ -159,13 +162,14 @@ class aulasB {
 
     public static void aula03j() {
         Console.WriteLine("\n\tExercício 04: ");
-        /* Exercício:
+        /* EXERCÍCIO 04:
         1. Pergunte a cidade
         2. Pergunte o valor da gasolina
         3. Exiba no console:
             - A cidade
             - A data (de acordo com o formato do país pt-BR ou en-US)
-            - O preço (de acordo com o formato do país pt-BR ou en-US)*/
+            - O preço (de acordo com o formato do país pt-BR ou en-US)
+        */
 
         CultureInfo pt = new CultureInfo("en-US"); //pt-BR se for Brasil, en-US se for EUA.
 
@@ -182,7 +186,7 @@ class aulasB {
 
     public static void aula03k() {
         Console.WriteLine("\n\tExercício 05: ");
-        /* Desafio:
+        /* DESAFIO 01:
         1. Peça para o user digitar o aniversário de uma pessoa no formato: DD/MM/AAAA
         2. Crie uma data e exiba no console o dia da semana em que a pessoa nasceu.*/
 

@@ -50,10 +50,11 @@ class aulasD {
 
     public static void aula05c() {
         Console.WriteLine("\n\tExercício 01: ");
-        /* EXERCÍCIO 01
+        /* EXERCÍCIO 01:
         1. Peça um número
         2. Informe se ele é par ou ímpar sem utilizar %
-        3. Utilize switch-case */
+        3. Utilize switch-case
+        */
 
         Console.Write("Digite um número: ");
         string n = Console.ReadLine();
@@ -89,11 +90,12 @@ class aulasD {
 
     public static void aula05e() {
         Console.WriteLine("\n\tExercício 02: ");
-        /* EXERCÍCIO 02
+        /* EXERCÍCIO 02:
         1. Leia um número
         2. Leia outro número
         3. Converta ambos para inteiro
-        4. Imprima a multiplicação dos dois números sem usar (*) */
+        4. Imprima a multiplicação dos dois números sem usar (*)
+        */
 
         Console.Write("Digite um número: ");
         int.TryParse(Console.ReadLine(), out int n1);
@@ -141,10 +143,11 @@ class aulasD {
 
     public static void aula05h() {
         Console.WriteLine("\n\tExercício 03: ");
-        /* EXERCÍCIO 03
+        /* EXERCÍCIO 03:
         1. Leia uma palavra
         2. Exiba a palavra na vertical
-        3. Use foreach */
+        3. Use foreach
+        */
 
         Console.Write("Digite uma palavra: ");
         string word = Console.ReadLine();
@@ -183,10 +186,11 @@ class aulasD {
 
     public static void aula05k() {
         Console.WriteLine("\n\tExercício 04: ");
-        /* EXERCÍCIO 04
+        /* EXERCÍCIO 04:
         1. Digite um número
         2. Vá somando esses números até ele digitar 0
-        3. Quando digitar 0, exibe a soma e encerra o programa */
+        3. Quando digitar 0, exibe a soma e encerra o programa
+        */
 
         int soma = 0;
         int n = 0;
@@ -220,7 +224,8 @@ class aulasD {
         5. Calcule o valor da primeira raiz e imprima (-b +-(delta))/2a
         6. Calcule o valor da segunda raiz e imprima
             Entrada: A = 1; B = 8; C = -9;
-            Saída esperada: 1 e -9; */
+            Saída esperada: 1 e -9;
+        */
 
             int a, b, c;
             double delta, raizDelta, primeiraRaiz, segundaRaiz;

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp2\\aula09\\aula09_1\\aula09_1.csproj",
+      "projectUniqueName": "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp\\aula09\\aula09_1\\aula09_1.csproj",
       "projectName": "aula09_1",
-      "projectPath": "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp2\\aula09\\aula09_1\\aula09_1.csproj",
+      "projectPath": "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp\\aula09\\aula09_1\\aula09_1.csproj",
       "packagesPath": "C:\\Users\\sophi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp2\\aula09\\aula09_1\\obj\\",
+      "outputPath": "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp\\aula09\\aula09_1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sophi\\AppData\\Roaming\\NuGet\\NuGet.Config",

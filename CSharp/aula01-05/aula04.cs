@@ -15,7 +15,8 @@ class aulasC {
     public static void aula04b() {
         Console.WriteLine("\n\tExercício 01: ");
         /* EXERCÍCIO 01:
-        1. Exiba um erro caso o formato da data seja digitado errado ou incompleto */
+        1. Exiba um erro caso o formato da data seja digitado errado ou incompleto
+        */
 
         Console.WriteLine("Digite o dia do seu aniversário no formato DD/MM/AAAA");
         string dataDeNascimentoStr = Console.ReadLine();
@@ -64,10 +65,11 @@ class aulasC {
 
     public static void aula04d() {
         Console.WriteLine("\n\tExercício 02: ");
-        /* EXERCÍCIO 02
+        /* EXERCÍCIO 02:
         1. Peça um número
         2. Converta para inteiro
-        3. Exiba o resto da divisão por 2 */
+        3. Exiba o resto da divisão por 2
+        */
 
         Console.Write("Digite um número: ");
         int.TryParse(Console.ReadLine(), out int n);
@@ -89,11 +91,12 @@ class aulasC {
 
     public static void aula04f() {
         Console.WriteLine("\n\tExercício 03: ");
-        /* EXERCÍCIO 03
+        /* EXERCÍCIO 03:
         1. Peça um número
         2. Peça outro número
         3. Converta os números para inteiro
-        4. Exiba True se o primeiro número for maior ou igual ao segundo número e False se for menor */
+        4. Exiba True se o primeiro número for maior ou igual ao segundo número e False se for menor
+        */
 
         Console.Write("Digite um número: ");
         int.TryParse(Console.ReadLine(), out int n1);
@@ -108,7 +111,8 @@ class aulasC {
         /* DESAFIO 01:
         1. Peça um número
         2. Converta para inteiro
-        3. Exiba True se for par e False se for ímpar */
+        3. Exiba True se for par e False se for ímpar
+        */
 
         Console.Write("Digite um número: ");
         int.TryParse(Console.ReadLine(), out int n);
@@ -125,7 +129,8 @@ class aulasC {
         /* DESAFIO 02:
         1. Peça um número
         2. Peça outro número
-        3. Exiba True se o primeiro número for maior que segundo número e o segundo número for par */
+        3. Exiba True se o primeiro número for maior que segundo número e o segundo número for par
+        */
 
         Console.Write("Digite um número: ");
         int.TryParse(Console.ReadLine(), out int n1);
@@ -138,7 +143,8 @@ class aulasC {
     public static void aula04i() {
         Console.WriteLine("\n\tExercício 05: ");
         /* DESAFIO 03:
-        1. Repita o exercício anterior utilizando um validador Try Catch */
+        1. Repita o exercício anterior utilizando um validador Try Catch
+        */
 
         try {
             Console.Write("Digite um número: ");
@@ -154,7 +160,8 @@ class aulasC {
     public static void aula04j() {
         Console.WriteLine("\n\tExercício 06: ");
         /* DESAFIO 04:
-        1. Repita o exercício anterior utilizando um validador de sua escolha */
+        1. Repita o exercício anterior utilizando um validador de sua escolha
+        */
 
         int n1, n2;
         do {
