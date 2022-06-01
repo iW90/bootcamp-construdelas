@@ -73,6 +73,8 @@ Carga horária total: 153h
 | Abstração |
 | Interfaces |
 | *# Bate-papo com Juntos Somos Mais* |
+| Aula extra 1 |
+| Aula bônus 2 |
 | Gerenciando exceções |
 | Composição |
 | Agregação |
