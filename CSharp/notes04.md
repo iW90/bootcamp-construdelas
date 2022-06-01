@@ -75,4 +75,6 @@ Variáveis com primeira letra minúscula:
 
 ## Operador ternário (dicotômico)
 
-    condição ? true : false;
+```csharp
+condição ? true : false;
+```

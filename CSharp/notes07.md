@@ -4,7 +4,7 @@
 
 Para o caso de haver valores pré-definidos, cria-se equivalentes numéricos para tornar mais rápida a comparação (já que compara números ao invés da string).
 
-```
+```csharp
 enum Estacao {
     Primavera //valor 0
     Verao //valor 1
@@ -17,17 +17,23 @@ enum Estacao {
 
 É uma forma de organizar um espaço com classes relacionadas dentro. Pode ser declarado usando `{}`, inserindo-se todas as classes dentro, ou pode declarar para todo o documento.
 
-    namespace NomeDoNameSpace;
+```csharp
+namespace NomeDoNameSpace;
         //ou
-    namespace NomeDoNameSpace { class{} e etc. }
+namespace NomeDoNameSpace { class{} e etc. }
+```
 
 E para usar o namespace em outro lugar, importa-se da mesma forma que bibliotecas:
 
-    using NomeDoNameSpace;
+```csharp
+using NomeDoNameSpace;
+```
 
 Ou então é preciso chamar antes da classe:
 
-    NomeDoNameSpace.Class.metodo
+```csharp
+NomeDoNameSpace.Class.metodo
+```
 
 Caso seja declarado o mesmo Namespace em outro arquivo.cs, é possível continuar utilizando os recursos que estiverem no mesmo em outro arquivo2.cs
 
