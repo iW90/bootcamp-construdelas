@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32519.379
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aula10_1", "aula10_1\aula10_1.csproj", "{9A914E1C-DBE7-4CFD-AC76-B219FEE82DD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aula10_2", "aula10_2\aula10_2.csproj", "{5524E318-2CA2-4DFD-9DF7-C88A26D3E734}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aula10_3", "aula10_3\aula10_3.csproj", "{64D8E242-C497-45E6-9412-AB35577EF6BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A914E1C-DBE7-4CFD-AC76-B219FEE82DD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A914E1C-DBE7-4CFD-AC76-B219FEE82DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A914E1C-DBE7-4CFD-AC76-B219FEE82DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A914E1C-DBE7-4CFD-AC76-B219FEE82DD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5524E318-2CA2-4DFD-9DF7-C88A26D3E734}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5524E318-2CA2-4DFD-9DF7-C88A26D3E734}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5524E318-2CA2-4DFD-9DF7-C88A26D3E734}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5524E318-2CA2-4DFD-9DF7-C88A26D3E734}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64D8E242-C497-45E6-9412-AB35577EF6BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64D8E242-C497-45E6-9412-AB35577EF6BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64D8E242-C497-45E6-9412-AB35577EF6BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64D8E242-C497-45E6-9412-AB35577EF6BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C7F4F40-5377-4C21-82D9-8EAF8F7F365D}
+	EndGlobalSection
+EndGlobal

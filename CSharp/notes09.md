@@ -14,7 +14,7 @@ Utiliza-se o `:base()` para chamar o construtor da classe pai. Caso não possua 
 
 ## Encapsulamento:
 
-Ocultando o estado interno e a funcionalidade de um objeto e permitindo apenas o acesso por meio de um conjunto público de funções.
+Trata do estado e funcionalidade de um objeto, permitindo ou não o acesso por meio de funções.
 
 - `private`: pode ser acessado somente de dentro da classe.
 - `public`: pode ser acessado de qualquer lugar.

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp2\\aula01-05\\aula01-05.csproj": {}
+    "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp\\aula01-05\\aula01-05.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp2\\aula01-05\\aula01-05.csproj": {
+    "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp\\aula01-05\\aula01-05.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp2\\aula01-05\\aula01-05.csproj",
+        "projectUniqueName": "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp\\aula01-05\\aula01-05.csproj",
         "projectName": "aula01-05",
-        "projectPath": "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp2\\aula01-05\\aula01-05.csproj",
+        "projectPath": "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp\\aula01-05\\aula01-05.csproj",
         "packagesPath": "C:\\Users\\sophi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp2\\aula01-05\\obj\\",
+        "outputPath": "C:\\Users\\sophi\\Desktop\\01.PROGRAMA\\ConstruDelas\\CSharp\\aula01-05\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sophi\\AppData\\Roaming\\NuGet\\NuGet.Config",
