@@ -2,15 +2,23 @@
 
 ## Escrever na mesma linha:
 
-    Console.Write("Texto");
+```csharp
+Console.Write("Texto");
+```
+
 
 ## Escrever e passar pra linha seguinte:
 
-    Console.WriteLine("Texto");
+```csharp
+Console.WriteLine("Texto");
+```
+
 
 ## Aguardar o usuário pressionar uma tecla:
 
-    Console.ReadKey();
+```csharp
+Console.ReadKey();
+```
 
 ## Atalhos barra:
 
@@ -24,21 +32,29 @@
 
 ## Ler caracteres de forma literal:
 
-    Console.WriteLine(@"\Texto\");
+```csharp
+Console.WriteLine(@"\Texto\");
+```
 
 * não exibe aspas
 
-    Console.WriteLine("\"Texto\"");
+```csharp
+Console.WriteLine("\"Texto\"");
+```
 
 * exibe as aspas
 
 ## Limpar o console:
 
-    Console.Clear();
+```csharp
+Console.Clear();
+```
 
 ## Posicionar o cursor na tela:
 
-    Console.SetCursorPosition(Y, X);
+```csharp
+Console.SetCursorPosition(Y, X);
+```
 
 * Considerar como um plano cartesiano, eixos X e Y.
 * (0, 0) é o canto superior esquerdo.
@@ -69,40 +85,54 @@
 
 ### Fonte: 
 
-    Console.ForegroundColor = ConsoleColor.Magenta;
+```csharp
+Console.ForegroundColor = ConsoleColor.Magenta;
+```
 
 ### Background:
 
-    Console.BackgroundColor = ConsoleColor.Yellow; 
+```csharp
+Console.BackgroundColor = ConsoleColor.Yellow; 
+```
 
 ### Combinação para colorir a tela toda:
 
-    Console.BackgroundColor = ConsoleColor.Blue;
-    Console.ReadKey();
-    Console.Clear();
+```csharp
+Console.BackgroundColor = ConsoleColor.Blue;
+Console.ReadKey();
+Console.Clear();
+```
 
 ## Apagar a formatação das cores:
 
-    Console.ResetColor();
+```csharp
+Console.ResetColor();
+```
 
 * O comando Clear não reseta as cores.
 
 ## Fazer comentários:
 
-    // comentário de uma linha
+```csharp
+// comentário de uma linha
 
-    /* comentários de várias linhas */
+/* comentários de várias linhas */
 
-    /// cria um comentário documentado em XML sobre a linha de código imediatamente abaixo
+/// cria um comentário documentado em XML sobre a linha de código imediatamente abaixo
+```
 
 ## Entrada de dados:
 
-    Console.ReadLine();
+```csharp
+Console.ReadLine();
+```
 
 ## Números aleatórios:
 
-    Random identificador = new Random();
-    int n = identificador.Next();
+```csharp
+Random identificador = new Random();
+int n = identificador.Next();
+```
 
 * Se deixar `Next()` em branco, será gerado um número enorme indefinido
 * Se colocar um único valor em `Next(N)`, será gerado um número de 0 a N (excluindo o N)
@@ -110,7 +140,9 @@
 
 ## Temporizadores:
 
-    Thread.Sleep();
+```csharp
+Thread.Sleep();
+```
 
 * O valor de X é em milisegundos
 * Necessário usar a biblioteca "using System.Threading;"

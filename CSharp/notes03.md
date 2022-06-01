@@ -2,7 +2,7 @@
 
 ## Date Time:
 
-```
+```csharp
 var identificador = newDateTime(ano, mês, dia, hora, minuto, segundo);
 var identificador = newDateTime(ano, mês, dia);
 
@@ -20,13 +20,13 @@ DateTime.Now.Year; // ano atual
 
 É utilizado o sinal de soma `+`, bastando que uma das variáveis seja string para concatenar:
 
-```
+```csharp
 string identificador = palavra + " " + palavra;
 ```
 
 Ou adicionando valores com `Append`:
 
-```
+```csharp
 StringBuilder identificador = new StringBuilder();
 identificador.Append("Ingrid");
 identificador.Append("Wagner");
@@ -39,7 +39,7 @@ string str = identificador.ToString();
 
 Criando uma string cujo valor `*` se repete `n` vezes
 
-```
+```csharp
 string identificador = new string('*', n);
 ```
 
@@ -48,7 +48,7 @@ string identificador = new string('*', n);
 
 ## Interpolação:
 
-```
+```csharp
 Console.Write($"Texto {var1}, texto {var2}");
 ```
 
@@ -58,7 +58,7 @@ Console.Write($"Texto {var1}, texto {var2}");
 
 Três formas de comparar strings:
 
-```
+```csharp
 Console.WriteLine(a == b);
 Console.WriteLine(a.Equals(b));
 Console.WriteLine(string.Compare(a, b, true) == 0);
@@ -68,7 +68,7 @@ Console.WriteLine(string.Compare(a, b, true) == 0);
 * Se usar false, diferencia maiúsculas e minúsculas.
 <br><br>
 
-```
+```csharp
 Console.WriteLine(string.Compare(a, b, true));
 ```
 
@@ -81,14 +81,14 @@ Console.WriteLine(string.Compare(a, b, true));
 
 Mostra a posição de um caractere de uma string:
 
-```
+```csharp
 var identificador1 = s1.IndexOf(s2);
 Console.WriteLine(identificador1);
 ```
 
 Ou transforma em um array para mostrar o index da letra:
 
-```
+```csharp
 var pos = s1.ToCharArray();
 Console.WriteLine(pos[n]);
 ```
@@ -99,14 +99,14 @@ Console.WriteLine(pos[n]);
 
 Corta um pedaço da string
 
-```
+```csharp
 var identificador2 = identificador1.Substring(0, 2);
 // retorna 2 valores a partir da posição 0
 ```
 
 ## Substituindo trechos em Strings:
 
-```
+```csharp
 var identificador2 = identificador1.Replace("substituído", "substituto");
 ```
 
@@ -114,7 +114,7 @@ var identificador2 = identificador1.Replace("substituído", "substituto");
 
 * Necessário inserir `using System.Globalization;` no início do arquivo para importar a biblioteca.
 
-```
+```csharp
 CultureInfo pt = new CultureInfo("pt-BR");
 //Define para qual país serão adaptados os dados
 
@@ -152,7 +152,7 @@ Console.WriteLine(dateTime.ToString(pt));
 
 ## Interpolação com formatação:
 
-```
+```csharp
 Console.Write($"Texto {var:C}");
 ```
 
@@ -160,21 +160,21 @@ Console.Write($"Texto {var:C}");
 * Não faz conversão de moeda, apenas formata visualmente.
 <br><br>
 
-```
+```csharp
 Console.Write($"Texto {var:Dn}");
 ```
 
 * No lugar de n, informe a quantidade de casas decimais que devem ser exibidas.
 <br><br>
 
-```
+```csharp
 Console.Write($"Texto {var:X}");
 ```
 
 * Faz a conversão para o valor em hexadecimal.
 <br><br>
 
-```
+```csharp
 Console.Write($"Texto {var, N}");
 ```
 
@@ -184,7 +184,7 @@ Console.Write($"Texto {var, N}");
 * Não vai cortar a string caso N seja menor do que o texto.
 <br><br>
 
-```
+```csharp
 Console.Write($"Texto {var, N:C}");
 ```
 
