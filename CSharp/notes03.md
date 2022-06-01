@@ -3,8 +3,8 @@
 ## Date Time:
 
 ```csharp
-var identificador = newDateTime(ano, mês, dia, hora, minuto, segundo);
-var identificador = newDateTime(ano, mês, dia);
+var identificador1 = newDateTime(ano, mês, dia, hora, minuto, segundo);
+var identificador2 = newDateTime(ano, mês, dia);
 
 Console.WriteLine(identificador.DayOfWeek); // dia da semana
 Console.WriteLine(identificador.Day); // dia
