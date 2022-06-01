@@ -12,7 +12,9 @@ Ou seja, declarações fora de um objeto só pode existir na Main, e não nos de
 
 ## Construtores
 
-**Sempre** que uma classe ou struct é criada, o construtor é chamado. Uma classe ou struct pode ter vários construtores que usam argumentos diferentes.
+**Sempre** que uma classe ou struct é criada, o construtor é chamado.
+
+Uma classe ou struct podem ter vários construtores que usam argumentos diferentes.
 
 Os construtores permitem que o programador defina valores padrão, limite a instanciação e grave códigos flexíveis e fáceis de ler.
 
