@@ -26,5 +26,5 @@ Trata do estado e funcionalidade de um objeto, permitindo ou não o acesso por m
 
 ## Hackerranks:
 
-[Desafio 01](https://www.hackerrank.com/challenges/birthday-cake-candles/problem?isFullScreen=true)
-[Desafio 02](https://www.hackerrank.com/challenges/grading/problem?isFullScreen=true)
+- [Desafio 01](https://www.hackerrank.com/challenges/birthday-cake-candles/problem?isFullScreen=true)
+- [Desafio 02](https://www.hackerrank.com/challenges/grading/problem?isFullScreen=true)
