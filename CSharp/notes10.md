@@ -10,12 +10,16 @@ Uma interface contém definições para um grupo de funcionalidades de uma class
 
 Uma classe ou struct que implementa a interface deve implementar todos os seus membros.
 
-Com a interface também é possível desenvolver condicionais através de parâmetros:
+Com a interface também é possível herdar outra interface:
 
 ```csharp
 interface IExemplo {
-    condicional: 'option1' | 'option2' | 'option3;
-} //ao atribuir um valor para a condicional, só será possível escolher uma das três opções.
+    //bloco de código
+}
+
+interface IExemplo2 : IExemplo {
+    //bloco de código
+}
 ```
 
 
