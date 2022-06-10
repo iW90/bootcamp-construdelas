@@ -127,10 +127,10 @@ nomeArray.Max();
 nomeArray.Average();
 ```
 
-===
+---
 
-## Rodando o Terminal no VSCode
+## Rodando o Terminal para .cs no VSCode
 
-Para habilitar a entrada de dados:
+Para habilitar a entrada de dados via terminal:
 
 Em `.vscode > launch.json` modifique `"console": internalConsole` para `"integratedTerminal"`.
