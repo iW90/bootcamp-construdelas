@@ -1,0 +1,15 @@
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\bin\Debug\net6.0\aula10_1.exe
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\bin\Debug\net6.0\aula10_1.deps.json
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\bin\Debug\net6.0\aula10_1.runtimeconfig.json
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\bin\Debug\net6.0\aula10_1.dll
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\bin\Debug\net6.0\aula10_1.pdb
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\obj\Debug\net6.0\aula10_1.csproj.AssemblyReference.cache
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\obj\Debug\net6.0\aula10_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\obj\Debug\net6.0\aula10_1.AssemblyInfoInputs.cache
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\obj\Debug\net6.0\aula10_1.AssemblyInfo.cs
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\obj\Debug\net6.0\aula10_1.csproj.CoreCompileInputs.cache
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\obj\Debug\net6.0\aula10_1.dll
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\obj\Debug\net6.0\refint\aula10_1.dll
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\obj\Debug\net6.0\aula10_1.pdb
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\obj\Debug\net6.0\aula10_1.genruntimeconfig.cache
+C:\Users\sophi\Desktop\01.PROGRAMA\ConstruDelas\CSharp\aula10\aula10_1\obj\Debug\net6.0\ref\aula10_1.dll

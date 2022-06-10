@@ -1,7 +1,7 @@
 ﻿
 /* AULA 01*/
 
-// Console.WriteLine("Hello, World!");
+Console.WriteLine("Hello, World!");
 
 
 
