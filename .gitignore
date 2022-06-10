@@ -1,4 +1,10 @@
-.vscode/
+**/.vscode/
 
-.vs/
+**/.vs/
+
+**/obj/
+
+**/bin/
+
+
 
