@@ -1,6 +1,6 @@
-﻿Console.WriteLine("Seja bem-vindo ao nosso Spotipie");
+﻿Console.WriteLine("Seja bem-vindo ao nosso Spotipie!");
 
-Console.WriteLine("Digite quantos albums voce ira cadastrar:");
+Console.Write("Digite quantos albums voce ira cadastrar: ");
 int qtdeAlbums = Convert.ToInt32(Console.ReadLine());
 List<Album> todosOsAlbuns = new List<Album>();
 
@@ -21,7 +21,7 @@ foreach (Album album in todosOsAlbuns)
     }
     finally
     {
-        Console.WriteLine("Acabei de tocar o album");
+        Console.WriteLine("Acabei de tocar o album.");
     }
 
 }

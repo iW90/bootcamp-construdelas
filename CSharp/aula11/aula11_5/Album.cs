@@ -70,12 +70,15 @@
     public static Album LerAlbum()
     {
         Album ret;
-        Console.WriteLine("Digite o nome do album");
+        Console.Write("Digite o nome do album: ");
         var nomeAlbum = Console.ReadLine();
-        Console.WriteLine("Digite o nome do artista");
+
+        Console.Write("Digite o nome do artista: ");
         var nomeArtista = Console.ReadLine();
+
         ret = new Album(nomeAlbum, nomeArtista);
-        Console.WriteLine("Digite quantas faixas tem o album:");
+
+        Console.Write("Digite quantas faixas tem o album: ");
         var faixasQtde = Convert.ToInt32(Console.ReadLine());
 
         for (int i = 0; i < faixasQtde; i++)

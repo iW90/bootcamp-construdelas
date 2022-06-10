@@ -35,24 +35,45 @@
             faixa.TocarMusica();
         }
 
-    //throw new ExcecaoSpotipie("Erro ao baixar a musica", "erro grave");
+    throw new ExcecaoSpotipie("Erro ao baixar a musica", "erro grave"); //Erro simulado para testar o try_catch
+
     }
 
     public static Album LerAlbum()
     {
         Album ret;
-        Console.WriteLine("Digite o nome do album");
+        Console.Write("Digite o nome do album: ");
         var nomeAlbum = Console.ReadLine();
-        Console.WriteLine("Digite o nome do artista");
-        var nomeArtista = Console.ReadLine();
-        ret = new Album(nomeAlbum, nomeArtista);
-        Console.WriteLine("Digite quantas faixas tem o album:");
-        var faixasQtde = Convert.ToInt32(Console.ReadLine());
 
+        Console.Write("Digite o nome do artista: ");
+        var nomeArtista = Console.ReadLine();
+
+        ret = new Album(nomeAlbum, nomeArtista);
+
+        Console.Write("Digite quantas faixas tem o album: ");
+        var faixasQtde = Convert.ToInt32(Console.ReadLine());
         for (int i = 0; i < faixasQtde; i++)
         {
             ret.AdicionarFaixa(Faixa.LerFaixa());
         }
+
         return ret;
+    }
+}
+
+class ExcecaoSpotipie : Exception
+{
+    string tipoDeErro;
+    public ExcecaoSpotipie(string mensagem, string tipoDeErro):base(mensagem)
+    {
+        this.tipoDeErro = tipoDeErro;
+    }
+
+    public override string ToString()
+    {
+        return "ERRO NO SPOTIPIE: " + tipoDeErro + " - " + base.ToString();
+            /* Deu erro:ERRO NO SPOTIPIE: erro grave - ExcecaoSpotipie: Erro ao baixar a musica
+            at Album.TocarAlbum() in C:\Users\Fulano\...\Album.cs:line 41
+            at Program.<Main>$(String[] args) in C:\Users\Fulano\...\Album.cs:line 16 */
     }
 }
