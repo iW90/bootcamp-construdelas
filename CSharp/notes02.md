@@ -26,12 +26,16 @@
 
 ## Mostrando o Type de uma variável/constante:
 
-    Identificador.GetType()
+```csharp
+Identificador.GetType()
+```
 
 ## Mostrando o tamanho mínimo ou máximo de cada Type:
 
-    type.MinValue //mostra o valor mínimo
-    type.MaxValue //mostra o valor máximo
+```csharp
+type.MinValue //mostra o valor mínimo
+type.MaxValue //mostra o valor máximo
+```
 
 * No lugar de 'type' basta colocar o tipo desejado, e usar no 'Console.Write'
 
@@ -39,19 +43,25 @@
 
 Pode utilizar o var, sem especificar um tipo:
 
-    var identificador = valor;
+```csharp
+var identificador = valor;
+```
 
 * Mas é obrigatório atribuir um valor imediatamente na declaração.
 
 Ou pode especificar o tipo (recomendável para economizar espaços de memória):
 
-    type identificador = valor;
+```csharp
+type identificador = valor;
+```
 
 ## Declaração de constantes:
 
 Funciona da mesma maneira que as variáveis, mas adiciona-se a palavra "const" antes:
 
-    const type identificador = valor;
+```csharp
+const type identificador = valor;
+```
 
 ## Nomenclatura de variáveis e constantes:
 
@@ -69,28 +79,36 @@ Funciona da mesma maneira que as variáveis, mas adiciona-se a palavra "const" a
 
 Não é necessária uma coerção, o C# faz automaticamente.
 
-    int a = 10;
-    double b = a;
+```csharp
+int a = 10;
+double b = a;
+```
 
 * Só é possível quando um cabe dentro do outro (se o espaço em memória comporta).
 * Só é possível quando o tipo é compatível (um número decimal sem valor quebrado é compatível com o inteiro)
 
 ## Coerção explícita (Typecast):
 
-    double a = 10.555;
-    int b = (int) a;
+```csharp
+double a = 10.555;
+int b = (int) a;
+```
 
 ## Coerção explícita (classes auxiliares: Convert) de string em int:
 
 Se houver letras, haverá um erro e a coerção não será feita.
 
-    string inteiroPossivel = "123";
-    int identificador = Convert.ToInt32(inteiroPossivel);
-    Console.WriteLine(identificador);
+```csharp
+string inteiroPossivel = "123";
+int identificador = Convert.ToInt32(inteiroPossivel);
+Console.WriteLine(identificador);
+```
 
 ### Classe convert para outros tipos:
 
-    Convert.ToType
+```csharp
+Convert.ToType
+```
 
 * substitua 'Type' pelo tipo desejado.
 
@@ -100,7 +118,9 @@ Usando o TryParse, que retorna um booleano informando se foi possível ou não r
 
 Estrutura: `TryParse(varEntrada, out varSaida);`
 
-    int numero = 0;
-    string numeroString = "123";
-    Console.WriteLine(int.TryParse(numeroString, out numero));
-    Console.WriteLine(numero);
+```csharp
+int numero = 0;
+string numeroString = "123";
+Console.WriteLine(int.TryParse(numeroString, out numero));
+Console.WriteLine(numero);
+```

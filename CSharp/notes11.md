@@ -30,20 +30,14 @@ at Program.<Main>$(String[] args) in T:\Users\Thays\source\repos\ConsoleApp4\Con
 
 ==========
 
-[21:46] Thays Tagliaferri de Grazia (Convidado)
-    Deu erro:ERRO NO SPOTIPIE: erro grave - ExcecaoSpotipie: Erro ao baixar a musica
+
+Deu erro:ERRO NO SPOTIPIE: erro grave - ExcecaoSpotipie: Erro ao baixar a musica
 at Album.TocarAlbum() in T:\Users\Thays\source\repos\ConsoleApp4\ConsoleApp4\Album.cs:line 41
 at Program.<Main>$(String[] args) in T:\Users\Thays\source\repos\ConsoleApp4\ConsoleApp4\Program.cs:line 16
 
 
 ===========
 
-[21:47] Thays Tagliaferri de Grazia (Convidado)
-    using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 class Album
 {​
@@ -109,11 +103,6 @@ return "ERRO NO SPOTIPIE: " + tipoDeErro + " - " + base.ToString();
 
 ============
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 internal class Faixa
 {
@@ -187,6 +176,8 @@ Console.WriteLine("Acabei de tocar o album");
 
 }
 
+===
+
 ## PARTE 2
 
 Console.WriteLine("Seja bem-vindo ao nosso Spotipie");
@@ -224,11 +215,6 @@ Console.WriteLine(album.NomeDoArtista + " - " + album.NomeDoAlbum );
 
 ===
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 internal class Faixa
 {
@@ -274,11 +260,6 @@ return ret;
 
 ===
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 class Album
 {
