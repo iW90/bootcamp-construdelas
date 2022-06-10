@@ -54,7 +54,7 @@ Carga horária total: 153h
 | Debug |
 | *Desafio 1 - Hackerrank* |
 
-| **MÓDULO 3.1: Orientação a Objetos** (27h30) |
+| ✅ **MÓDULO 3.1: Orientação a Objetos** (27h30) |
 | :--- |
 | ———————————————————————————————————————— |
 | O que é POO? |
@@ -74,7 +74,7 @@ Carga horária total: 153h
 | Interfaces |
 | *# Bate-papo com Juntos Somos Mais* |
 | Aula extra 1 |
-| Aula bônus 2 |
+| Aula extra 2 |
 | Gerenciando exceções |
 | Composição |
 | Agregação |
