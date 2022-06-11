@@ -14,8 +14,8 @@ public class Numeros {
         for (int i = 0; i <= num.Length % 7; i++) {
             if (div == 0)
             {
-                if (bloco == 1)
-                    extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} ";
+                if (bloco != 0)
+                    extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)}";
                 else
                     extenso += "";
             }
