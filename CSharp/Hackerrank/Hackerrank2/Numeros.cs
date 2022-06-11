@@ -1,15 +1,92 @@
 public class Numeros {
 
+    public static string LoopingUniDezCen (string num)
+    {
 
+        string extenso = "";
 
-    public static string milhar (int milhar) {
-        if (milhar == 1)
-            return "MIL E ";
-        else
-            return "MIL E ";
+        int div = (num.Length - 1) / 3;
+        int bloco =  Convert.ToInt32(num.Substring(0, 3)); //primeiro bloco
+        int centenaBloco = Convert.ToInt32(num.Substring(0, 1)); //primeiro dígito
+        int dezenaBloco = Convert.ToInt32(num.Substring(1, 1)); //segundo dígito
+        int unidadeBloco = Convert.ToInt32(num.Substring(2, 1)); //terceiro dígito
+
+        for (int i = 0; i <= num.Length % 7; i++) {
+            if (div == 0)
+            {
+                if (bloco == 1)
+                    extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} ";
+                else
+                    extenso += "";
+            }
+            else if (div == 1)
+            {
+                if (bloco == 1)
+                    extenso += $"MIL, ";
+                else if (bloco > 1)
+                    extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MIL, ";
+                else
+                    extenso += "";
+            }
+            else if (div == 2)
+            {
+                if (bloco == 1)
+                    extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MILHAO, ";
+                else if (bloco > 1)
+                    extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MILHOES, ";
+                else
+                    extenso += "";
+            }
+            else if (div == 3)
+            {
+                if (bloco == 1)
+                    extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} BILHAO, ";
+                else if (bloco > 1)
+                    extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} BILHOES, ";
+                else
+                    extenso += "";
+            }
+            else if (div == 4)
+            {
+                if (bloco == 1)
+                    extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} TRILHAO, ";
+                else if (bloco > 1)
+                    extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} TRILHOES, ";
+                else
+                    extenso += "";
+            }
+            else if (div == 5)
+            {
+                if (bloco == 1)
+                    extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUARTILHAO, ";
+                else if (bloco > 1)
+                    extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUARTILHOES, ";
+                else
+                    extenso += "";
+            }
+            else
+            {
+                if (bloco == 1)
+                    extenso = $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUINTILHAO, ";
+                else if (bloco > 1)
+                    extenso = $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUINTILHOES, ";
+                else
+                    extenso = "";
+            }
+
+            num = num.Substring(3, num.Length -3); // eliminando os três primeiros dígitos
+            if (num.Length >= 3) {
+                div = (num.Length - 1) / 3;
+                bloco =  Convert.ToInt32(num.Substring(0, 3)); //primeiro bloco
+                centenaBloco = Convert.ToInt32(num.Substring(0, 1)); //primeiro dígito
+                dezenaBloco = Convert.ToInt32(num.Substring(1, 1)); //segundo dígito
+                unidadeBloco = Convert.ToInt32(num.Substring(2, 1)); //terceiro dígito
+            }
+        }
+        return extenso;
     }
 
-    public static string uniDezCen(int unidade, int dezena, int centena)
+    public static string UniDezCen(int unidade, int dezena, int centena)
     {
         if (dezena == 0 && unidade == 0)
             return centena == 1 ? "CEM" : Centena(centena);
@@ -24,7 +101,7 @@ public class Numeros {
         else if (dezena == 0 && (unidade > 0 && unidade < 10))
             return Unidade(unidade); // switch unidade [UM, DOIS, TRÊS, ...]
         else if (dezena == 1 && (unidade > 0 && unidade < 10))
-            return DezenaUm(dezena); // switch dezena [ONZE, DOZE, TREZE, ...]
+            return DezenaUm(unidade); // switch dezena [ONZE, DOZE, TREZE, ...]
         else if ((dezena > 1 && dezena < 10) && (unidade > 0 && unidade < 10))
             return Dezena(dezena) + " E " + Unidade(unidade); // switch dezena1 + "E" + switch unidade [VINTE E UM, VINTE E DOIS, VINTE E TRÊS, ...]
         else
@@ -86,9 +163,9 @@ public class Numeros {
         }
     }
 
-    static string DezenaUm(int dezena)
+    static string DezenaUm(int unidade)
     {
-        switch (dezena)
+        switch (unidade)
         {
             case 1:
                 return "ONZE";

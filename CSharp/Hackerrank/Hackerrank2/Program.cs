@@ -10,8 +10,7 @@
         // Console.Write("Digite o valor em reais: ");
         // string valor = Console.ReadLine();
 
-        string num = "R$ 02,01";
-        string extenso;
+        string num = "R$ 12.302,01";
 
         //Saída
         Console.WriteLine(hackerrank2.desafio02(num));
@@ -22,21 +21,13 @@ public class hackerrank2
     public static string desafio02(string valor)
     {
 
-        if (Moeda.Centavos(valor) == "")
+        if (Moeda.Reais(valor) != "" && Moeda.Centavos(valor) == "")
             return $"VALOR: {Moeda.Reais(valor)}";
-        else if (Moeda.Reais(valor) == "")
+        else if (Moeda.Reais(valor) == "" && Moeda.Centavos(valor) != "")
             return $"VALOR: {Moeda.Centavos(valor)}";
-        else if (Moeda.Reais(valor) == "1 REAL")
+        else if (Moeda.Reais(valor) != "" && Moeda.Centavos(valor) != "")
             return $"VALOR: {Moeda.Reais(valor)} E {Moeda.Centavos(valor)}";
         else
-            return $"VALOR: {Moeda.Reais(valor)} E {Moeda.Centavos(valor)}";
-
-
-        /*
-        int centena = Convert.ToInt32(num.Substring(0, 1)); //último dígito
-        int dezena = Convert.ToInt32(num.Substring(1, 1)); //penúltimo dígito
-        int unidade = Convert.ToInt32(num.Substring(2, 1)); //antepenúltimo dígito
-        */
-
+            return "Insira um numero valido";
     }
 }
