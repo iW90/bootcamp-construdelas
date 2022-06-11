@@ -1,5 +1,7 @@
-class hackerrank1 {
-    public static void desafio01() {
+﻿class hackerrank1
+{
+    public static void desafio01()
+    {
         /* DESAFIO 01
         1. Insira uma palavra ou texto
         2. Verifique se e um palindromo
@@ -12,17 +14,22 @@ class hackerrank1 {
 
         // Quantidade de alterações que faltam para ser um palíndromo:
         int numChanges = 0;
-        for (int ltr = 0, rtl = content.Length - 1; ltr < rtl; ltr++, rtl--) {
-            if (content[ltr] != content[rtl]) {
+        for (int ltr = 0, rtl = content.Length - 1; ltr < rtl; ltr++, rtl--)
+        {
+            if (content[ltr] != content[rtl])
+            {
                 numChanges++;
             }
         }
-        
+
         // Verificação se é ou não é palíndromo:
         string palindromo;
-        if (numChanges == 0) {
+        if (numChanges == 0)
+        {
             palindromo = "TRUE";
-        } else {
+        }
+        else
+        {
             palindromo = "FALSE";
         }
 
