@@ -17,29 +17,19 @@
         Console.WriteLine(hackerrank2.desafio02(num));
 
 
-        
-
 public class hackerrank2
 {
     public static string desafio02(string valor)
     {
 
         if (Moeda.Centavos(valor) == "")
-        {
             return $"VALOR: {Moeda.Reais(valor)}";
-        }
         else if (Moeda.Reais(valor) == "")
-        {
             return $"VALOR: {Moeda.Centavos(valor)}";
-        }
         else if (Moeda.Reais(valor) == "1 REAL")
-        {
             return $"VALOR: {Moeda.Reais(valor)} E {Moeda.Centavos(valor)}";
-        }
         else
-        {
             return $"VALOR: {Moeda.Reais(valor)} E {Moeda.Centavos(valor)}";
-        }
 
 
         /*
