@@ -1,7 +1,5 @@
 ﻿/* HACKERRANK */
 
-// hackerrank.desafio01();
+// hackerrank1.desafio01();
 
-// hackerrank.desafio02();
-
-// hackerrank.desafio03();
+// hackerrank2.desafio02();

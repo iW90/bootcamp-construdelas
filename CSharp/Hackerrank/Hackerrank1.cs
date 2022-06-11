@@ -1,4 +1,4 @@
-class hackerrank {
+class hackerrank1 {
     public static void desafio01() {
         /* DESAFIO 01
         1. Insira uma palavra ou texto
@@ -28,9 +28,5 @@ class hackerrank {
 
         // Exibição de resultado no console:
         Console.WriteLine($"{palindromo} - {numChanges}");
-    }
-
-    public static void desafio02() {
-
     }
 }
