@@ -53,8 +53,8 @@ class aulasA {
         string a = Console.ReadLine();
         string b = Console.ReadLine();
 
-        // //Fazer algo para converter de string para inteiro o 'a' e o 'b'
-        // //Fazera soma e armazenar em 'c'
+        // Fazer algo para converter de string para inteiro o 'a' e o 'b'
+        // Fazera soma e armazenar em 'c'
         // int c = Convert.ToInt32(a) + Convert.ToInt32(b);
 
         //OU

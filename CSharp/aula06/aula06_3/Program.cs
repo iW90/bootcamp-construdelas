@@ -5,7 +5,7 @@ class Retangulo {
     public double altura;
     public double largura;
 
-    public Retangulo (double altura, double largura) { //método construto
+    public Retangulo (double altura, double largura) { //método construtor
         this.altura = altura;
         this.largura = largura;
     }
