@@ -11,7 +11,7 @@ class Solution
         // Entrada de dados
         // Limite: 0 a 18.446.744.073.709.551.615,99
         // string num = Console.ReadLine();
-        string num = "R$ 18.446.744.073.709.551.615,53";
+        string num = "R$ 51.615,53";
 
         if (!num.Contains(",")) {
             num += ",00";
