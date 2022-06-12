@@ -75,20 +75,21 @@ class Solution
 
             string extenso = "";
 
-            int divFix = (valor.Length - 1) / 3;
-            int div = (valor.Length - 1) / 3;
-            int bloco =  Convert.ToInt32(valor.Substring(0, 3)); //primeiro bloco
+            int divFix = (valor.Length - 1) / 3; //quantidade de blocos
+            int div = (valor.Length - 1) / 3; //bloco
+            int bloco =  Convert.ToInt32(valor.Substring(0, 3)); //numero do primeiro bloco
             int centenaBloco = Convert.ToInt32(valor.Substring(0, 1)); //primeiro digito
             int dezenaBloco = Convert.ToInt32(valor.Substring(1, 1)); //segundo digito
             int unidadeBloco = Convert.ToInt32(valor.Substring(2, 1)); //terceiro digito
 
-            uint deCheck = 1;
+            uint deCheck = 0; //verifica se precisa do "DE"
             if (valor.Length > 3)
                 deCheck = Convert.ToUInt32(valor.Substring(3, valor.Length - 3));
 
 
             for (int i = 0; i <= divFix; i++) {
-
+                
+                //verifica se precisa do "E"
                 int eCheck0 = 0;
                 int eCheck1 = 0;
                 int eCheck2 = 0;
@@ -109,6 +110,7 @@ class Solution
                 bool option1 = eCheck1 == 0 && (eCheck2 != 0 || eCheck3 != 0);
                 bool option2 = eCheck1 == 1 && (eCheck2 == 0 && eCheck3 == 0);
 
+                //montagem do numero por extenso
                 if (div == 0)
                 {
                     if (bloco != 0)
@@ -234,9 +236,10 @@ class Solution
                         extenso += "";
                 }
 
+                //atualizacao do bloco seguinte
                 valor = valor.Substring(3, valor.Length -3); // eliminando os tres primeiros digitos
                 if (valor.Length >= 3) {
-                    div--;
+                    div--; //passa para o bloco seguinte
                     bloco =  Convert.ToInt32(valor.Substring(0, 3)); //primeiro bloco
                     centenaBloco = Convert.ToInt32(valor.Substring(0, 1)); //primeiro digito
                     dezenaBloco = Convert.ToInt32(valor.Substring(1, 1)); //segundo digito
@@ -246,6 +249,7 @@ class Solution
             return extenso;
         }
 
+        //monta numeros com tres casas decimais
         static string UniDezCen(int unidade, int dezena, int centena)
         {
             if (dezena == 0 && unidade == 0)
@@ -253,6 +257,7 @@ class Solution
             return centena == 0 ? UnidadeDezena(unidade, dezena) : Centena(centena) + " E " + UnidadeDezena(unidade, dezena);
         }
 
+        //monta numeros com duas casas decimais
         static string UnidadeDezena(int unidade, int dezena)
         {
 
