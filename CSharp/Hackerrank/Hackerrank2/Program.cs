@@ -11,13 +11,13 @@ class Solution
         // Entrada de dados
         // Limite: 0 a 18.446.744.073.709.551.615,99
         // string num = Console.ReadLine();
-        string num = "R$ 51.615,53";
+        string num = "R$ 0.000.000.000.100.00.003,00";
 
-        if (!num.Contains(",")) {
+        if (!num.Contains(","))
             num += ",00";
-        } else if (!num.Contains("R$")) {
+        if (!num.Contains("R$"))
             num = "R$ " + num;
-        }
+        
 
         //Saida
         if (Reais(num) != "" && Centavos(num) == "")
@@ -82,7 +82,33 @@ class Solution
             int dezenaBloco = Convert.ToInt32(valor.Substring(1, 1)); //segundo digito
             int unidadeBloco = Convert.ToInt32(valor.Substring(2, 1)); //terceiro digito
 
+            uint deCheck = 1;
+            if (valor.Length > 3)
+                deCheck = Convert.ToUInt32(valor.Substring(3, valor.Length - 3));
+
+
             for (int i = 0; i <= divFix; i++) {
+
+                int eCheck0 = 0;
+                int eCheck1 = 0;
+                int eCheck2 = 0;
+                int eCheck3 = 0;
+
+                for (int j = 0; j < 7; j++) {
+
+                    if (div > 0 && div < 7) {
+                        if (div > 1 && div < 7)
+                            eCheck0 = Convert.ToInt32(valor.Substring(3, valor.Length -6));
+
+                        eCheck1 = Convert.ToInt32(valor.Substring(valor.Length - 3, 1));
+                        eCheck2 = Convert.ToInt32(valor.Substring(valor.Length - 2, 1));
+                        eCheck3 = Convert.ToInt32(valor.Substring(valor.Length - 1, 1));
+                    }
+                }
+
+                bool option1 = eCheck1 == 0 && (eCheck2 != 0 || eCheck3 != 0);
+                bool option2 = eCheck1 == 1 && (eCheck2 == 0 && eCheck3 == 0);
+
                 if (div == 0)
                 {
                     if (bloco != 0)
@@ -92,57 +118,120 @@ class Solution
                 }
                 else if (div == 1)
                 {
-                    if (bloco == 1)
-                        extenso += $"MIL, ";
+                    if (bloco == 1) {
+                        if (deCheck == 0)
+                            extenso += $"MIL";
+                        else if (option1 || option2)
+                            extenso += $"MIL E ";
+                        else
+                            extenso += $"MIL, ";
+                    }
                     else if (bloco > 1)
-                        extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MIL, ";
+                    {
+                        if (deCheck == 0)
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MIL";
+                        else if (option1 || option2)
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MIL E ";
+                        else
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MIL, ";
+                    }
                     else
                         extenso += "";
                 }
                 else if (div == 2)
                 {
                     if (bloco == 1)
-                        extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MILHAO, ";
+                        if (deCheck == 0)
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MILHAO DE";
+                        else if ((option1 && eCheck0 == 0) || (option2 && eCheck0 == 0))
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MILHAO E ";
+                        else
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MILHAO, ";
                     else if (bloco > 1)
-                        extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MILHOES, ";
+                        if (deCheck == 0)
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MILHOES DE";
+                        else if ((option1 && eCheck0 == 0) || (option2 && eCheck0 == 0))
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MILHOES E ";
+                        else
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MILHOES, ";
                     else
                         extenso += "";
                 }
                 else if (div == 3)
                 {
                     if (bloco == 1)
-                        extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} BILHAO, ";
+                        if (deCheck == 0)
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} BILHAO DE";
+                        else if ((option1 && eCheck0 == 0) || (option2 && eCheck0 == 0))
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} BILHAO E ";
+                        else
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} BILHAO, ";
                     else if (bloco > 1)
-                        extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} BILHOES, ";
+                        if (deCheck == 0)
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} BILHOES DE";
+                        else if ((option1 && eCheck0 == 0) || (option2 && eCheck0 == 0))
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} BILHOES E ";
+                        else
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} BILHOES, ";
                     else
                         extenso += "";
                 }
                 else if (div == 4)
                 {
                     if (bloco == 1)
-                        extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} TRILHAO, ";
+                        if (deCheck == 0)
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} TRILHAO DE";
+                        else if ((option1 && eCheck0 == 0) || (option2 && eCheck0 == 0))
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} TRILHAO E ";
+                        else
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} TRILHAO, ";
                     else if (bloco > 1)
-                        extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} TRILHOES, ";
+                        if (deCheck == 0)
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} TRILHOES DE";
+                        else if ((option1 && eCheck0 == 0) || (option2 && eCheck0 == 0))
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} TRILHOES E ";
+                        else
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} TRILHOES, ";
                     else
                         extenso += "";
                 }
                 else if (div == 5)
                 {
                     if (bloco == 1)
-                        extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUARTILHAO, ";
+                        if (deCheck == 0)
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUARTILHAO DE";
+                        else if ((option1 && eCheck0 == 0) || (option2 && eCheck0 == 0))
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUARTILHAO E ";
+                        else
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUARTILHAO, ";
                     else if (bloco > 1)
-                        extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUARTILHOES, ";
+                        if (deCheck == 0)
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUARTILHOES DE";
+                        else if ((option1 && eCheck0 == 0) || (option2 && eCheck0 == 0))
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUARTILHOES E ";
+                        else
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUARTILHOES, ";
                     else
                         extenso += "";
                 }
                 else
                 {
                     if (bloco == 1)
-                        extenso = $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUINTILHAO, ";
+                        if (deCheck == 0)
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUINTILHAO DE";
+                        else if ((option1 && eCheck0 == 0) || (option2 && eCheck0 == 0))
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUINTILHAO E ";
+                        else
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUINTILHAO, ";
                     else if (bloco > 1)
-                        extenso = $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUINTILHOES, ";
+                        if (deCheck == 0)
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUINTILHOES DE";
+                        else if ((option1 && eCheck0 == 0) || (option2 && eCheck0 == 0))
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUINTILHOES E ";
+                        else
+                            extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} QUINTILHOES, ";
                     else
-                        extenso = "";
+                        extenso += "";
                 }
 
                 valor = valor.Substring(3, valor.Length -3); // eliminando os tres primeiros digitos

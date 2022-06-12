@@ -42,7 +42,6 @@ Como pegar o primeiro bloco:
     - Se 2: Adicionar 00 antes do num(string)
     - Pegar os índices 0, 1 e 2
 
-
 - Fazer uma divisão inteira: num / 3
     - Se 7: quintilhão
     - Se 6: quartilhão
