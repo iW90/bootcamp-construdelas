@@ -21,7 +21,6 @@ class Solution
             num = "R$" + num;
         if (!num.Contains(" "))
             num = num.Insert(2, " ");
-            Console.WriteLine(num);
 
         // Saida
         if (Reais(num) != "" && Centavos(num) == "")
