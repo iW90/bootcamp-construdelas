@@ -27,7 +27,7 @@ Os números são divididos de três em três, UDC (unidade, dezena e centena) e 
 
 num = 18.446.744.073.709.551.615 == 7 blocos de UDC (unidade, dezena, centena);
 
-| bloco1 | bloco2 | bloco3 | bloco4 | bloco5 | bloco6 | bloco7 |
+| bloco6 | bloco5 | bloco4 | bloco3 | bloco2 | bloco1 | bloco0 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | ————— | ————— | ————— | ————— | ————— | ————— | ————— |
 | 18 | 446 | 744 | 073 | 709 | 551 | 615 |
