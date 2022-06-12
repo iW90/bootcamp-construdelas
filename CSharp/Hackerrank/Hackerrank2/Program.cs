@@ -8,18 +8,22 @@ class Solution
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
 
         /* INPUT / OUTPUT */
-        // Entrada de dados
         // Limite: 0 a 18.446.744.073.709.551.615,99
-        // string num = Console.ReadLine();
-        string num = "R$ 0.000.000.000.100.00.003,00";
 
+        // Entrada de dados
+        // string num = Console.ReadLine();
+        string num = "R$0.000.000.000.100.00.003,00";
+
+        // Construcao do formato correto
         if (!num.Contains(","))
             num += ",00";
         if (!num.Contains("R$"))
-            num = "R$ " + num;
-        
+            num = "R$" + num;
+        if (!num.Contains(" "))
+            num = num.Insert(2, " ");
+            Console.WriteLine(num);
 
-        //Saida
+        // Saida
         if (Reais(num) != "" && Centavos(num) == "")
             Console.WriteLine($"{Reais(num)}");
         else if (Reais(num) == "" && Centavos(num) != "")
@@ -82,14 +86,15 @@ class Solution
             int dezenaBloco = Convert.ToInt32(valor.Substring(1, 1)); //segundo digito
             int unidadeBloco = Convert.ToInt32(valor.Substring(2, 1)); //terceiro digito
 
-            uint deCheck = 0; //verifica se precisa do "DE"
+             // Verifica se precisa do "DE"
+            uint deCheck = 0;
             if (valor.Length > 3)
                 deCheck = Convert.ToUInt32(valor.Substring(3, valor.Length - 3));
 
 
             for (int i = 0; i <= divFix; i++) {
                 
-                //verifica se precisa do "E"
+                // Verifica se precisa do "E"
                 int eCheck0 = 0;
                 int eCheck1 = 0;
                 int eCheck2 = 0;
@@ -110,7 +115,7 @@ class Solution
                 bool option1 = eCheck1 == 0 && (eCheck2 != 0 || eCheck3 != 0);
                 bool option2 = eCheck1 == 1 && (eCheck2 == 0 && eCheck3 == 0);
 
-                //montagem do numero por extenso
+                // Montagem do numero por extenso
                 if (div == 0)
                 {
                     if (bloco != 0)
@@ -236,8 +241,8 @@ class Solution
                         extenso += "";
                 }
 
-                //atualizacao do bloco seguinte
-                valor = valor.Substring(3, valor.Length -3); // eliminando os tres primeiros digitos
+                // Atualizacao do bloco seguinte
+                valor = valor.Substring(3, valor.Length -3); //eliminando os tres primeiros digitos
                 if (valor.Length >= 3) {
                     div--; //passa para o bloco seguinte
                     bloco =  Convert.ToInt32(valor.Substring(0, 3)); //primeiro bloco
@@ -249,7 +254,7 @@ class Solution
             return extenso;
         }
 
-        //monta numeros com tres casas decimais
+        // Montagem dos numeros com tres casas decimais
         static string UniDezCen(int unidade, int dezena, int centena)
         {
             if (dezena == 0 && unidade == 0)
@@ -257,7 +262,7 @@ class Solution
             return centena == 0 ? UnidadeDezena(unidade, dezena) : Centena(centena) + " E " + UnidadeDezena(unidade, dezena);
         }
 
-        //monta numeros com duas casas decimais
+        // Montagem dos numeros com duas casas decimais
         static string UnidadeDezena(int unidade, int dezena)
         {
 
