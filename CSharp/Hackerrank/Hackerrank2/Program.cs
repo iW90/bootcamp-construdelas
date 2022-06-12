@@ -12,7 +12,7 @@ class Solution
 
         // Entrada de dados
         // string num = Console.ReadLine();
-        string num = "R$0.000.000.000.100.00.003,00";
+        string num = "R$ 56876487,00";
 
         // Construcao do formato correto
         if (!num.Contains(","))
@@ -85,23 +85,26 @@ class Solution
             int dezenaBloco = Convert.ToInt32(valor.Substring(1, 1)); //segundo digito
             int unidadeBloco = Convert.ToInt32(valor.Substring(2, 1)); //terceiro digito
 
-             // Verifica se precisa do "DE"
+            // Verifica se precisa do "DE"
             uint deCheck = 0;
             if (valor.Length > 3)
                 deCheck = Convert.ToUInt32(valor.Substring(3, valor.Length - 3));
 
 
-            for (int i = 0; i <= divFix; i++) {
-                
+            for (int i = 0; i <= divFix; i++)
+            {
+
                 // Verifica se precisa do "E"
                 int eCheck0 = 0;
                 int eCheck1 = 0;
                 int eCheck2 = 0;
                 int eCheck3 = 0;
 
-                for (int j = 0; j < 7; j++) {
+                for (int j = 0; j < 7; j++)
+                {
 
-                    if (div > 0 && div < 7) {
+                    if (div > 0 && div < 7)
+                    {
                         if (div > 1 && div < 7)
                             eCheck0 = Convert.ToInt32(valor.Substring(3, valor.Length -6));
 
@@ -124,7 +127,8 @@ class Solution
                 }
                 else if (div == 1)
                 {
-                    if (bloco == 1) {
+                    if (bloco == 1)
+                    {
                         if (deCheck == 0)
                             extenso += $"MIL";
                         else if (option1 || option2)
@@ -242,7 +246,8 @@ class Solution
 
                 // Atualizacao do bloco seguinte
                 valor = valor.Substring(3, valor.Length -3); //eliminando os tres primeiros digitos
-                if (valor.Length >= 3) {
+                if (valor.Length >= 3)
+                {
                     div--; //passa para o bloco seguinte
                     bloco =  Convert.ToInt32(valor.Substring(0, 3)); //primeiro bloco
                     centenaBloco = Convert.ToInt32(valor.Substring(0, 1)); //primeiro digito
