@@ -12,7 +12,7 @@ class Solution
 
         // Entrada de dados
         // string num = Console.ReadLine();
-        string num = "R$ 56876487,00";
+        string num = "R$ 1031,00";
 
         // Construcao do formato correto
         if (!num.Contains(","))
@@ -127,16 +127,7 @@ class Solution
                 }
                 else if (div == 1)
                 {
-                    if (bloco == 1)
-                    {
-                        if (deCheck == 0)
-                            extenso += $"MIL";
-                        else if (option1 || option2)
-                            extenso += $"MIL E ";
-                        else
-                            extenso += $"MIL, ";
-                    }
-                    else if (bloco > 1)
+                    if (bloco >= 1)
                     {
                         if (deCheck == 0)
                             extenso += $"{UniDezCen(unidadeBloco, dezenaBloco, centenaBloco)} MIL";
