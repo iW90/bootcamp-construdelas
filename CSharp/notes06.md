@@ -93,13 +93,13 @@ void metodo() { //método de uma classe
     +----------------------+
     |     NomeDaClasse     |    //Classe começa com letra maiúscula
     +----------------------+
-    |       atributos      |
-    |       atributos      |    //atributos começam com minúscula
-    |       atributos      |
+    |     + atributos      |
+    |     - atributos      |    //atributos começam com minúscula
+    |     # atributos      |
     +----------------------+
-    |  metodoconstrutor()  |
-    |       metodos()      |    //métodos começam com minúsculas e são seguidos de parênteses
-    |       metodos()      |
+    | + metodoconstrutor() |
+    |     # metodos()      |    //métodos começam com minúsculas e são seguidos de parênteses
+    |     - metodos()      |
     +----------------------+
 ```
 

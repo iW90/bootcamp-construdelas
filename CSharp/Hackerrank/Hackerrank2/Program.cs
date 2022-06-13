@@ -11,8 +11,8 @@ class Solution
         // Limite: 0 a 18.446.744.073.709.551.615,99
 
         // Entrada de dados
-        // string num = Console.ReadLine();
-        string num = "R$ 1031,00";
+        string num = Console.ReadLine();
+        // string num = "R$ 1031,00"; //exemplo de input ao inves de console
 
         // Construcao do formato correto
         if (!num.Contains(","))
