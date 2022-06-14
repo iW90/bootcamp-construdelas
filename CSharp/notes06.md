@@ -33,6 +33,7 @@ Sempre que 'instanciarmos' um objeto (utiliza-se o "new" relacionando a uma clas
 
 ```csharp
 NomeDaClasse objeto = new NomeDaClasse(); //NomeDaClasse funciona como um tipo.
+Integer num = new Integer(3); //Integer é classe (Wrapper Class)
 ```
 
 
@@ -43,7 +44,7 @@ NomeDaClasse objeto = new NomeDaClasse(); //NomeDaClasse funciona como um tipo.
 * Class passa por referência;
 
 
-## Construtores
+## Método Construtor
 
 Chamado "construtor" porque serve de molde para "construir" objetos.
 
@@ -108,3 +109,4 @@ void metodo() { //método de uma classe
 - `+`: Público.Classe atual e qualquer outra pode utilizar.
 - `-`: Privado. Somente a classe atual pode utilizar.
 - `#`: Protegido. Somente classe atual e classes-filhas podem utilizar.
+

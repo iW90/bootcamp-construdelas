@@ -47,25 +47,68 @@ finally //O bloco de código é executado independente de dar erro ou não
             at Program.<Main>$(String[] args) in C:\Users\Fulano\...\Album.cs:line 16 */
 ```
 
+
 ## Propriedades
 
-> Não entendi bem ainda 🤔
+Etapa de segurança a mais usada no lugar dos atributos para servir como intermediário de acesso aos dados.
 
 [Documentação](https://docs.microsoft.com/pt-br/dotnet/csharp/programming-guide/classes-and-structs/using-properties)
 
 ```csharp
-get
+get //pegar dados
 {
     //if estaLogadoNoSpotipie
     return nomeDoAlbum;
     //else
     //throw ExceptionSpotipie("nao logado", "usuario nao está logado");
 }
-set
+set //modificar ou inserir dados
 {
     //if estaLogadoEEhAdministrador
     nomeDoAlbum = value;
     //else
     //throw ExceptionSpotipie("nao logado ou nao é administrador", "usuario nao está logado ou nao é administrador");
 }
+```
+
+
+###  Métodos Acessores (Getters) 
+
+O getter solicita dados, por isso normalmente ele retorna um parâmetro.
+
+```csharp
+public class NomeDaClasse {
+    private string identificador; //mantém privado
+
+    public string getIdentificador() {
+        return this.identificador1;
+    }
+}
+
+//novo objeto
+NomeDaClasse objeto = new NomeDaClasse();
+
+Console.WriteLine(this.getIdentificador()); //não é permitido porque o atributo 'identificador' é privado
+Console.WriteLine(this.identificador); //mas é permitido através do método get
+```
+
+
+###  Métodos Modificadores (Setters)
+
+O setter envia dados para serem modificados, por isso normalmente é necessário enviar um parâmetro no método.
+
+```csharp
+public class NomeDaClasse {
+    private string identificador; //mantém privado
+
+    public void setIdentificador(string identificador2) {
+        this.identificador = identificador2;
+    }
+}
+
+//novo objeto
+NomeDaClasse objeto = new NomeDaClasse();
+
+objeto.identificador = "conteudo"; //não é permitido porque o atributo 'identificador' é privado
+objeto.setIdentificador("conteudo"); //mas é permitido através do método set
 ```

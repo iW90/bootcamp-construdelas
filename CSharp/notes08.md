@@ -9,6 +9,8 @@ Quando há mais de um construtor, ele identifica o correto através da quantidad
 
 ## Método estático:
 
+Funcional somente dentro da classe. Não posso chamar um método não-estático dentro de um método estático. Pode ser chamada sem instanciar um objeto.
+
 São métodos que podem ser chamados diretamente da classe, sem precisar criar um objeto para isso.
 
 A palavra chave `static` faz com que os métodos da classe estejam associados à própria classe e não a um objeto (instância).
