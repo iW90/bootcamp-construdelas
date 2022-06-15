@@ -52,6 +52,44 @@ Como pegar o primeiro bloco:
     - Se 1: base
 
 
+### Conferindo quando aparece o "DE" REAIS
+
+A partir de 1 milhão, se o número for redondo, usa-se o "DE".
+
+- 1 MILHÃO `DE` REAIS
+- 8 TRILHÕES `DE`REAIS
+- 3 MIL REAIS
+- 1 REAL
+
+
+### Conferindo quando aparece o "E" nas casas de milhar em diante
+
+1. Quando a casa da centena for maior que zero e as casas da unidade e dezena forem zero.
+2. Quando a casa da centena for zero e as casas da unidade e dezena forem diferentes de zero.
+3. Quando as demais casas entre o último bloco CDU e o primeiro forem zero.
+
+Exemplos:
+
+- MIL `E` UM REAIS
+- MIL `E` QUINHENTOS REAIS
+- MIL QUINHENTOS E DOIS REAIS
+- CINCO MIL DUZENTOS E TRÊS REAIS
+- CINCO MIL `E` DUZENTOS REAIS
+- UM MILHÃO `E` SEISCENTOS REAIS
+
+```
+             -ILHÕES   ...     BASE  
+            +-------+       +-------+
+            | C D U |       | C D U |
+            |-------|       |-------|
+            | 1 0 0 | 0 0 0 | 1 0 0 |
+            | 0 1 0 | 0 0 0 | 0 0 1 |
+            | 0 0 1 | 0 0 0 | 0 1 0 |
+            | 0 0 0 | 0 0 0 | 0 1 1 |
+            +-------+       +-------+
+```
+
+
 ## NÚMEROS POR EXTENSO
 
 UNIDADES
