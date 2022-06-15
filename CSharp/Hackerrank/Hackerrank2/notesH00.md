@@ -7,10 +7,10 @@ ulong: De 0 a 18.446.744.073.709.551.615 (18 quinquilhões+)
 
 ## Numeros
 
-Os números são divididos de três em três, UDC (unidade, dezena e centena) e depois começam a se repetir.
+Os números são divididos de três em três, CDU (centena, dezena e unidade) e depois começam a se repetir.
 
 
-### Unidade, Dezena e Centena
+### Centena, Dezena e Unidade
 
 - Bloco de unidade
     - 1 a 9
