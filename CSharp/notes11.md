@@ -37,6 +37,8 @@ public NomeDaOutraClasse(nomeVetor v0) { //classe agregada recebe parâmetro do 
 
 ## Composição
 
+Quando temos variáveis internas que são instâncias de outras classes, temos uma composição.
+
 É o mesmo que agregação, porém o objeto da classe aninhada não faria sentido se existisse fora da classe pai. É também um relacionamento caracterizado como "parte/todo", mas, neste caso, o "todo" é responsável pelo ciclo de vida da "parte".
 
 Representa um vínculo forte entre duas classes.
