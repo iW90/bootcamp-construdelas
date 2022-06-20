@@ -1,66 +1,143 @@
-# ANOTAÇÕES REFERENTES À AULA 05
+# ANOTAÇÕES EXTRAS
 
-## If-Else
+## ARRAYS[]
+
+### Declarando arrays
+
+Três exemplos:
 
 ```csharp
-if (condição) {
-    // bloco de código que executa quando a condição é satisfeita;
-} else if (outra condição) {
-    // bloco de código que executa quando a primeira condição não é satisfeita, mas a outra condição sim;
-} else {
-    // bloco de código que executa quando nenhuma condição é satisfeita;
+int[] identificador = new int[4];
+
+int[] identificador = new int[] { 42, 13, 32};
+
+string[] identificador = {"x", "y", "z"};
+```
+
+- Por padrão, o índice se inicia em 0.
+
+### Percorrendo array com foreach
+
+```csharp
+foreach (int item in identificador) {
+    //bloco de código
+};
+```
+
+- `item` é uma variável que vai receber cada item do array.
+
+### Array Multidimensional
+
+```csharp
+string[,] identificador = new string[4, 2]; //declaração
+identificador[0, 0] = "valor"; //inserindo um valor
+Console.WriteLine(identificador[0, 0]); //acessando um valor
+```
+
+Inserindo vários valores:
+
+```csharp
+int[,] matriz = new int[3,2] { //[linha, coluna]
+    { 00, 01 }
+    { 10, 11 }
+    { 20, 21 }
+};
+```
+
+#### For para matrizes
+
+```csharp
+for (int i = 0; i < matriz.GetLength(0); i++) { //linha
+    for (int j = 0; j <matriz.GetLength(1); j++) { //coluna
+        Console.WriteLine(matriz[i, j]);
+    }
+    Console.WriteLine("\n");
 }
 ```
 
+### Classe Array
 
-## Switch-Case
+A classe oferece vários métodos para trabalhar com arrays, incluindo ordenação.
 
 ```csharp
-switch (condição) {
-    case "opção 1":
-    case "opção 2":
-        /* bloco de código para as opções 1 e 2 */
-        break;
-    case "opção 3":
-        /* bloco de código para a opção 3 */
-        break;
-    default:
-        /* bloco de código caso nenhuma opção anterior seja satisfeita */
-        break;
+Array.Sort(identificadorArray); //BubbleSort
+Array.Copy(identOriginal, identCopia, identOriginal.Length) //Copia um array
+```
+
+## COLEÇÕES
+
+- `List<T>`: Lista de objetos acessada pelo índice
+- `Dictionary<TKey, TValue>`: Coleção de pares chave-valor (base na key)
+- `SortedList<TKey, TValue>`: Coleção de pares chave-valor (base em IComparater\<T>)
+- `Queue<T>`: Coleção de objetos em fila FIFO (First In First Out)
+- `Stack<T>`: Coleção de objetos em pilha LIFO (Last In First Out)
+
+### Lista
+
+Não é necessário declarar o tamanho da lista previamente. O tamanho é livre.
+
+```csharp
+List <string> identificador = new List<string>(); //Declaração
+identificador.Add("Value1"); //adicionando um item
+identificador.Add("Value2"); //adicionando outro item
+
+Console.WriteLine(identificador[0]); //acessando um valor da mesma forma que array
+```
+
+### Dictionary
+
+```csharp
+Dictionary<string, string> identificador = new Dictionary<string, string>();
+identificador.Add("Key", "Value"); //adicionando chave e valor
+
+foreach (KeyValuePair<string, string> item in identificador) {
+    Console.WriteLine($"Chave: {item.Key} e Valor: {item.Value}");
 }
+
+identificador[nomeDaKey] = "Atualização"; //atualizando um valor
 ```
 
+## OPERAÇÕES LINQ (Language-Integrated Query)
 
-## While
+É uma maneira de fazer consultas padronizadas nas coleções.
+
+Muito similar a query (SQL), mas suas cláusulas são usadas como métodos. Ambos as formas, Query syntax ou Method syntax funcionam igualmente.
 
 ```csharp
-while (condição) {
-    // bloco de código que executa enquanto a condição não for satisfeita;
-}
+int[] identificador = { 5, 6, 7 };
+
+//Query syntax
+IEnumerable<int> itemQuery =
+    from item in identificador
+    where item % 2 == 0
+    orderby item
+    select item;
+
+//Method syntax
+IEnumerable<int> itemQuery = identificador.Where(item => item % 2 == 0).OrderBy(n => n);
+
+Console.WriteLine("Números pares query: " + string.Join(", ", itemQuery));
 ```
 
-
-## Do-while
+### Valores mínimos, máximos e médios
 
 ```csharp
-do {
-    // bloco de código que executa no mínimo uma vez e depois continua enquanto a condição não for satisfeita;
-} while (condição);
+nomeArray.Min();
+nomeArray.Max();
+nomeArray.Average();
 ```
 
-## For
-```csharp
-for (inicial; condição; passo) {
-    // bloco de código que executa enquanto a condição não for satisfeita;
-}
-```
+---
+
+## Rodando o Terminal para .cs no VSCode
+
+Para habilitar a entrada de dados via terminal:
+
+Em `.vscode > launch.json` modifique `"console": internalConsole` para `"integratedTerminal"`.
 
 
-## Instruções Complementares
+## Hackerranks:
 
-- `break`: auxiliar
-- `continue`: auxiliar
-- `return`: auxiliar
-- `throw`: exceção
-- `try`... catch... finally: exceção
-- `using`: importação
+- [Desafio 01](https://www.hackerrank.com/challenges/birthday-cake-candles/problem?isFullScreen=true)
+- [Desafio 02](https://www.hackerrank.com/challenges/grading/problem?isFullScreen=true)
+- [Desafio 03](https://www.hackerrank.com/challenges/apple-and-orange/problem?isFullScreen=true)

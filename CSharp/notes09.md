@@ -1,30 +1,41 @@
-# ORIENTAÇÃO A OBJETOS - REFERENTE À AULA 09
+# ORIENTAÇÃO A OBJETOS
 
-- `.Count()` é para contar elementos de uma IEnumerable\<T>, Lista ou ArrayList.
-- `Length` é para Array.
-- `Rank` é para denotar o número de dimensões de um array.
+## Interface
 
+Uma interface contém definições para um grupo de funcionalidades de uma class ou struct. É como uma classe base abstrata com apenas membros abstratos. Contém apenas as assinaturas de métodos, propriedades, eventos e indexadores.
 
-## Herança:
-
-Uma classe filha pode herdar, estender ou modificar as propriedades da classe pai. A classe cujos membros são herdados é chamada de classe base. A classe que herda os membros da classe base é chamada de classe derivada. O uso dos `:` denota que está sendo usada a herança.
-
-Utiliza-se o `:base()` para chamar o construtor da classe pai. Caso não possua um construtor, não é possível usá-lo.
+Uma classe ou struct que implementa a interface deve implementar todos os seus membros.
 
 
-## Encapsulamento:
+### Diagrama de Classes: Interface
 
-Trata do estado e funcionalidade de um objeto, permitindo ou não o acesso por meio de funções.
+```
+    +----------------------+
+    |    <<interface>>     |
+    |     NomeDaInter      |    //Interface começa com letra maiúscula
+    +----------------------+
+    |     + atributos      |
+    |     + atributos      |    //atributos são sempre públicos
+    |     + metodos()      |    //métodos são sempre públicos e abstratos
+    +----------------------+
+```
 
-- `private`: pode ser acessado somente de dentro da classe.
-- `public`: pode ser acessado de qualquer lugar.
-- `protected`: pode ser acessado somente dentro da classe e das classes filhas.
-- `internal`: pode ser acessado de qualquer lugar dentro do mesmo assembly.
 
-[Documentação](https://docs.microsoft.com/pt-br/dotnet/csharp/fundamentals/tutorials/oop)
+## Pilares da Orientação a Objetos
+
+- ***Abstração**: Em algumas bibliografias não é considerado um pilar, mas uma parte do encapsulamento.*
+- **Encapsulamento**: Encapsular não é obrigatório, mas é uma boa prática para produzir Classes mais eficientes. O encapsulamento é uma estrutura que protege o código, e um bom objeto encapsulado possui uma interface bem definida.
+    - Torna mudanças invisíveis
+    - Facilita a reutilização de códigos
+    - Reduzir os efeitos colaterais.
+- **Herança**: 
+- **Polimorfismo**: 
 
 
-## Hackerranks:
+## Abstração
 
-- [Desafio 01](https://www.hackerrank.com/challenges/birthday-cake-candles/problem?isFullScreen=true)
-- [Desafio 02](https://www.hackerrank.com/challenges/grading/problem?isFullScreen=true)
+O conceito de abstração consiste em esconder os detalhes de algo, no caso, os detalhes desnecessários. Utiliza-se apenas conteúdos relevantes.
+
+Dentro da Orientação a Objetos temos diversos conceitos de abtração, como por exemplo as interfaces e classes que escondem algo.
+
+Um exemplo é depender de abstrações (interfaces) e não de implementações (classes). Este motivo deve-se ao fato de uma interface poder conter várias implementações, enquanto uma classe não tem essa habilidade.

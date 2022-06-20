@@ -1,136 +1,151 @@
-# ANOTAÇÕES EXTRAS
+# ANOTAÇÕES GERAIS
 
-## ARRAYS[]
-
-### Declarando arrays
-
-Três exemplos:
+## Escrever na mesma linha:
 
 ```csharp
-int[] identificador = new int[4];
-
-int[] identificador = new int[] { 42, 13, 32};
-
-string[] identificador = {"x", "y", "z"};
+Console.Write("Texto");
 ```
 
-- Por padrão, o índice se inicia em 0.
 
-### Percorrendo array com foreach
+## Escrever e passar pra linha seguinte:
 
 ```csharp
-foreach (int item in identificador) {
-    //bloco de código
-};
+Console.WriteLine("Texto");
 ```
 
-- `item` é uma variável que vai receber cada item do array.
 
-### Array Multidimensional
+## Aguardar o usuário pressionar uma tecla:
 
 ```csharp
-string[,] identificador = new string[4, 2]; //declaração
-identificador[0, 0] = "valor"; //inserindo um valor
-Console.WriteLine(identificador[0, 0]); //acessando um valor
+Console.ReadKey();
 ```
 
-Inserindo vários valores:
+## Atalhos barra:
+
+*    `\n`       nova linha
+*    `\t`       tabulação
+*    `\b`       backspace (apaga o caractere anterior)
+*    `\a`       alerta (emite um som de alerta)
+*    `\r`       retorno (retorna o cursor pro início da linha)
+*    `\\`       exibe a barra
+*    `\"`       exibe a aspa
+
+## Ler caracteres de forma literal:
 
 ```csharp
-int[,] matriz = new int[3,2] { //[linha, coluna]
-    { 00, 01 }
-    { 10, 11 }
-    { 20, 21 }
-};
+Console.WriteLine(@"\Texto\");
 ```
 
-#### For para matrizes
+* não exibe aspas
 
 ```csharp
-for (int i = 0; i < matriz.GetLength(0); i++) { //linha
-    for (int j = 0; j <matriz.GetLength(1); j++) { //coluna
-        Console.WriteLine(matriz[i, j]);
-    }
-    Console.WriteLine("\n");
-}
+Console.WriteLine("\"Texto\"");
 ```
 
-### Classe Array
+* exibe as aspas
 
-A classe oferece vários métodos para trabalhar com arrays, incluindo ordenação.
+## Limpar o console:
 
 ```csharp
-Array.Sort(identificadorArray); //BubbleSort
-Array.Copy(identOriginal, identCopia, identOriginal.Length) //Copia um array
+Console.Clear();
 ```
 
-## COLEÇÕES
-
-- `List<T>`: Lista de objetos acessada pelo índice
-- `Dictionary<TKey, TValue>`: Coleção de pares chave-valor (base na key)
-- `SortedList<TKey, TValue>`: Coleção de pares chave-valor (base em IComparater\<T>)
-- `Queue<T>`: Coleção de objetos em fila FIFO (First In First Out)
-- `Stack<T>`: Coleção de objetos em pilha LIFO (Last In First Out)
-
-### Lista
-
-Não é necessário declarar o tamanho da lista previamente. O tamanho é livre.
+## Posicionar o cursor na tela:
 
 ```csharp
-List <string> identificador = new List<string>(); //Declaração
-identificador.Add("Value1"); //adicionando um item
-identificador.Add("Value2"); //adicionando outro item
-
-Console.WriteLine(identificador[0]); //acessando um valor da mesma forma que array
+Console.SetCursorPosition(Y, X);
 ```
 
-### Dictionary
+* Considerar como um plano cartesiano, eixos X e Y.
+* (0, 0) é o canto superior esquerdo.
+
+## Mudar as cores no console:
+
+### Cores disponíveis:
+
+| Nº | Color | Hex |
+|:--:|:--:|:---:|
+| ——— | —————————— | ————— |
+| 0 | Black | #000000 |
+| 1 | DarkBlue | #000080 |
+| 2 | DarkGreen | #008000 |
+| 3 | DarkCyan | #008080 |
+| 4 | DarkRed | #800000 |
+| 5 | DarkMagenta | #800080 |
+| 6 | DarkYellow | #808000 |
+| 7 | Gray | #C0C0C0 |
+| 8 | DarkGray | #808080 |
+| 9 | Blue | #0000FF |
+| 10 | Green | #00FF00 |
+| 11 | Cyan | #00FFFF |
+| 12 | Red | #FF0000 |
+| 13 | Magenta | #FF00FF |
+| 14 | Yellow | #FFFF00 |
+| 15 | White | #FFFFFF |
+
+### Fonte: 
 
 ```csharp
-Dictionary<string, string> identificador = new Dictionary<string, string>();
-identificador.Add("Key", "Value"); //adicionando chave e valor
-
-foreach (KeyValuePair<string, string> item in identificador) {
-    Console.WriteLine($"Chave: {item.Key} e Valor: {item.Value}");
-}
-
-identificador[nomeDaKey] = "Atualização"; //atualizando um valor
+Console.ForegroundColor = ConsoleColor.Magenta;
 ```
 
-## OPERAÇÕES LINQ (Language-Integrated Query)
-
-É uma maneira de fazer consultas padronizadas nas coleções.
-
-Muito similar a query (SQL), mas suas cláusulas são usadas como métodos. Ambos as formas, Query syntax ou Method syntax funcionam igualmente.
+### Background:
 
 ```csharp
-int[] identificador = { 5, 6, 7 };
-
-//Query syntax
-IEnumerable<int> itemQuery =
-    from item in identificador
-    where item % 2 == 0
-    orderby item
-    select item;
-
-//Method syntax
-IEnumerable<int> itemQuery = identificador.Where(item => item % 2 == 0).OrderBy(n => n);
-
-Console.WriteLine("Números pares query: " + string.Join(", ", itemQuery));
+Console.BackgroundColor = ConsoleColor.Yellow; 
 ```
 
-### Valores mínimos, máximos e médios
+### Combinação para colorir a tela toda:
 
 ```csharp
-nomeArray.Min();
-nomeArray.Max();
-nomeArray.Average();
+Console.BackgroundColor = ConsoleColor.Blue;
+Console.ReadKey();
+Console.Clear();
 ```
 
----
+## Apagar a formatação das cores:
 
-## Rodando o Terminal para .cs no VSCode
+```csharp
+Console.ResetColor();
+```
 
-Para habilitar a entrada de dados via terminal:
+* O comando Clear não reseta as cores.
 
-Em `.vscode > launch.json` modifique `"console": internalConsole` para `"integratedTerminal"`.
+## Fazer comentários:
+
+```csharp
+// comentário de uma linha
+
+/* comentários de várias linhas */
+
+/// cria um comentário documentado em XML sobre a linha de código imediatamente abaixo
+```
+
+## Entrada de dados:
+
+```csharp
+Console.ReadLine();
+```
+
+## Números aleatórios:
+
+```csharp
+Random identificador = new Random();
+int n = identificador.Next();
+```
+
+* Se deixar `Next()` em branco, será gerado um número enorme indefinido
+* Se colocar um único valor em `Next(N)`, será gerado um número de 0 a N (excluindo o N)
+* Se colocar dois valores em `Next(X, Y)`, será gerado um número de X a Y (excluindo o Y)
+
+## Temporizadores:
+
+```csharp
+Thread.Sleep();
+```
+
+* O valor de X é em milisegundos
+* Necessário usar a biblioteca "using System.Threading;"
+
+
+

@@ -1,126 +1,193 @@
-# ANOTAÇÕES REFERENTES À AULA 02
+# ANOTAÇÕES REFERENTES À AULA 03
 
-## Data Types:
+## Strings e Concatenação:
 
-| System Type | Type | Size | Description |
-|:---|:---:|:---:|:---|
-| ——————————— | ———— | ———— | ——————————————————————————————————— |
-| System.Boolean | bool | 2bits | True ou False |
-| System.SByte | sbyte | 8bits | Inteiros |
-| System.Byte | byte | 8bits | Inteiros positivos |
-| System.Decimal | decimal | 96bits | Números fracionados precisos //obrigatória a letra M no final |
-| System.Double | double | 64bits | Números fracionados imprecisos //separa as casas decimais por ponto |
-| System.Single | float | 32bits | Números fracionados imprecisos //obrigatória a letra F no final |
-| System.Int16 | short | 16bits | Inteiros //pode usar o _ no lugar de . para separar milhar 1_000 |
-| System.Int32 | int | 32bits | Inteiros |
-| System.Int64 | long | 64bits | Inteiros //opcional o uso da letra L no final |
-| System.UInt16 | ushort | 32bits | Inteiros positivos |
-| System.UInt32 | uint | 32bits | Inteiros positivos |
-| System.UInt64 | ulong | 64bits | Inteiros positivos |
-| System.Char | char | 16bits | Unicode character //colocado entre aspas simples |
-| System.DateTime | *n/a* | *n/a* | De (Jan 1 100) até (Dec 31 9999) |
-| System.String | string | *n/a* | *Reference Type* //colocado entre aspas duplas |
-| System.Object | object | *n/a* | *Reference Type* |
-| System.Struct | struct | *n/a* | *Reference Type* |
-| System.Enum | enum | *n/a* | *Reference Type* |
-
-## Mostrando o Type de uma variável/constante:
+É utilizado o sinal de soma `+`, bastando que uma das variáveis seja string para concatenar:
 
 ```csharp
-Identificador.GetType()
+string identificador = palavra + " " + palavra;
 ```
 
-## Mostrando o tamanho mínimo ou máximo de cada Type:
+Ou adicionando valores com `Append`:
 
 ```csharp
-type.MinValue //mostra o valor mínimo
-type.MaxValue //mostra o valor máximo
+StringBuilder identificador = new StringBuilder();
+identificador.Append("Ingrid");
+identificador.Append("Wagner");
+string str = identificador.ToString();
 ```
 
-* No lugar de 'type' basta colocar o tipo desejado, e usar no 'Console.Write'
+* Necessário inserir `using System.Text;` no início do arquivo para importar a biblioteca.
 
-## Declaração de variáveis:
+## Repetição de valores:
 
-Pode utilizar o var, sem especificar um tipo:
+Criando uma string cujo valor `*` se repete `n` vezes
 
 ```csharp
-var identificador = valor;
+string identificador = new string('*', n);
 ```
 
-* Mas é obrigatório atribuir um valor imediatamente na declaração.
+* `*` é o caractere ou texto que será repetido
+* `n` é a quantidade de vezes que vai se repetir
 
-Ou pode especificar o tipo (recomendável para economizar espaços de memória):
+## Interpolação:
 
 ```csharp
-type identificador = valor;
+Console.Write($"Texto {var1}, texto {var2}");
 ```
 
-## Declaração de constantes:
+* Se usado @ no lugar de $, significa "não interpole"
 
-Funciona da mesma maneira que as variáveis, mas adiciona-se a palavra "const" antes:
+## Comparações de Strings:
+
+Três formas de comparar strings:
 
 ```csharp
-const type identificador = valor;
+Console.WriteLine(a == b);
+Console.WriteLine(a.Equals(b));
+Console.WriteLine(string.Compare(a, b, true) == 0);
 ```
 
-## Nomenclatura de variáveis e constantes:
-
-* Começa com letra ou underline
-* Case Sensitive
-* Aceita apenas letras, números e underline
-* Aceita acentuação (mas não é recomendável)
-* Não pode conter espaços
-* Não pode conter símbolos (exceto underline)
-* Não pode usar palavras reservadas
-* Sugerido o uso do CamelCase
-* Uso do @ é aceito, mas somente no início e apenas em caso específico
-
-## Coerção implícita:
-
-Não é necessária uma coerção, o C# faz automaticamente.
+* Se usar true, não diferencia maiúsculas e minúsculas.
+* Se usar false, diferencia maiúsculas e minúsculas.
+<br><br>
 
 ```csharp
-int a = 10;
-double b = a;
+Console.WriteLine(string.Compare(a, b, true));
 ```
 
-* Só é possível quando um cabe dentro do outro (se o espaço em memória comporta).
-* Só é possível quando o tipo é compatível (um número decimal sem valor quebrado é compatível com o inteiro)
+* Compara letra a letra até que uma venha antes que outra [ a < z || a > z ]
+    * Retorna -1 se a < b
+    * Retorna 0 se forem iguais
+    * Retorna 1 se a > b
 
-## Coerção explícita (Typecast):
+## Posicionamento de Strings:
+
+Mostra a posição de um caractere de uma string:
 
 ```csharp
-double a = 10.555;
-int b = (int) a;
+var identificador1 = s1.IndexOf(s2);
+Console.WriteLine(identificador1);
 ```
 
-## Coerção explícita (classes auxiliares: Convert) de string em int:
-
-Se houver letras, haverá um erro e a coerção não será feita.
+Ou transforma em um array para mostrar o index da letra:
 
 ```csharp
-string inteiroPossivel = "123";
-int identificador = Convert.ToInt32(inteiroPossivel);
-Console.WriteLine(identificador);
+var pos = s1.ToCharArray();
+Console.WriteLine(pos[n]);
 ```
 
-### Classe convert para outros tipos:
+* Sendo `n` a posição e lembrando que index começa em 0.
+
+## Cortando Strings:
+
+Corta um pedaço da string
 
 ```csharp
-Convert.ToType
+var identificador2 = identificador1.Substring(0, 2);
+// retorna 2 valores a partir da posição 0
 ```
 
-* substitua 'Type' pelo tipo desejado.
-
-## Coerção explícita (classes auxiliares: TryParse):
-
-Usando o TryParse, que retorna um booleano informando se foi possível ou não realizar a conversão, e não exibe erro.
-
-Estrutura: `TryParse(varEntrada, out varSaida);`
+## Substituindo trechos em Strings:
 
 ```csharp
-int numero = 0;
-string numeroString = "123";
-Console.WriteLine(int.TryParse(numeroString, out numero));
-Console.WriteLine(numero);
+var identificador2 = identificador1.Replace("substituído", "substituto");
 ```
+
+
+## Date Time:
+
+```csharp
+var identificador1 = newDateTime(ano, mês, dia, hora, minuto, segundo);
+var identificador2 = newDateTime(ano, mês, dia);
+
+Console.WriteLine(identificador.DayOfWeek); // dia da semana
+Console.WriteLine(identificador.Day); // dia
+Console.WriteLine(identificador.Month); // mês
+Console.WriteLine(identificador.Year); // ano
+
+DateTime.Now.Day; // dia atual
+DateTime.Now.Month; // mês atual
+DateTime.Now.Year; // ano atual
+```
+
+
+## Globalization
+
+* Necessário inserir `using System.Globalization;` no início do arquivo para importar a biblioteca.
+
+```csharp
+CultureInfo pt = new CultureInfo("pt-BR");
+//Define para qual país serão adaptados os dados
+
+Console.WriteLine(pt.DisplayName);
+//mostra o país para onde está definido
+
+Console.WriteLine(pt.DateTimeFormat.FirstDayOfWeek.ToString());
+//mostra o dia da semana para o país definido
+
+Console.WriteLine(pt.DateTimeFormat.DateSeparator);
+//mostra o separador de data que será usado
+
+Console.WriteLine(pt.NumberFormat.CurrencyDecimalSeparator);
+//mostra o seperador de modera que será usado (vírgula ou ponto)
+
+Console.WriteLine(number.ToString("c", pt));
+//"c" representa a forma de imprimir números, pt é a referência para o país definido
+
+Console.WriteLine(dateTime.ToString(pt));
+```
+
+## Formas de imprimir números:
+
+| Código | Formato |
+|:---:|:---|
+| ——— | ———————————— |
+| c, C | moeda |
+| d, D | decimal |
+| e, E | exponencial |
+| f, F | fixed point |
+| g, G | geral |
+| n, N | numérico |
+| r, R | roundtrip |
+| x, X | hexadecimal |
+
+## Interpolação com formatação:
+
+```csharp
+Console.Write($"Texto {var:C}");
+```
+
+* O valor de "var" será adaptado ao formato C (formato de moeda), exibindo cifrão ou símbolo da moeda.
+* Não faz conversão de moeda, apenas formata visualmente.
+<br><br>
+
+```csharp
+Console.Write($"Texto {var:Dn}");
+```
+
+* No lugar de n, informe a quantidade de casas decimais que devem ser exibidas.
+<br><br>
+
+```csharp
+Console.Write($"Texto {var:X}");
+```
+
+* Faz a conversão para o valor em hexadecimal.
+<br><br>
+
+```csharp
+Console.Write($"Texto {var, N}");
+```
+
+* O valor de N define a quantidade de espaços que a string var ocupará.
+* Se o texto não preencher, o restante do espaço será preenchido com espaços vazios.
+* Um valor positivo deixa os espaços antes do texto e um valor negativo deixa os espaços depois do texto.
+* Não vai cortar a string caso N seja menor do que o texto.
+<br><br>
+
+```csharp
+Console.Write($"Texto {var, N:C}");
+```
+
+* Insere espaços e formata como moeda.

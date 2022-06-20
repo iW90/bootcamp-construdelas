@@ -1,13 +1,11 @@
-# ORIENTAÇÃO A OBJETOS - REFERENTE À AULA 08
+# ORIENTAÇÃO A OBJETOS
 
-## Construtores:
-
-Uma classe pode não ter construtores, ter apenas um ou mais.
-
-Quando há mais de um construtor, ele identifica o correto através da quantidade de parâmetros passados.
+- `.Count()` é para contar elementos de uma IEnumerable\<T>, Lista ou ArrayList.
+- `Length` é para Array.
+- `Rank` é para denotar o número de dimensões de um array.
 
 
-## Método estático:
+## Método estático
 
 Funcional somente dentro da classe. Não posso chamar um método não-estático dentro de um método estático. Pode ser chamada sem instanciar um objeto.
 
@@ -29,6 +27,78 @@ Algumas características das classes estáticas:
 10. Uma Classe estática possui somente construtores privados;
 
 
-## Escopo de variável:
+## Escopo de variável
 
 Uma variável é válida, ou seja, você pode acessar se você estiver dentro do escopo dela.
+
+
+## Método Construtor
+
+Chamado "construtor" porque serve de molde para "construir" objetos.
+
+Uma classe pode não ter construtores (incomum), ter apenas um ou ter mais de um.
+
+Quando há mais de um construtor, ele identifica o correto através da quantidade de parâmetros passados.
+
+**Sempre** que uma classe ou struct é criada, o construtor é chamado.
+
+Uma classe ou struct podem ter vários construtores que usam argumentos (atributos e métodos) diferentes.
+
+Os construtores permitem que o programador defina valores padrão, limite a instanciação e grave códigos flexíveis e fáceis de ler.
+
+São, simplificadamente, o "título" ou "etiqueta" das informações.
+
+```csharp
+public class Person {
+    private string last; //atributo
+    private string first; //atributo
+
+    public Person (string lastName, string first) { //método construtor
+        last = lastName;
+        this.first = first; //se usar o "this", pode usar o mesmo nome no parâmetro
+    }
+
+   // Restante do código de implementação da classe vai daqui em diante.
+}
+```
+
+### This
+
+O "this" é um coringa que será substituído pelo objeto que está chamando o método:
+
+```csharp
+public static void main(String[] args) { //método principal
+    objeto.metodo(); //objeto chamando o método metodo()
+}
+
+void metodo() { //método de uma classe
+    this.identificador = true; //this será substituído por objeto
+    //Logo, o identicador do objeto receberá 'true'
+}
+```
+
+
+### Visibilidade de objetos:
+
+- `+`: Público. Classe atual e qualquer outra pode utilizar.
+- `-`: Privado. Somente a classe atual pode utilizar.
+- `#`: Protegido. Somente classe atual e classes-filhas podem utilizar.
+
+
+### Diagrama de Classes: Classe
+
+```
+    +----------------------+
+    |     NomeDaClasse     |    //Classe começa com letra maiúscula
+    +----------------------+
+    |     + atributos      |
+    |     - atributos      |    //atributos começam com minúscula
+    |     # atributos      |
+    +----------------------+
+    | + metodoconstrutor() |
+    |     # metodos()      |    //métodos começam com minúsculas e são seguidos de parênteses
+    |     - metodos()      |
+    +----------------------+
+```
+
+> Diagrama de Classe é uma UML (Linguagem de Modelagem Unificada)

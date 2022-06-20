@@ -1,11 +1,16 @@
-# ORIENTAÇÃO A OBJETOS - REFERENTE À AULA 06
+# ORIENTAÇÃO A OBJETOS
 
-> Apenas uma unidade de compilação pode ter instruções de nível superior.
+Características da POO:
 
-Ou seja, declarações fora de um objeto só pode existir na Main, e não nos demais arquivos.cs
+- Confiável
+- Oportuno
+- Manutenível
+- Extensível
+- Reutilizável
+- Natural
 
 
-## Classe
+## Classes
 
 Classe é uma forma de organizar os conteúdos de um código, separando por "família".
 
@@ -27,9 +32,9 @@ class NomeDaClasse {
 ```
 
 
-## Objeto
+## Objetos
 
-Sempre que 'instanciarmos' um objeto (utiliza-se o "new" relacionando a uma classe), estaremos criando um novo objeto de acordo com as características da classe referenciada.
+Sempre que 'instanciarmos' um objeto (utiliza-se o "new" relacionando a uma classe), estaremos criando um novo objeto de acordo com as características da classe referenciada. Portanto não existe um objeto se não houver uma classe relacionada.
 
 ```csharp
 NomeDaClasse objeto = new NomeDaClasse(); //NomeDaClasse funciona como um tipo.
@@ -37,76 +42,30 @@ Integer num = new Integer(3); //Integer é classe (Wrapper Class)
 ```
 
 
-## Diferença Struct x Class:
+### Vetor de Objetos
+
+Armazena-se vários objetos.
+
+```csharp
+NomeDaClasse ident[] = new NomeDaClasse[5]; //Declara o array com 5 espaços
+ident[0] = new NomeDaClasse (valores); //Instancia um objeto no índice 0 do array
+```
+
+
+## Struct x Class
+
+Structs funcionam simplificadamente da mesma forma que uma classe, exceto que:
 
 * Struct passa por valor;
 
 * Class passa por referência;
 
 
-## Método Construtor
-
-Chamado "construtor" porque serve de molde para "construir" objetos.
-
-**Sempre** que uma classe ou struct é criada, o construtor é chamado.
-
-Uma classe ou struct podem ter vários construtores que usam argumentos (atributos e métodos) diferentes.
-
-Os construtores permitem que o programador defina valores padrão, limite a instanciação e grave códigos flexíveis e fáceis de ler.
-
-São, simplificadamente, o "título" ou "etiqueta" das informações.
-
-```csharp
-public class Person {
-    private string last; //atributo
-    private string first; //atributo
-
-    public Person (string lastName, string first) { //método construtor
-        last = lastName;
-        this.first = first; //se usar o "this", pode usar o mesmo nome no parâmetro
-    }
-
-   // Restante do código de implementação da classe vai daqui em diante.
-}
-```
-
-### This
-
-O "this" é um coringa que será substituído pelo objeto que está chamando o método:
-
-```csharp
-public static void main(String[] args) { //método principal
-    objeto.metodo(); //objeto chamando o método metodo()
-}
-
-void metodo() { //método de uma classe
-    this.identificador = true; //this será substituído por objeto
-    //Logo, o identicador do objeto receberá 'true'
-}
-```
+---
 
 
-## UML - Linguagem de Modelagem Unificada
+### Erro
 
-### Diagrama de Classes
+> Apenas uma unidade de compilação pode ter instruções de nível superior.
 
-```
-    +----------------------+
-    |     NomeDaClasse     |    //Classe começa com letra maiúscula
-    +----------------------+
-    |     + atributos      |
-    |     - atributos      |    //atributos começam com minúscula
-    |     # atributos      |
-    +----------------------+
-    | + metodoconstrutor() |
-    |     # metodos()      |    //métodos começam com minúsculas e são seguidos de parênteses
-    |     - metodos()      |
-    +----------------------+
-```
-
-### Visibilidade de objetos:
-
-- `+`: Público.Classe atual e qualquer outra pode utilizar.
-- `-`: Privado. Somente a classe atual pode utilizar.
-- `#`: Protegido. Somente classe atual e classes-filhas podem utilizar.
-
+Ou seja, declarações fora de um objeto só pode existir na Main, e não nos demais arquivos.cs

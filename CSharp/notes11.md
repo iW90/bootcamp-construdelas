@@ -1,22 +1,47 @@
-# ORIENTAÇÃO A OBJETOS - REFERENTE À AULA 11
-
+# ORIENTAÇÃO A OBJETOS
 
 ## Agregação
 
-As informações de um objeto (objeto-todo) precisam ser complementados pelas informações contidas em um ou mais objetos de outra classe (objetos-parte). Ou, em outras palavras, o atributo de uma classe é outra classe: Usamos o objeto de uma classe dentro de outra classe.
+É quando um objeto tem outro objeto. Se a classe B "tem um" atributo que é da classe A, então elas são agregadas.
+
+> As informações de um objeto (objeto-todo) precisam ser complementados pelas informações contidas em um ou mais objetos de outra classe (objetos-parte). Ou, em outras palavras, o atributo de uma classe é outra classe: Usamos o objeto de uma classe dentro de outra classe.
+
+```csharp
+public class NomeDaClasse {
+	//atributos identificador;
+}
+
+public class NomeOutraClasse {
+	private NomeClasse identificador; //agregação quando o atributo identificador é do tipo NomeClasse
+}
+```
 
 Representa um vínculo fraco entre duas classes.
 
 - Exemplo: Classe "Endereco" agregada à classe "Pessoa".
 
 
+### Objeto como Parâmetro
+
+Ao invés de passar diversos parâmetros, posso passar um objeto da classe agregada que já contenha os diversos atributos.
+
+```csharp
+NomeDaClasse nomeVetor[] = new NomeDaClasse[1]; //Declara o array com 1 espaço
+nomeVetor[0] = new NomeDaClasse (valor1, valor2, valor3); //Instancia um objeto no índice 0 do nomeVetor
+
+public NomeDaOutraClasse(nomeVetor v0) { //classe agregada recebe parâmetro do tipo nomeVetor
+    //código que pode usar v0.atributo, sendo v0 o objeto
+};
+```
+
+
 ## Composição
 
-É o mesmo que agregação, porém o objeto da classe aninhada não faria sentido se existisse fora da classe pai. É também um relacionamento caracterizado comoparte/todo, mas, neste caso, o todo é responsável pelo ciclo de vida da parte.
+É o mesmo que agregação, porém o objeto da classe aninhada não faria sentido se existisse fora da classe pai. É também um relacionamento caracterizado como "parte/todo", mas, neste caso, o "todo" é responsável pelo ciclo de vida da "parte".
 
 Representa um vínculo forte entre duas classes.
 
-- Exemplo: Classe "Álbum" que tenha uma classe filha "Faixas".
+- Exemplo: Classe "Album" que tenha uma classe filha "Faixas".
 
 
 ## Gerenciando exceções
