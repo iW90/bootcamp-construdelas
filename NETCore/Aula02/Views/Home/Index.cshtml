@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script src="js/site.js" asp-append-version="true"></script>
+
+@* <form action="/home/imprimefrase" method="post">
+	<label for="fname">Nome:</label>
+	<input type="text" id="name" name="name"/><br /><br />
+
+	<label for="lname">Idade:</label>
+	<input type="text" id="age" name="age"/><br /><br />
+
+	<input type="submit" value="Enviar" />
+</form> *@
+
+<br />
+
+<h2>Calculadora:</h2>
+	<label for="fname">N1:</label>
+	<input value="" type="text" id="valorUm" />
+	<br /><br />
+
+	<label for="lname">N2:</label>
+	<input value="" type="text" id="valorDois" />
+	<br /><br />
+
+	<label for="resultado">Resultado:</label>
+	<input value="" type="text" id="resultado" disabled />
+	<br /><br />
+
+	<input value="➕" type="submit" onclick="somar()" />
+	<input value="➖" type="submit" onclick="subtrair()" />
+	<input value="✖️" type="submit" onclick="multiplicar()" />
+	<input value="➗" type="submit" onclick="dividir()" />
+	<br /><br />
+
+	<input value="Limpar" type="submit" onclick="limpar()" />
+
