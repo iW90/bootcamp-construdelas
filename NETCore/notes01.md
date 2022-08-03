@@ -118,6 +118,7 @@ Fica oculto do restante da requisição e pode conter os valores de segurança.
 
 Uma das formas mais famosas de documentar uma API é via **Swagger** (framework), que utiliza a especificação **Open API**. E Open API é um padrão usado por ferramentas que geram documentos para exibir os contratos da API \(entradas e saídas).
 
+É basicamente um site onde podemos enviar e receber dados para testar o funcionamento da nossa API. É um simulador do client side.
 
 
 ## Novo projeto
@@ -130,7 +131,7 @@ Ou, digite no terminal do VSCode:
 
 `dotnet new webapi -n "Nome"`
 
-E F5 executa a aplicação.
+E `F5` executa a aplicação.
 
 
 Acesse o endereço:
@@ -143,10 +144,11 @@ Para chamar uma API usamos a URL com o endereço (rota). Exemplo: https://alunos
 
 Para trazer as informações da aluna "Ingrid", é necessário chamar por: https://alunos.com/alunos/nome=Ingrid
 
-Na API padrão do .NET podemos observar que ele carrega num endereço: https://localhost:[porta]/swagger, porém o swagger é apenas a documentação de sua API.
+Na API padrão do .NET podemos observar que ele carrega num endereço: https://localhost:000/swagger, porém o swagger é apenas a documentação de sua API.
 
 
 ## WeatherForecastController em Controllers
 
-`[Route("[controller/caminho]")] //é possível mudar o endereço da rota aqui`
+É apenas um exemplo de Controller que é criada automaticamente com o Visual Studio. Pode ser deletada.
+
 

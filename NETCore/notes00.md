@@ -16,20 +16,23 @@
 
 Importante o uso de SSL nas conexões das APIs, ou seja, todos os dados serão criptografados usando o protocolo HTTPS.
 
+
+## Comandinhos
+
+- `Z + Ctrl + .`: Remove as bibliotecas não utilizadas.
+- Clicar sobre a camada API e selecionar "Set as Startup Project" para que seja iniciada por ela a execução.
+
+
 ---
 
 ### Tópicos para pesquisar (não entendi direito)
 
-- Controller
-- IActionResult
-- ILogger
-- [FromBody], [FromQuery], [FromHeader] - pq entre []?
+- IActionResult, ILogger, IEnumerable
 - JS (fetch, .then e .catch, stringify, arrow function)
 - JSON
 - Result / Response
-- Swagger
 - Lambda
-- _context: esse underline antes da palavra
+- Injeção de Dependência (feita na Startup).
 
 
 ---

@@ -30,6 +30,8 @@ Contém dados, porém diferentemente de uma classe comum, não possui lógica. P
 
 ## Entity
 
+Uma classe que representa algo do mundo real. Exemplo: Conta, cliente, transação, produto, etc.
+
 É um objeto cuja identidade é importante (diferente do DTO, que serve somente para transferir dados).
 
 Cada uma possui um id exclusivo, e elas podem ser mutáveis.
