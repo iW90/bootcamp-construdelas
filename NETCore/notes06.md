@@ -208,9 +208,15 @@ public string Post([FromBody] Model.Fornecedor fornecedor) => _fornecedor.AddFor
 //recebe os parâmetros definidos no método AddFornecedor através do formulário
 ```
 
-### \[FromBody] x \[FromQuery] x \[FromHeader]
+## Model Bindings
 
+Trata-se de um DataAnnotation que define os métodos para passar os parâmetros à requisição.
 
+- \[FromQuery] – Obtém valores da cadeia de caracteres de consulta (funciona como um filtro).
+- \[FromRoute] – Obtém valores de dados de rota (url).
+- \[FromForm] – Obtém valores de campos de formulário postados.
+- \[FromBody] – Obtém valores do corpo da solicitação (formato JSON).
+- \[FromHeader] – Obtém valores de cabeçalhos HTTP.
 
 
 ## Builders
@@ -229,3 +235,13 @@ app.MapControllerRoute(
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 ```
 
+
+## Classes e métodos do Csharp
+
+- `ActionResult`: É uma classe do csharp que representa uma resposta da API, sendo um pouco mais flexível. Aceita como retorno um método, o que permite diferentes tipos.
+- `Logger`: 
+- `Enumerable`: 
+- `return Ok()`: Retorna 200.
+- `return BadRequest()`: Retorna um erro.
+- `Any()`: Método para listas, o qual verifica se há conteúdo nela, retornando verdadeiro ou falso.
+- `Count()`: Conta quantos elementos tem uma lista.

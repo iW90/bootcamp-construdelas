@@ -27,7 +27,6 @@ Importante o uso de SSL nas conexões das APIs, ou seja, todos os dados serão c
 
 ### Tópicos para pesquisar (não entendi direito)
 
-- IActionResult, ILogger, IEnumerable
 - JS (fetch, .then e .catch, stringify, arrow function)
 - JSON
 - Result / Response
