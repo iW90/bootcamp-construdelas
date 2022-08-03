@@ -208,16 +208,6 @@ public string Post([FromBody] Model.Fornecedor fornecedor) => _fornecedor.AddFor
 //recebe os parâmetros definidos no método AddFornecedor através do formulário
 ```
 
-## Model Bindings
-
-Trata-se de um DataAnnotation que define os métodos para passar os parâmetros à requisição.
-
-- \[FromQuery] – Obtém valores da cadeia de caracteres de consulta (funciona como um filtro).
-- \[FromRoute] – Obtém valores de dados de rota (url).
-- \[FromForm] – Obtém valores de campos de formulário postados.
-- \[FromBody] – Obtém valores do corpo da solicitação (formato JSON).
-- \[FromHeader] – Obtém valores de cabeçalhos HTTP.
-
 
 ## Builders
 

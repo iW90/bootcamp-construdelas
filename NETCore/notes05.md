@@ -58,4 +58,13 @@ public class User
 ```
 
 
+### Model Bindings
 
+Trata-se de um DataAnnotation que define os métodos para passar os parâmetros à requisição.
+
+- **\[FromQuery]**: Funciona como um filtro, passando-se parâmetros pela URL (via get).
+- **\[FromRoute]**: Os parâmetros são passados pela rota na url (via get).
+- **\[FromForm]**: Obtém valores de campos de formulário postados (via post).
+- **\[FromBody]**: Obtém valores do corpo da solicitação, normalmente no formato JSON (via post).
+- **\[FromHeader]**: Obtém valores de cabeçalhos HTTP.
+- **\[FromServices]**: Injeta os valores usando a injeção de dependência.
