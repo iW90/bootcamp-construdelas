@@ -80,7 +80,7 @@ Carga horária total: 153h
 | Agregação |
 | *Desafio 2 - Hackerrank* |
 
-| **MÓDULO 3.2: .NET Core** (40h30) |
+| ✅ **MÓDULO 3.2: .NET Core** (40h30) |
 | :--- |
 | ———————————————————————————————————————— |
 | Entendendo o que é uma API |
@@ -122,7 +122,7 @@ Carga horária total: 153h
 | FluentValidation |
 | *Desafio 4* |
 
-| **MÓDULO 3.3: Banco de Dados SQL** (17h) |
+| ✅ **MÓDULO 3.3: Banco de Dados SQL** (17h) |
 | :--- |
 | ———————————————————————————————————————— |
 | SQLConnection |
@@ -141,7 +141,7 @@ Carga horária total: 153h
 | Introdução ao BDD |
 | *Desafio 5* |
 
-| **MÓDULO 4: Computação em Nuvem, APIs, CI/CD** (12h) |
+| ✅ **MÓDULO 4: Computação em Nuvem, APIs, CI/CD** (12h) |
 | :--- |
 | ———————————————————————————————————————— |
 | Fundamentos de Azure |
