@@ -25,17 +25,19 @@ Importante o uso de SSL nas conexões das APIs, ou seja, todos os dados serão c
 
 ---
 
-### Tópicos para pesquisar (não entendi direito)
+### Tópicos para pesquisar
 
 - JS (fetch, .then e .catch, stringify, arrow function)
 - JSON
 - Result / Response
 - Lambda
-- Injeção de Dependência (feita na Startup).
+- Injeção de Dependência (feita na Startup)
+- Propriedade de navegação
+- T Genérico
+- Quando usar async e await
 
 
 ---
 
 > todolistuser
 > 340$Uuxwp7Mcxo7Khy
-

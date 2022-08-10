@@ -147,14 +147,14 @@ Carga horária total: 153h
 | Fundamentos de Azure |
 | Criando uma API Robusta em .NET + Azure |
 
-| **MÓDULO 3: Criação de um projeto** (10h) |
+| ✅ **MÓDULO 3: Criação de um projeto** (10h) |
 | :--- |
 | ———————————————————————————————————————— |
 | *Sessão de mentoria #1* |
 | *Sessão de mentoria #2* |
 | *Sessão de mentoria #3* |
 
-| **MÓDULO 6: Power Skills** (10h) |
+| ✅ **MÓDULO 6: Power Skills** (10h) |
 | :--- |
 | ———————————————————————————————————————— |
 | Criação de Currículo |

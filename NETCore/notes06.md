@@ -2,19 +2,19 @@
 
 Esquema de pastas:
 
-- NomeDoProjeto.**API || App**: Usa o que está na camada de Services, indiretamente (sem depender dela).
+- NomeDoProjeto.**API || App**: Faz a comunicação com o frontend.
 	- NomeDoProjeto.**API**: PROJETO, não pasta. Onde configuraremos requisições HTTP ou HTTPS (CRUD).
 	- **Controller**: Os arquivos.cs dentro desta pasta precisam terminar com "Controller". São arquivos que respondem às requisições.
-- NomeDoProjeto.**Services || Application**: Usa o que está na camada de Infra, indiretamente (sem depender dela), e fornece serviços para a API. É onde colocaremos as regras de negócio.
+- NomeDoProjeto.**Services || Application**: Fornece serviços para a API, como UseCases. É onde colocaremos as regras de negócio (como os dados devem ser tratados).
 	- **Services**: Interfaces dos serviços. Usamos injeção de dependência para não ficar vinculada à Infra.
-- NomeDoProjeto.**Core || Domain**: Onde serão desenvolvidas as entidades, usada por todas as demais pastas. Não pode ser dependente de nenhuma outra pasta.
+- NomeDoProjeto.**Core || Domain**: Onde serão desenvolvidas as entidades e suas regras próprias, usada por todas as demais pastas. Não pode ser dependente de nenhuma outra pasta.
 	- NomeDoProjeto.**Domain**: PROJETO Class Library, não pasta.
 	- **Entities**: É onde colocamos os arquivos.cs para cada entidade, definindo seus métodos construtores e seguindo o diagrama de classes.
 	- **Interfaces**: São os contratos modelo definidos para cada método. Define como vai ser, e não o que ou como vai fazer.
 		- **Repository**: Apenas as interfaces dos repositories, referentes a cada classe.
 		- **Services**: Interfaces para a pasta de Services. Funciona de forma semelhante ao Repository.
 - NomeDoProjeto.**Infra**: Faz o acesso ao Banco de Dados.
-	- **Repository**: São as classes que assinam os contratos da interface. Os arquivos.cs possuem o mesmo nome que na `Interface > Repository`, mas sem o I na frente.
+	- **Repositories**: São as classes que assinam os contratos da interface. Os arquivos.cs possuem o mesmo nome que na `Interface > Repository`, mas sem o I na frente.
 
 Outras:
 
@@ -231,7 +231,7 @@ app.MapControllerRoute(
 - `ActionResult`: É uma classe do csharp que representa uma resposta da API, sendo um pouco mais flexível. Aceita como retorno um método, o que permite diferentes tipos.
 - `Logger`: 
 - `Enumerable`: 
-- `return Ok()`: Retorna 200.
-- `return BadRequest()`: Retorna um erro.
+- `Ok()`: Retorna 200.
+- `BadRequest()`: Retorna um erro.
 - `Any()`: Método para listas, o qual verifica se há conteúdo nela, retornando verdadeiro ou falso.
 - `Count()`: Conta quantos elementos tem uma lista.

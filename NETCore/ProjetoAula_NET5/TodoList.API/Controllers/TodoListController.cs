@@ -34,7 +34,7 @@ namespace TodoList.API.Controllers
         {
             var response = await _getUseCase.ExecuteAsync(id);
             if (response == null)
-                return new NotFoundObjectResult("Não encontrado");
+                return new NotFoundObjectResult("NÃ£o encontrado");
 
             return new OkObjectResult(response);
         }
