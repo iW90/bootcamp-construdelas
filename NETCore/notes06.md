@@ -2,25 +2,24 @@
 
 Esquema de pastas:
 
-- NomeDoProjeto.**API || App**: Faz a comunicação com o frontend.
-	- NomeDoProjeto.**API**: PROJETO, não pasta. Onde configuraremos requisições HTTP ou HTTPS (CRUD).
-	- **Controller**: Os arquivos.cs dentro desta pasta precisam terminar com "Controller". São arquivos que respondem às requisições.
-- NomeDoProjeto.**Services || Application**: Fornece serviços para a API, como UseCases. É onde colocaremos as regras de negócio (como os dados devem ser tratados).
+- NomeDoProjeto.**API**: (PROJETO ASP.NET Web API), não pasta. É a parte que faz a comunicação com o frontend.
+	- **Controller**: Os arquivos.cs dentro desta pasta precisam terminar com "Controller". São arquivos que respondem às requisições. Onde configuraremos requisições HTTP ou HTTPS (CRUD).
+- NomeDoProjeto.**Application || App**: (PROJETO Class Library) Fornece serviços para a API, como UseCases. É onde colocaremos as regras de negócio (como os dados devem ser tratados).
+	- **Models || Data**: É um modelo que espelha o formato da tabela de dados. Criamos um arquivo.cs para cada entidade, e definimos somente as propriedades, sem dar um comportamento para cada uma.
 	- **Services**: Interfaces dos serviços. Usamos injeção de dependência para não ficar vinculada à Infra.
-- NomeDoProjeto.**Core || Domain**: Onde serão desenvolvidas as entidades e suas regras próprias, usada por todas as demais pastas. Não pode ser dependente de nenhuma outra pasta.
-	- NomeDoProjeto.**Domain**: PROJETO Class Library, não pasta.
+- NomeDoProjeto.**Core || Domain**: (PROJETO Class Library) Onde serão desenvolvidas as entidades e suas regras próprias, usada por todas as demais pastas. Não pode ser dependente de nenhuma outra pasta.
 	- **Entities**: É onde colocamos os arquivos.cs para cada entidade, definindo seus métodos construtores e seguindo o diagrama de classes.
 	- **Interfaces**: São os contratos modelo definidos para cada método. Define como vai ser, e não o que ou como vai fazer.
 		- **Repository**: Apenas as interfaces dos repositories, referentes a cada classe.
 		- **Services**: Interfaces para a pasta de Services. Funciona de forma semelhante ao Repository.
-- NomeDoProjeto.**Infra**: Faz o acesso ao Banco de Dados.
+- NomeDoProjeto.**Infra**: (PROJETO Class Library) Faz o acesso ao Banco de Dados.
 	- **Repositories**: São as classes que assinam os contratos da interface. Os arquivos.cs possuem o mesmo nome que na `Interface > Repository`, mas sem o I na frente.
 
 Outras:
 
 - **Dal (Data Access Layer)**: Camada de Acesso aos Dados. Em estruturas mais simples, de apenas uma camada.
 	- **Repositories**: Sempre ficam as interfaces dentro.
-- **Models || Data**: É um modelo que espelha o formato da tabela de dados. Criamos um arquivo.cs para cada entidade, e definimos somente as propriedades, sem dar um comportamento para cada uma.
+
 
 
 ## Passo a passo
