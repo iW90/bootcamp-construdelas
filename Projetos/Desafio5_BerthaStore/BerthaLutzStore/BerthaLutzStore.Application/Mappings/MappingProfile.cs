@@ -12,9 +12,9 @@ using BerthaLutzStore.Application.Models.DeleteOrder;
 using BerthaLutzStore.Application.Models.SearchUser;
 using BerthaLutzStore.Application.Models.SearchProduct;
 using BerthaLutzStore.Application.Models.SearchOrder;
-//using BerthaLutzStore.Application.Models.SearchAllUsers;
-//using BerthaLutzStore.Application.Models.SearchAllProducts;
-//using BerthaLutzStore.Application.Models.SearchAllOrders;
+using BerthaLutzStore.Application.Models.SearchAllUsers;
+using BerthaLutzStore.Application.Models.SearchAllProducts;
+using BerthaLutzStore.Application.Models.SearchAllOrders;
 
 namespace BerthaLutzStore.Application.Mappings
 {
@@ -64,19 +64,49 @@ namespace BerthaLutzStore.Application.Mappings
             CreateMap<DeleteOrderRequest, Order>()
                 .ForMember(dest => dest.IdOrder, fonte => fonte.MapFrom(src => src.IdOrder));
 
-            CreateMap<SearchUserRequest, User>()
-                .ForMember(dest => dest.IdUser, fonte => fonte.MapFrom(src => src.IdUser));
-            CreateMap<SearchProductRequest, Product>()
-                .ForMember(dest => dest.IdProduct, fonte => fonte.MapFrom(src => src.IdProduct));
-            CreateMap<SearchOrderRequest, Order>()
-                .ForMember(dest => dest.IdOrder, fonte => fonte.MapFrom(src => src.IdOrder));
+            CreateMap<User, SearchUserResponse>()
+                .ForMember(dest => dest.IdUser, fonte => fonte.MapFrom(src => src.IdUser))
+                .ForMember(dest => dest.UserName, fonte => fonte.MapFrom(src => src.UserName))
+                .ForMember(dest => dest.Email, fonte => fonte.MapFrom(src => src.Email))
+                .ForMember(dest => dest.Phone, fonte => fonte.MapFrom(src => src.Phone))
+                .ForMember(dest => dest.Address, fonte => fonte.MapFrom(src => src.Address))
+                .ForMember(dest => dest.RegisteredAt, fonte => fonte.MapFrom(src => src.RegisteredAt));
+            CreateMap<Product, SearchProductResponse>()
+                .ForMember(dest => dest.IdProduct, fonte => fonte.MapFrom(src => src.IdProduct))
+                .ForMember(dest => dest.ProductName, fonte => fonte.MapFrom(src => src.ProductName))
+                .ForMember(dest => dest.Description, fonte => fonte.MapFrom(src => src.Description))
+                .ForMember(dest => dest.Brand, fonte => fonte.MapFrom(src => src.Brand))
+                .ForMember(dest => dest.SalePrice, fonte => fonte.MapFrom(src => src.SalePrice))
+                .ForMember(dest => dest.Storage, fonte => fonte.MapFrom(src => src.Storage))
+                .ForMember(dest => dest.RegisteredAt, fonte => fonte.MapFrom(src => src.RegisteredAt));
+            CreateMap<Order, SearchOrderResponse>()
+                .ForMember(dest => dest.IdOrder, fonte => fonte.MapFrom(src => src.IdOrder))
+                .ForMember(dest => dest.IdUser, fonte => fonte.MapFrom(src => src.IdUser))
+                .ForMember(dest => dest.PaymentType, fonte => fonte.MapFrom(src => src.PaymentType))
+                .ForMember(dest => dest.OrderedItems, fonte => fonte.MapFrom(src => src.OrderedItems))
+                .ForMember(dest => dest.OrderedAt, fonte => fonte.MapFrom(src => src.OrderedAt));
 
-            //CreateMap<SearchAllUsersRequest, User>()
-            //    .ForMember(dest => dest.IdUser, fonte => fonte.MapFrom(src => src.IdUser));
-            //CreateMap<SearchAllProductsRequest, Product>()
-            //    .ForMember(dest => dest.IdProduct, fonte => fonte.MapFrom(src => src.IdProduct));
-            //CreateMap<SearchAllOrdersRequest, Order>()
-            //    .ForMember(dest => dest.IdOrder, fonte => fonte.MapFrom(src => src.IdOrder));
+            CreateMap<User, SearchAllUsersResponse>()
+                .ForMember(dest => dest.IdUser, fonte => fonte.MapFrom(src => src.IdUser))
+                .ForMember(dest => dest.UserName, fonte => fonte.MapFrom(src => src.UserName))
+                .ForMember(dest => dest.Email, fonte => fonte.MapFrom(src => src.Email))
+                .ForMember(dest => dest.Phone, fonte => fonte.MapFrom(src => src.Phone))
+                .ForMember(dest => dest.Address, fonte => fonte.MapFrom(src => src.Address))
+                .ForMember(dest => dest.RegisteredAt, fonte => fonte.MapFrom(src => src.RegisteredAt));
+            CreateMap<Product, SearchAllProductsResponse>()
+                .ForMember(dest => dest.IdProduct, fonte => fonte.MapFrom(src => src.IdProduct))
+                .ForMember(dest => dest.ProductName, fonte => fonte.MapFrom(src => src.ProductName))
+                .ForMember(dest => dest.Description, fonte => fonte.MapFrom(src => src.Description))
+                .ForMember(dest => dest.Brand, fonte => fonte.MapFrom(src => src.Brand))
+                .ForMember(dest => dest.SalePrice, fonte => fonte.MapFrom(src => src.SalePrice))
+                .ForMember(dest => dest.Storage, fonte => fonte.MapFrom(src => src.Storage))
+                .ForMember(dest => dest.RegisteredAt, fonte => fonte.MapFrom(src => src.RegisteredAt));
+            CreateMap<Order, SearchAllOrdersResponse>()
+                .ForMember(dest => dest.IdOrder, fonte => fonte.MapFrom(src => src.IdOrder))
+                .ForMember(dest => dest.IdUser, fonte => fonte.MapFrom(src => src.IdUser))
+                .ForMember(dest => dest.PaymentType, fonte => fonte.MapFrom(src => src.PaymentType))
+                .ForMember(dest => dest.OrderedItems, fonte => fonte.MapFrom(src => src.OrderedItems))
+                .ForMember(dest => dest.OrderedAt, fonte => fonte.MapFrom(src => src.OrderedAt));
         }
 
 

@@ -91,7 +91,7 @@ namespace BerthaLutzStore.API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BerthaLutzStore.API v1"));
             }
 
-            //context.Database.Migrate(); //verifica updates automaticamente
+            context.Database.Migrate(); //verifica updates automaticamente
 
             app.UseHttpsRedirection();
 

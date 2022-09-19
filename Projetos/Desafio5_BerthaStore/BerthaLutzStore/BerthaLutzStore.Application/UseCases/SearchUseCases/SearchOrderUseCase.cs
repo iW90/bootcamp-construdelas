@@ -22,17 +22,6 @@ namespace BerthaLutzStore.Application.UseCases
 
         public async Task<IActionResult> ExecuteAsync(SearchOrderRequest request)
         {
-            var validator = new SearchOrderRequestValidator();
-            var validatorResults = validator.Validate(request);
-
-            if (!validatorResults.IsValid)
-            {
-                var validatorErrors = string.Empty;
-                foreach (var error in validatorResults.Errors)
-                    validatorErrors += error.ErrorMessage;
-
-                throw new Exception(validatorErrors);
-            }
 
             if (request == null)
                 return new BadRequestResult();
