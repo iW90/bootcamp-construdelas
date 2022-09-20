@@ -40,21 +40,21 @@ namespace BerthaStore.API.Controllers
         {
             return await _newUserCaseAsync.ExecuteAsync(request);
         }
-        
+
         //Update User by Id
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] UpdateUserRequest request)
         {
             return await _updateUserCaseAsync.ExecuteAsync(request);
         }
-        
+
         //Delete User by Id
         [HttpDelete("{userId}")]
         public async Task<IActionResult> Delete([FromRoute] int userId)
         {
             return await _deleteUserCaseAsync.ExecuteAsync(userId);
         }
-        
+
         //Search User by Id
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] SearchUserRequest request)
@@ -64,7 +64,7 @@ namespace BerthaStore.API.Controllers
                 return new NotFoundObjectResult("Id not found");
             return new OkObjectResult(userId);
         }
-        
+
         //Search All Users
         [HttpGet("ListAll")]
         public async Task<IActionResult> Get([FromQuery] SearchAllUsersRequest request)

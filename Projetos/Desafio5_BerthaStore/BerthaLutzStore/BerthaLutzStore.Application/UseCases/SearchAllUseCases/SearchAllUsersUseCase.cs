@@ -11,10 +11,10 @@ namespace BerthaLutzStore.Application.UseCases
 {
     public class SearchAllUsersUseCase : IUseCaseAsync<SearchAllUsersRequest, IActionResult>
     {
-        private readonly IProductRepository _repository;
+        private readonly IUserRepository _repository;
         private readonly IMapper _mapper;
 
-        public SearchAllUsersUseCase(IProductRepository repository,
+        public SearchAllUsersUseCase(IUserRepository repository,
             IMapper mapper)
         {
             _repository = repository;

@@ -45,6 +45,7 @@ namespace BerthaLutzStore.Infra.Repositories
             return await _context
                 .Orders
                 .Include(x => x.OrderedItems)
+                    .ThenInclude(x => x.Product)
                 .AsNoTracking()
                 .ToListAsync();
         }

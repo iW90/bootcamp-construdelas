@@ -9,9 +9,6 @@ using BerthaLutzStore.Application.Models.SearchOrder;
 using BerthaLutzStore.Application.Models.UpdateUser;
 using BerthaLutzStore.Application.Models.UpdateProduct;
 using BerthaLutzStore.Application.Models.UpdateOrder;
-using BerthaLutzStore.Application.Models.DeleteUser;
-using BerthaLutzStore.Application.Models.DeleteProduct;
-using BerthaLutzStore.Application.Models.DeleteOrder;
 using BerthaLutzStore.Application.Models.SearchAllUsers;
 using BerthaLutzStore.Application.Models.SearchAllProducts;
 using BerthaLutzStore.Application.Models.SearchAllOrders;
@@ -23,6 +20,7 @@ namespace BerthaLutzStore.Application.Mappings
     {
         public MappingProfile()
         {
+            
             #region New
             CreateMap<NewUserRequest, User>()
                 .ForMember(dest => dest.UserName, fonte => fonte.MapFrom(src => src.UserName))
@@ -51,7 +49,7 @@ namespace BerthaLutzStore.Application.Mappings
                 .ForMember(dest => dest.Quantity, fonte => fonte.MapFrom(src => src.Quantity))
                 .ForMember(dest => dest.UnitPrice, fonte => fonte.MapFrom(src => src.UnitPrice));
             #endregion
-            
+
             #region Update
             CreateMap<UpdateUserRequest, User>()
                 .ForMember(dest => dest.IdUser, fonte => fonte.MapFrom(src => src.IdUser))
@@ -140,10 +138,11 @@ namespace BerthaLutzStore.Application.Mappings
             CreateMap<ItemOrder, SearchAllOrderedItemsResponse>()
                 .ForMember(dest => dest.IdItemOrder, fonte => fonte.MapFrom(src => src.IdItemOrder))
                 .ForMember(dest => dest.IdProduct, fonte => fonte.MapFrom(src => src.IdProduct))
+                .ForMember(dest => dest.ProductName, fonte => fonte.MapFrom(src => src.Product.ProductName))
                 .ForMember(dest => dest.Quantity, fonte => fonte.MapFrom(src => src.Quantity))
                 .ForMember(dest => dest.UnitPrice, fonte => fonte.MapFrom(src => src.UnitPrice));
             #endregion
-            
+
         }
 
 
