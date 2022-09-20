@@ -25,11 +25,11 @@ namespace BerthaLutzStore.Application.UseCases
             if (request == null)
                 return new BadRequestResult();
 
-            var User = _mapper.Map<User>(request);
+            var user = await _repository.Search(request.IdUser);
 
-            //await _repository.Search(IdUser);
+            var response = _mapper.Map<SearchUserResponse>(user);
 
-            return new OkResult();
+            return new OkObjectResult(response);
         }
     }
 }
