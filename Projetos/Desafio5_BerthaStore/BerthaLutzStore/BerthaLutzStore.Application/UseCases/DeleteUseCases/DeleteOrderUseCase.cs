@@ -8,7 +8,7 @@ using BerthaLutzStore.Core.Entities;
 
 namespace BerthaLutzStore.Application.UseCases
 {
-    public class DeleteOrderUseCase : IUseCaseAsync<DeleteOrderRequest, IActionResult>
+    public class DeleteOrderUseCase : IUseCaseAsync<int, IActionResult>
     {
         private readonly IOrderRepository _repository;
         private readonly IMapper _mapper;
@@ -20,12 +20,12 @@ namespace BerthaLutzStore.Application.UseCases
             _mapper = mapper;
         }
 
-        public async Task<IActionResult> ExecuteAsync(DeleteOrderRequest request)
+        public async Task<IActionResult> ExecuteAsync(int idOrder)
         {
-            if (request == null)
+            if (idOrder == 0)
                 return new BadRequestResult();
 
-            var order = await _repository.Search(request.IdOrder);
+            var order = await _repository.Search(idOrder);
 
             await _repository.Delete(order);
 

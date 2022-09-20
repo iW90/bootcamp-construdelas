@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace BerthaLutzStore.Application.Models.DeleteProduct
+﻿namespace BerthaLutzStore.Application.Models.DeleteProduct
 {
     public class DeleteProductRequest
     {

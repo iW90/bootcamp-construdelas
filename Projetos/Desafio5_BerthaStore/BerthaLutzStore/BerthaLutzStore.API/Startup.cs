@@ -15,15 +15,12 @@ using BerthaLutzStore.Application.UseCases;
 using BerthaLutzStore.Application.Models.NewUser;
 using BerthaLutzStore.Application.Models.NewOrder;
 using BerthaLutzStore.Application.Models.NewProduct;
-using BerthaLutzStore.Application.Models.UpdateUser;
-using BerthaLutzStore.Application.Models.UpdateOrder;
-using BerthaLutzStore.Application.Models.UpdateProduct;
-using BerthaLutzStore.Application.Models.DeleteUser;
-using BerthaLutzStore.Application.Models.DeleteOrder;
-using BerthaLutzStore.Application.Models.DeleteProduct;
 using BerthaLutzStore.Application.Models.SearchUser;
 using BerthaLutzStore.Application.Models.SearchOrder;
 using BerthaLutzStore.Application.Models.SearchProduct;
+using BerthaLutzStore.Application.Models.UpdateUser;
+using BerthaLutzStore.Application.Models.UpdateOrder;
+using BerthaLutzStore.Application.Models.UpdateProduct;
 using BerthaLutzStore.Application.Models.SearchAllUsers;
 using BerthaLutzStore.Application.Models.SearchAllOrders;
 using BerthaLutzStore.Application.Models.SearchAllProducts;
@@ -44,28 +41,28 @@ namespace BerthaLutzStore.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
 
             services.AddTransient<IUseCaseAsync<NewOrderRequest, IActionResult>, NewOrderUseCase>();
             services.AddTransient<IUseCaseAsync<NewProductRequest, IActionResult>, NewProductUseCase>();
             services.AddTransient<IUseCaseAsync<NewUserRequest, IActionResult>, NewUserUseCase>();
 
-            services.AddTransient<IUseCaseAsync<UpdateOrderRequest, IActionResult>, UpdateOrderUseCase>();
-            services.AddTransient<IUseCaseAsync<UpdateProductRequest, IActionResult>, UpdateProductUseCase>();
-            services.AddTransient<IUseCaseAsync<UpdateUserRequest, IActionResult>, UpdateUserUseCase>();
-
-            services.AddTransient<IUseCaseAsync<DeleteOrderRequest, IActionResult>, DeleteOrderUseCase>();
-            services.AddTransient<IUseCaseAsync<DeleteProductRequest, IActionResult>, DeleteProductUseCase>();
-            services.AddTransient<IUseCaseAsync<DeleteUserRequest, IActionResult>, DeleteUserUseCase>();
-
             services.AddTransient<IUseCaseAsync<SearchOrderRequest, IActionResult>, SearchOrderUseCase>();
             services.AddTransient<IUseCaseAsync<SearchProductRequest, IActionResult>, SearchProductUseCase>();
             services.AddTransient<IUseCaseAsync<SearchUserRequest, IActionResult>, SearchUserUseCase>();
 
-            services.AddTransient<IUseCaseAsync<SearchAllOrdersRequest, List<IActionResult>>, SearchAllOrdersUseCase>();
-            services.AddTransient<IUseCaseAsync<SearchAllProductsRequest, List<IActionResult>>, SearchAllProductsUseCase>();
-            services.AddTransient<IUseCaseAsync<SearchAllUsersRequest, List<IActionResult>>, SearchAllUsersUseCase>();
+            services.AddTransient<IUseCaseAsync<UpdateOrderRequest, IActionResult>, UpdateOrderUseCase>();
+            services.AddTransient<IUseCaseAsync<UpdateProductRequest, IActionResult>, UpdateProductUseCase>();
+            services.AddTransient<IUseCaseAsync<UpdateUserRequest, IActionResult>, UpdateUserUseCase>();
+
+            services.AddTransient<IUseCaseAsync<int, IActionResult>, DeleteOrderUseCase>();
+            services.AddTransient<IUseCaseAsync<int, IActionResult>, DeleteProductUseCase>();
+            services.AddTransient<IUseCaseAsync<int, IActionResult>, DeleteUserUseCase>();
+
+            services.AddTransient<IUseCaseAsync<SearchAllOrdersRequest, IActionResult>, SearchAllOrdersUseCase>();
+            services.AddTransient<IUseCaseAsync<SearchAllProductsRequest, IActionResult>, SearchAllProductsUseCase>();
+            services.AddTransient<IUseCaseAsync<SearchAllUsersRequest, IActionResult>, SearchAllUsersUseCase>();
 
             services.AddAutoMapper(typeof(MappingProfile));
 

@@ -22,6 +22,9 @@ namespace BerthaLutzStore.Application.UseCases
 
         public async Task<IActionResult> ExecuteAsync(UpdateOrderRequest request)
         {
+            if (request == null)
+                return new BadRequestResult();
+
             var validator = new UpdateOrderRequestValidator();
             var validatorResults = validator.Validate(request);
 
@@ -34,12 +37,9 @@ namespace BerthaLutzStore.Application.UseCases
                 throw new Exception(validatorErrors);
             }
 
-            if (request == null)
-                return new BadRequestResult();
+            var order = _mapper.Map<Order>(request);
 
-            var Order = _mapper.Map<Order>(request);
-
-            await _repository.Update(Order);
+            await _repository.Update(order);
 
             return new OkResult();
         }

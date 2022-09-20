@@ -8,6 +8,7 @@ namespace BerthaLutzStore.Application.Models.UpdateOrder
         public int IdOrder { get; set; }
         public int IdProduct { get; set; }
         public int Quantity { get; set; }
+        public decimal UnitPrice { get; set; }
     }
 
     public class UpdateItemOrderRequestValidator : AbstractValidator<UpdateItemOrderRequest>
@@ -29,6 +30,11 @@ namespace BerthaLutzStore.Application.Models.UpdateOrder
                 .WithMessage("\'PaymentType\' cannot be empty.")
                 .NotNull()
                 .WithMessage("\'PaymentType\' cannot be null.");
+            RuleFor(r => r.UnitPrice)
+                .NotEmpty()
+                .WithMessage("\'UnitPrice\' cannot be empty.")
+                .NotNull()
+                .WithMessage("\'UnitPrice\' cannot be null.");
         }
     }
 }

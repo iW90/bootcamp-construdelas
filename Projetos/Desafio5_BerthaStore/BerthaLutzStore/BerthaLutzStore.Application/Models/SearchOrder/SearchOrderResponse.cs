@@ -9,9 +9,8 @@ namespace BerthaLutzStore.Application.Models.SearchOrder
         public int IdUser { get; set; }
         public string PaymentType { get; set; }
         public DateTime ShippingDate { get; set; }
-        public List<SearchOrderedItemsRequest> OrderedItems { get; set; }
+        public List<SearchOrderedItemsResponse> OrderedItems { get; set; }
         public decimal Total { get; set; }
-        public string Status { get; set; }
         public DateTime OrderedAt { get; set; }
     }
 }

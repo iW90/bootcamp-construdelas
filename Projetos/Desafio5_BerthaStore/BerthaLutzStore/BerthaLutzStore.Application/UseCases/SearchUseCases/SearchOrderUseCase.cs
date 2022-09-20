@@ -26,9 +26,9 @@ namespace BerthaLutzStore.Application.UseCases
             if (request == null)
                 return new BadRequestResult();
 
-            var Order = _mapper.Map<Order>(request);
+            var order = _mapper.Map<Order>(request);
 
-            //await _repository.Search(IdOrder);
+            // await _repository.Search(IdOrder);
 
             return new OkResult();
         }

@@ -37,9 +37,9 @@ namespace BerthaLutzStore.Application.UseCases
             if (request == null)
                 return new BadRequestResult();
 
-            var Product = _mapper.Map<Product>(request);
+            var product = _mapper.Map<Product>(request);
 
-            await _repository.Update(Product);
+            await _repository.Update(product);
 
             return new OkResult();
         }

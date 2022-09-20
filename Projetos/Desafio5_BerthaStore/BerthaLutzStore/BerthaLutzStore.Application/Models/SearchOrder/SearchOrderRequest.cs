@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace BerthaLutzStore.Application.Models.SearchOrder
+﻿namespace BerthaLutzStore.Application.Models.SearchOrder
 {
     public class SearchOrderRequest
     {

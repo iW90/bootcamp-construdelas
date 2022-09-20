@@ -36,7 +36,6 @@ namespace BerthaLutzStore.Infra.Repositories
             return await _context
                 .Products
                 .Where(x => x.IdProduct == id)
-                .AsNoTracking()
                 .FirstOrDefaultAsync();
         }
         public async Task<IEnumerable<Product>> SearchAll()

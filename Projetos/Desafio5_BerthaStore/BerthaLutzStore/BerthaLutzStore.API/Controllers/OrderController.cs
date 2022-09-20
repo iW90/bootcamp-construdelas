@@ -1,7 +1,7 @@
 ﻿using BerthaLutzStore.Application.Models.NewOrder;
+using BerthaLutzStore.Application.Models.SearchOrder;
 using BerthaLutzStore.Application.Models.UpdateOrder;
 using BerthaLutzStore.Application.Models.DeleteOrder;
-using BerthaLutzStore.Application.Models.SearchOrder;
 using BerthaLutzStore.Application.Models.SearchAllOrders;
 using BerthaLutzStore.Application.UseCases;
 using Microsoft.AspNetCore.Mvc;
@@ -15,51 +15,48 @@ namespace BerthaStore.API.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IUseCaseAsync<NewOrderRequest, IActionResult> _newOrderCaseAsync;
-        private readonly IUseCaseAsync<UpdateOrderRequest, IActionResult> _updateOrderCaseAsync;
-        private readonly IUseCaseAsync<DeleteOrderRequest, IActionResult> _deleteOrderCaseAsync;
         private readonly IUseCaseAsync<SearchOrderRequest, IActionResult> _searchOrderCaseAsync;
-        //private readonly IUseCaseAsync<SearchAllOrdersRequest, IActionResult> _searchAllOrdersCaseAsync;
+        private readonly IUseCaseAsync<UpdateOrderRequest, IActionResult> _updateOrderCaseAsync;
+        private readonly IUseCaseAsync<int, IActionResult> _deleteOrderCaseAsync;
+        private readonly IUseCaseAsync<SearchAllOrdersRequest, IActionResult> _searchAllOrdersCaseAsync;
 
         public OrderController(
             IUseCaseAsync<NewOrderRequest, IActionResult> newOrderCaseAsync,
+            IUseCaseAsync<SearchOrderRequest, IActionResult> searchOrderCaseAsync,
             IUseCaseAsync<UpdateOrderRequest, IActionResult> updateOrderCaseAsync,
-            IUseCaseAsync<DeleteOrderRequest, IActionResult> deleteOrderCaseAsync,
-            IUseCaseAsync<SearchOrderRequest, IActionResult> searchOrderCaseAsync)
-        //IUseCaseAsync<SearchAllOrdersRequest, IActionResult> searchAllOrdersCaseAsync)
+            IUseCaseAsync<int, IActionResult> deleteOrderCaseAsync,
+            IUseCaseAsync<SearchAllOrdersRequest, IActionResult> searchAllOrdersCaseAsync)
         {
             _newOrderCaseAsync = newOrderCaseAsync;
+            _searchOrderCaseAsync = searchOrderCaseAsync;
             _updateOrderCaseAsync = updateOrderCaseAsync;
             _deleteOrderCaseAsync = deleteOrderCaseAsync;
-            _searchOrderCaseAsync = searchOrderCaseAsync;
-            //_searchAllOrdersCaseAsync = searchAllOrdersCaseAsync;
+            _searchAllOrdersCaseAsync = searchAllOrdersCaseAsync;
         }
 
         //New Order
-        [HttpPost("NewOrder")]
+        [HttpPost]
         public async Task<IActionResult> Post([FromBody] NewOrderRequest request)
         {
             return await _newOrderCaseAsync.ExecuteAsync(request);
         }
-
+        
         //Update Order by Id
-        [HttpPut("UpdateOrder")]
+        [HttpPut]
         public async Task<IActionResult> Put([FromBody] UpdateOrderRequest request)
         {
             return await _updateOrderCaseAsync.ExecuteAsync(request);
         }
 
         //Delete Order by Id
-        [HttpDelete("DeleteOrder")]
-        public async Task<IActionResult> Delete([FromRoute] DeleteOrderRequest request)
+        [HttpDelete("{orderId}")]
+        public async Task<IActionResult> Delete([FromRoute] int orderId)
         {
-            var orderId = await _deleteOrderCaseAsync.ExecuteAsync(request);
-            if (orderId == null)
-                return new NotFoundObjectResult("Id not found");
-            return new OkObjectResult(orderId);
+            return await _deleteOrderCaseAsync.ExecuteAsync(orderId);
         }
-
+        
         //Search Order by Id
-        [HttpGet("SearchOrder")]
+        [HttpGet]
         public async Task<IActionResult> Get([FromQuery] SearchOrderRequest request)
         {
             var orderId = await _searchOrderCaseAsync.ExecuteAsync(request);
@@ -67,12 +64,12 @@ namespace BerthaStore.API.Controllers
                 return new NotFoundObjectResult("Id not found");
             return new OkObjectResult(orderId);
         }
-
+        
         //Search All Orders
-        //[HttpGet("SearchAllOrders")]
-        //public async Task<IActionResult<List<SearchAllOrdersResponse>>> Get([FromQuery] SearchAllOrdersRequest request)
-        //{
-        //    return await _searchAllOrdersCaseAsync.ExecuteAsync(request);
-        //}
+        [HttpGet("ListAll")]
+        public async Task<IActionResult> Get([FromQuery] SearchAllOrdersRequest request)
+        {
+            return await _searchAllOrdersCaseAsync.ExecuteAsync(request);
+        }
     }
 }
