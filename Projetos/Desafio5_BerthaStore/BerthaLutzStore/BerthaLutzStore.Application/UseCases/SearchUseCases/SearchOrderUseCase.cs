@@ -22,15 +22,14 @@ namespace BerthaLutzStore.Application.UseCases
 
         public async Task<IActionResult> ExecuteAsync(SearchOrderRequest request)
         {
-
             if (request == null)
                 return new BadRequestResult();
 
-            var order = _mapper.Map<Order>(request);
+            var order = await _repository.Search(request.IdOrder);
 
-            // await _repository.Search(IdOrder);
+            var response = _mapper.Map<SearchOrderResponse>(order);
 
-            return new OkResult();
+            return new OkObjectResult(response);
         }
     }
 }

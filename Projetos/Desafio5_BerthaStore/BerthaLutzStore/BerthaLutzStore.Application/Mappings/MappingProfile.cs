@@ -105,6 +105,7 @@ namespace BerthaLutzStore.Application.Mappings
             CreateMap<ItemOrder, SearchOrderedItemsResponse>()
                 .ForMember(dest => dest.IdItemOrder, fonte => fonte.MapFrom(src => src.IdItemOrder))
                 .ForMember(dest => dest.IdProduct, fonte => fonte.MapFrom(src => src.IdProduct))
+                .ForMember(dest => dest.ProductName, fonte => fonte.MapFrom(src => src.Product.ProductName))
                 .ForMember(dest => dest.Quantity, fonte => fonte.MapFrom(src => src.Quantity))
                 .ForMember(dest => dest.UnitPrice, fonte => fonte.MapFrom(src => src.UnitPrice));
             #endregion
