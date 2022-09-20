@@ -59,10 +59,8 @@ namespace BerthaStore.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] SearchOrderRequest request)
         {
-            var orderId = await _searchOrderCaseAsync.ExecuteAsync(request);
-            if (orderId == null)
-                return new NotFoundObjectResult("Id not found");
-            return new OkObjectResult(orderId);
+            return await _searchOrderCaseAsync.ExecuteAsync(request);
+
         }
 
         //Search All Orders

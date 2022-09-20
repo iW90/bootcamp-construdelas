@@ -59,10 +59,7 @@ namespace BerthaStore.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] SearchUserRequest request)
         {
-            var userId = await _searchUserCaseAsync.ExecuteAsync(request);
-            if (userId == null)
-                return new NotFoundObjectResult("Id not found");
-            return new OkObjectResult(userId);
+            return await _searchUserCaseAsync.ExecuteAsync(request);
         }
 
         //Search All Users
