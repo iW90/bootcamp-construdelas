@@ -5,6 +5,8 @@ using AutoMapper;
 using BerthaLutzStore.Application.Models.UpdateOrder;
 using BerthaLutzStore.Core.Interfaces;
 using BerthaLutzStore.Core.Entities;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace BerthaLutzStore.Application.UseCases
 {
@@ -37,13 +39,23 @@ namespace BerthaLutzStore.Application.UseCases
                 throw new Exception(validatorErrors);
             }
 
-            var order = await _repository.Search(request.IdOrder);
+            var order = await _repository.SearchExtra(request.IdOrder);
 
             order.PaymentType = request.PaymentType;
-            //order.OrderedItems.IdProduct = request.OrderedItems.IdProduct;
-            //order.OrderedItems.Quantity = request.OrderedItems.Quantity;
-            //order.OrderedItems.UnitPrice = request.OrderedItems.UnitPrice;
-            //order.Total = request.OrderedItems.Quantity * request.OrderedItems.UnitPrice;
+
+            order.OrderedItems = new List<ItemOrder>();
+
+            foreach (var orderItem in request.OrderedItems)
+            {
+                order.OrderedItems.Add(new ItemOrder()
+                {
+                    IdProduct = orderItem.IdProduct,
+                    Quantity = orderItem.Quantity,
+                    UnitPrice = orderItem.UnitPrice
+                });
+            }
+
+            order.Total = order.OrderedItems.Sum(s => s.UnitPrice * s.Quantity);
 
             await _repository.Update(order);
 

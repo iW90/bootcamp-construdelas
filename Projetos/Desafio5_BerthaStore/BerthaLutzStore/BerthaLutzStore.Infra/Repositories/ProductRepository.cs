@@ -38,6 +38,15 @@ namespace BerthaLutzStore.Infra.Repositories
                 .Where(x => x.IdProduct == id)
                 .FirstOrDefaultAsync();
         }
+
+        public async Task<Product> SearchExtra(int id)
+        {
+            return await _context
+                .Products
+                .Where(x => x.IdProduct == id)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<IEnumerable<Product>> SearchAll()
         {
             return await _context

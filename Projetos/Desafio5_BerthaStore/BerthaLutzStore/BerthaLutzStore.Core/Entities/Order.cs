@@ -5,6 +5,11 @@ namespace BerthaLutzStore.Core.Entities
 {
     public class Order
     {
+        public Order()
+        {
+            OrderedItems = new List<ItemOrder>();
+        }
+
         public int IdOrder { get; set; }
         public User User { get; set; }
         public int IdUser { get; set; }

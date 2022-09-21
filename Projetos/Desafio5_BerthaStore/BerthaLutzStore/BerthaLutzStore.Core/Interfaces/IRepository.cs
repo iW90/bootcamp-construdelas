@@ -9,6 +9,7 @@ namespace BerthaLutzStore.Core.Interfaces
         Task Update(T obj);
         Task Delete(T obj);
         Task<T> Search(int id);
+        Task<T> SearchExtra(int id);
         Task<IEnumerable<T>> SearchAll();
     }
 }
