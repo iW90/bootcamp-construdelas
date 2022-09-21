@@ -37,7 +37,13 @@ namespace BerthaLutzStore.Application.UseCases
                 throw new Exception(validatorErrors);
             }
 
-            var order = _mapper.Map<Order>(request);
+            var order = await _repository.Search(request.IdOrder);
+
+            order.PaymentType = request.PaymentType;
+            //order.OrderedItems.IdProduct = request.OrderedItems.IdProduct;
+            //order.OrderedItems.Quantity = request.OrderedItems.Quantity;
+            //order.OrderedItems.UnitPrice = request.OrderedItems.UnitPrice;
+            //order.Total = request.OrderedItems.Quantity * request.OrderedItems.UnitPrice;
 
             await _repository.Update(order);
 

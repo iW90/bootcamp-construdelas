@@ -65,11 +65,10 @@ namespace BerthaLutzStore.Application.Mappings
                 .ForMember(dest => dest.Storage, fonte => fonte.MapFrom(src => src.Storage));
 
             CreateMap<UpdateOrderRequest, Order>()
-                .ForMember(dest => dest.IdUser, fonte => fonte.MapFrom(src => src.IdUser))
                 .ForMember(dest => dest.PaymentType, fonte => fonte.MapFrom(src => src.PaymentType))
                 .ForMember(dest => dest.OrderedItems, fonte => fonte.MapFrom(src => src.OrderedItems));
 
-            CreateMap<UpdateOrderedItemRequest, ItemOrder>()
+            CreateMap<UpdateOrderedItemsRequest, ItemOrder>()
                 .ForMember(dest => dest.IdProduct, fonte => fonte.MapFrom(src => src.IdProduct))
                 .ForMember(dest => dest.Quantity, fonte => fonte.MapFrom(src => src.Quantity))
                 .ForMember(dest => dest.UnitPrice, fonte => fonte.MapFrom(src => src.UnitPrice));
