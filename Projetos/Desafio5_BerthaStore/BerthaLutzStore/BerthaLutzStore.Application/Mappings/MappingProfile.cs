@@ -52,14 +52,12 @@ namespace BerthaLutzStore.Application.Mappings
 
             #region Update
             CreateMap<UpdateUserRequest, User>()
-                .ForMember(dest => dest.IdUser, fonte => fonte.MapFrom(src => src.IdUser))
                 .ForMember(dest => dest.UserName, fonte => fonte.MapFrom(src => src.UserName))
                 .ForMember(dest => dest.Email, fonte => fonte.MapFrom(src => src.Email))
                 .ForMember(dest => dest.Phone, fonte => fonte.MapFrom(src => src.Phone))
                 .ForMember(dest => dest.Address, fonte => fonte.MapFrom(src => src.Address));
 
             CreateMap<UpdateProductRequest, Product>()
-                .ForMember(dest => dest.IdProduct, fonte => fonte.MapFrom(src => src.IdProduct))
                 .ForMember(dest => dest.ProductName, fonte => fonte.MapFrom(src => src.ProductName))
                 .ForMember(dest => dest.Description, fonte => fonte.MapFrom(src => src.Description))
                 .ForMember(dest => dest.Brand, fonte => fonte.MapFrom(src => src.Brand))
@@ -67,12 +65,16 @@ namespace BerthaLutzStore.Application.Mappings
                 .ForMember(dest => dest.Storage, fonte => fonte.MapFrom(src => src.Storage));
 
             CreateMap<UpdateOrderRequest, Order>()
-                .ForMember(dest => dest.IdOrder, fonte => fonte.MapFrom(src => src.IdOrder))
                 .ForMember(dest => dest.IdUser, fonte => fonte.MapFrom(src => src.IdUser))
                 .ForMember(dest => dest.PaymentType, fonte => fonte.MapFrom(src => src.PaymentType))
                 .ForMember(dest => dest.OrderedItems, fonte => fonte.MapFrom(src => src.OrderedItems));
+
+            CreateMap<UpdateOrderedItemRequest, ItemOrder>()
+                .ForMember(dest => dest.IdProduct, fonte => fonte.MapFrom(src => src.IdProduct))
+                .ForMember(dest => dest.Quantity, fonte => fonte.MapFrom(src => src.Quantity))
+                .ForMember(dest => dest.UnitPrice, fonte => fonte.MapFrom(src => src.UnitPrice));
             #endregion
-            
+
             #region SearchById
             CreateMap<User, SearchUserResponse>()
                 .ForMember(dest => dest.IdUser, fonte => fonte.MapFrom(src => src.IdUser))

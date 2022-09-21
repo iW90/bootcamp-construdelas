@@ -2,7 +2,7 @@
 
 namespace BerthaLutzStore.Application.Models.UpdateOrder
 {
-    public class UpdateItemOrderRequest
+    public class UpdateOrderedItemRequest
     {
         public int IdItemOrder { get; set; }
         public int IdOrder { get; set; }
@@ -11,9 +11,9 @@ namespace BerthaLutzStore.Application.Models.UpdateOrder
         public decimal UnitPrice { get; set; }
     }
 
-    public class UpdateItemOrderRequestValidator : AbstractValidator<UpdateItemOrderRequest>
+    public class UpdateOrderedItemRequestValidator : AbstractValidator<UpdateOrderedItemRequest>
     {
-        public UpdateItemOrderRequestValidator()
+        public UpdateOrderedItemRequestValidator()
         {
             RuleFor(r => r.IdItemOrder)
                 .NotEmpty()

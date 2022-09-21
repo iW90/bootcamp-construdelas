@@ -8,7 +8,7 @@ namespace BerthaLutzStore.Application.Models.UpdateOrder
         public int IdOrder { get; set; }
         public int IdUser { get; set; }
         public string PaymentType { get; set; }
-        public List<UpdateItemOrderRequest> OrderedItems { get; set; }
+        public List<UpdateOrderedItemRequest> OrderedItems { get; set; }
     }
 
     public class UpdateOrderRequestValidator : AbstractValidator<UpdateOrderRequest>

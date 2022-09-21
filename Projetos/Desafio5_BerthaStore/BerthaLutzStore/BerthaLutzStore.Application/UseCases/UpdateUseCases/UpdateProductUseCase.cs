@@ -22,6 +22,9 @@ namespace BerthaLutzStore.Application.UseCases
 
         public async Task<IActionResult> ExecuteAsync(UpdateProductRequest request)
         {
+            if (request == null)
+                return new BadRequestResult();
+
             var validator = new UpdateProductRequestValidator();
             var validatorResults = validator.Validate(request);
 
@@ -34,10 +37,13 @@ namespace BerthaLutzStore.Application.UseCases
                 throw new Exception(validatorErrors);
             }
 
-            if (request == null)
-                return new BadRequestResult();
+            var product = await _repository.Search(request.IdProduct);
 
-            var product = _mapper.Map<Product>(request);
+            product.ProductName = request.ProductName;
+            product.Description = request.Description;
+            product.Brand = request.Brand;
+            product.SalePrice = request.SalePrice;
+            product.Storage = request.Storage;
 
             await _repository.Update(product);
 
