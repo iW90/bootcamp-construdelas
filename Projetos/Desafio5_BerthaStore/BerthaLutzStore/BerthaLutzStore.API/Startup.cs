@@ -40,9 +40,9 @@ namespace BerthaLutzStore.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
 
             services.AddTransient<IUseCaseAsync<NewOrderRequest, IActionResult>, NewOrderUseCase>();
             services.AddTransient<IUseCaseAsync<NewProductRequest, IActionResult>, NewProductUseCase>();
@@ -56,9 +56,9 @@ namespace BerthaLutzStore.API
             services.AddTransient<IUseCaseAsync<UpdateProductRequest, IActionResult>, UpdateProductUseCase>();
             services.AddTransient<IUseCaseAsync<UpdateUserRequest, IActionResult>, UpdateUserUseCase>();
 
-            services.AddTransient<IUseCaseAsync<int, IActionResult>, DeleteOrderUseCase>();
-            services.AddTransient<IUseCaseAsync<int, IActionResult>, DeleteProductUseCase>();
-            services.AddTransient<IUseCaseAsync<int, IActionResult>, DeleteUserUseCase>();
+            services.AddTransient<DeleteOrderUseCase>();
+            services.AddTransient<DeleteProductUseCase>();
+            services.AddTransient<DeleteUserUseCase>();
 
             services.AddTransient<IUseCaseAsync<SearchAllOrdersRequest, IActionResult>, SearchAllOrdersUseCase>();
             services.AddTransient<IUseCaseAsync<SearchAllProductsRequest, IActionResult>, SearchAllProductsUseCase>();

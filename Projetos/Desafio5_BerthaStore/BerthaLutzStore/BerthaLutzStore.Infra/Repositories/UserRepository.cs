@@ -37,10 +37,11 @@ namespace BerthaLutzStore.Infra.Repositories
                 .Users
                 .Include(x => x.Orders)
                 .Where(x => x.IdUser == id)
+                .AsNoTracking()
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<User> SearchExtra(int id)
+        public async Task<User> SearchAux(int id)
         {
             return await _context
                 .Users

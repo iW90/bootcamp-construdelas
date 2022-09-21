@@ -45,7 +45,7 @@ namespace BerthaLutzStore.Infra.Repositories
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<Order> SearchExtra(int id)
+        public async Task<Order> SearchAux(int id)
         {
             return await _context
                 .Orders

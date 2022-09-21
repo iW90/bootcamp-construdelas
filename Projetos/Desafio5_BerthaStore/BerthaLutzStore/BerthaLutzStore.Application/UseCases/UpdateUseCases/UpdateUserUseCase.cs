@@ -37,7 +37,7 @@ namespace BerthaLutzStore.Application.UseCases
                 throw new Exception(validatorErrors);
             }
 
-            var user = await _repository.Search(request.IdUser);
+            var user = await _repository.SearchAux(request.IdUser);
 
             user.UserName = request.UserName;
             user.Email = request.Email;

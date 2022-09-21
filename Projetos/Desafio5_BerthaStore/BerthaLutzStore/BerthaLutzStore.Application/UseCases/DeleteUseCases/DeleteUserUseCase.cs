@@ -25,7 +25,7 @@ namespace BerthaLutzStore.Application.UseCases
             if (idUser == 0)
                 return new BadRequestResult();
 
-            var user = await _repository.Search(idUser);
+            var user = await _repository.SearchAux(idUser);
 
             await _repository.Delete(user);
 

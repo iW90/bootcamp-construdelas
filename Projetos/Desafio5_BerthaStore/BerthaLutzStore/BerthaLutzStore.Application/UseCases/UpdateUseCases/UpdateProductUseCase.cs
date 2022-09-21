@@ -37,7 +37,7 @@ namespace BerthaLutzStore.Application.UseCases
                 throw new Exception(validatorErrors);
             }
 
-            var product = await _repository.Search(request.IdProduct);
+            var product = await _repository.SearchAux(request.IdProduct);
 
             product.ProductName = request.ProductName;
             product.Description = request.Description;

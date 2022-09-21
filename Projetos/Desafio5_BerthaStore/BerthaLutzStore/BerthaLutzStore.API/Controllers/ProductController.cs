@@ -17,14 +17,14 @@ namespace BerthaStore.API.Controllers
         private readonly IUseCaseAsync<NewProductRequest, IActionResult> _newProductCaseAsync;
         private readonly IUseCaseAsync<SearchProductRequest, IActionResult> _searchProductCaseAsync;
         private readonly IUseCaseAsync<UpdateProductRequest, IActionResult> _updateProductCaseAsync;
-        private readonly IUseCaseAsync<int, IActionResult> _deleteProductCaseAsync;
+        private readonly DeleteProductUseCase _deleteProductCaseAsync;
         private readonly IUseCaseAsync<SearchAllProductsRequest, IActionResult> _searchAllProductsCaseAsync;
 
         public ProductController(
             IUseCaseAsync<NewProductRequest, IActionResult> newProductCaseAsync,
             IUseCaseAsync<SearchProductRequest, IActionResult> searchProductCaseAsync,
             IUseCaseAsync<UpdateProductRequest, IActionResult> updateProductCaseAsync,
-            IUseCaseAsync<int, IActionResult> deleteProductCaseAsync,
+            DeleteProductUseCase deleteProductCaseAsync,
             IUseCaseAsync<SearchAllProductsRequest, IActionResult> searchAllProductsCaseAsync)
         {
             _newProductCaseAsync = newProductCaseAsync;

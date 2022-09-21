@@ -25,7 +25,7 @@ namespace BerthaLutzStore.Application.UseCases
             if (idOrder == 0)
                 return new BadRequestResult();
 
-            var order = await _repository.Search(idOrder);
+            var order = await _repository.SearchAux(idOrder);
 
             await _repository.Delete(order);
 

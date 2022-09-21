@@ -26,7 +26,8 @@ namespace BerthaLutzStore.Infra.Database
 
             builder.HasOne(fk => fk.User) //FK Usuário
                 .WithMany(fk => fk.Orders)
-                .HasForeignKey(fk => fk.IdUser);
+                .HasForeignKey(fk => fk.IdUser)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

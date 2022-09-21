@@ -39,7 +39,7 @@ namespace BerthaLutzStore.Application.UseCases
                 throw new Exception(validatorErrors);
             }
 
-            var order = await _repository.SearchExtra(request.IdOrder);
+            var order = await _repository.SearchAux(request.IdOrder);
 
             order.PaymentType = request.PaymentType;
 

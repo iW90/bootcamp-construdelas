@@ -25,7 +25,7 @@ namespace BerthaLutzStore.Application.UseCases
             if (idProduct == 0)
                 return new BadRequestResult();
 
-            var product = await _repository.Search(idProduct);
+            var product = await _repository.SearchAux(idProduct);
 
             await _repository.Delete(product);
 
