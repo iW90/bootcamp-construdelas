@@ -17,6 +17,24 @@ Este projeto se refere ao módulo de backend do Bootcamp ConstruDelas 2022. Foi 
 - Raphaela Joana Vieira de Sousa
 - Tamires Cristina de Souza
 
+## Endpoints
+
+- POST/api/Order
+- PUT/api/Order
+- GET/api/Order
+- DELETE/api/Order/{orderId}
+- GET/api/Order/ListAll
+- POST/api/Product
+- PUT/api/Product
+- GET/api/Product
+- DELETE/api/Product/{productId}
+- GET/api/Product/ListAll
+- POST/api/User
+- PUT/api/User
+- GET/api/User
+- DELETE/api/User/{userId}
+- GET/api/User/ListAll
+
 ## Pacotes e ferramentas
 
 - EFCore
@@ -27,5 +45,30 @@ Este projeto se refere ao módulo de backend do Bootcamp ConstruDelas 2022. Foi 
 
 ## Materiais de Apoio
 
-- [Asana](https://asana.com/pt) para criar uma lista de tarefas;
-- [Visual Paradigm](https://online.visual-paradigm.com/) para criar o diagrama de classes;
+- [Asana](https://app.asana.com/0/1202815787915229/list) para criar uma lista de tarefas (privado);
+- [Trello](https://trello.com/b/4INf7Cre/bertha-lutz-store) para criar lista de tarefas (público);
+- [Visual Paradigm](https://online.visual-paradigm.com/community/share/berthastore) para criar o diagrama de classes;
+- [Google Slides](https://docs.google.com/presentation/d/1enJGkYUwS0T8osIr7QW2ijDcwnbvtMcVYFphugSm4H0/preview?slide=id.p) para slides de apresentação.
+
+---
+
+## Conexão com o Banco de Dados
+
+Por questões de compatibilidade, são necessários alguns passos para que a API tenha acesso ao banco de dados:
+
+1. É necessário ter instalado o SQL Server.
+2. Ao se conectar no banco, escolha a opção `Windows Autentication` em "Authentication".
+3. Caso seu "Server name" seja diferente de `localhost\SQLEXPRESS`, será necessário trocar esta expressão pelo seu *Server name* no arquivo "appsettings.json".
+4. Uma vez conectado, crie uma nova database chamada `BerthaLutzStore` através do comando:
+
+```sql
+CREATE DATABASE [BerthaLutzStore];
+```
+
+5. Pode haver conflitos com relação à data do arquivo de migração, portanto, se necessário, execute novamente o comando abaixo:
+
+> é necessário executar na pasta raiz onde se encontram todos os projetos da solution.
+
+```
+dotnet ef --startup-project ./BerthaLutzStore.API/BerthaLutzStore.API.csproj  migrations add AllTable -p ./BerthaLutzStore.Infra/BerthaLutzStore.Infra.csproj
+```
