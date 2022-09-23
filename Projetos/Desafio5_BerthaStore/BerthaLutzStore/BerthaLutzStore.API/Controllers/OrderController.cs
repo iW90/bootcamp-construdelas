@@ -14,6 +14,7 @@ namespace BerthaStore.API.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
+        //desacomplamento de código
         private readonly IUseCaseAsync<NewOrderRequest, IActionResult> _newOrderCaseAsync;
         private readonly IUseCaseAsync<SearchOrderRequest, IActionResult> _searchOrderCaseAsync;
         private readonly IUseCaseAsync<UpdateOrderRequest, IActionResult> _updateOrderCaseAsync;
@@ -34,6 +35,7 @@ namespace BerthaStore.API.Controllers
             _searchAllOrdersCaseAsync = searchAllOrdersCaseAsync;
         }
 
+        //Requisições HTTP
         //New Order
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] NewOrderRequest request)

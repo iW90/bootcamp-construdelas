@@ -16,7 +16,7 @@ namespace BerthaLutzStore.Tests
         [TestMethod]
         public void ExecuteAsync_IfRequestIsNull_ReturnBadRequestResult()
         {
-            //Arrange
+            //Arrange: crio objetos falsos para serem testados
             Mock<IMapper> mapper = new Mock<IMapper>();
             var orderObj = new Order();
             mapper.Setup(x => x.Map<Order>(It.IsAny<NewOrderRequest>()))
@@ -28,10 +28,10 @@ namespace BerthaLutzStore.Tests
 
             var useCase = new NewOrderUseCase(orderRepository.Object, mapper.Object);
 
-            //Act
+            //Act: executo o método com o objeto-fake
             var resp = useCase.ExecuteAsync(null).Result;
 
-            //Assert
+            //Assert: verifico se obtive a resposta esperada
             Assert.IsTrue(resp.GetType() == typeof(BadRequestResult));
         }
     }

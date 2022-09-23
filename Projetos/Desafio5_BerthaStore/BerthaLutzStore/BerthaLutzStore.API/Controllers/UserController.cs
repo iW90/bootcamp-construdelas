@@ -14,6 +14,7 @@ namespace BerthaStore.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        //desacomplamento de código
         private readonly IUseCaseAsync<NewUserRequest, IActionResult> _newUserCaseAsync;
         private readonly IUseCaseAsync<SearchUserRequest, IActionResult> _searchUserCaseAsync;
         private readonly IUseCaseAsync<UpdateUserRequest, IActionResult> _updateUserCaseAsync;
@@ -34,6 +35,7 @@ namespace BerthaStore.API.Controllers
             _searchAllUsersCaseAsync = searchAllUsersCaseAsync;
         }
 
+        //Requisições HTTP
         //New User
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] NewUserRequest request)

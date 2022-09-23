@@ -20,7 +20,8 @@ namespace BerthaLutzStore.Application.Mappings
     {
         public MappingProfile()
         {
-            
+            //evita o trabalho de codificação quando mapeamos um objeto para outro.
+
             #region New
             CreateMap<NewUserRequest, User>()
                 .ForMember(dest => dest.UserName, fonte => fonte.MapFrom(src => src.UserName))

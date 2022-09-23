@@ -9,7 +9,7 @@ namespace BerthaLutzStore.Infra.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly ApplicationContext _context;
+        private readonly ApplicationContext _context; //Vincula-se ao BD implementado pelo Migrations
 
         public UserRepository(ApplicationContext context)
         {

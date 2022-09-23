@@ -9,7 +9,7 @@ namespace BerthaLutzStore.Infra.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly ApplicationContext _context;
+        private readonly ApplicationContext _context; //Vincula-se ao BD implementado pelo Migrations
 
         public ProductRepository(ApplicationContext context)
         {

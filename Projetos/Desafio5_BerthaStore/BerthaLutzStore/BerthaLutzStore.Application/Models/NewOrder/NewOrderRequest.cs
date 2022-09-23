@@ -3,6 +3,7 @@ using FluentValidation;
 
 namespace BerthaLutzStore.Application.Models.NewOrder
 {
+    //dados que estão sendo enviados
     public class NewOrderRequest
     {
         public int IdUser { get; set; }
@@ -10,6 +11,7 @@ namespace BerthaLutzStore.Application.Models.NewOrder
         public List<AddItemOrderRequest> OrderedItems { get; set; }
     }
 
+    //validação dos dados que estão entrando
     public class NewOrderRequestValidator : AbstractValidator<NewOrderRequest>
     {
         public NewOrderRequestValidator()

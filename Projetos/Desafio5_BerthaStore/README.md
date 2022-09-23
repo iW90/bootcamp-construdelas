@@ -19,21 +19,13 @@ Este projeto se refere ao módulo de backend do Bootcamp ConstruDelas 2022. Foi 
 
 ## Endpoints
 
-- POST/api/Order
-- PUT/api/Order
-- GET/api/Order
-- DELETE/api/Order/{orderId}
-- GET/api/Order/ListAll
-- POST/api/Product
-- PUT/api/Product
-- GET/api/Product
-- DELETE/api/Product/{productId}
-- GET/api/Product/ListAll
-- POST/api/User
-- PUT/api/User
-- GET/api/User
-- DELETE/api/User/{userId}
-- GET/api/User/ListAll
+|—————| PEDIDOS | PRODUTOS | USUÁRIOS |
+|---|------|------|------|
+| Adicionar | `POST/api/Order` | `POST/api/Product` | `POST/api/User` |
+| Atualizar | `PUT/api/Order` | `PUT/api/Product` | `PUT/api/User` |
+| Buscar | `GET/api/Order` | `GET/api/Product` | `GET/api/User` |
+| Deletar | `DELETE/api/Order/{orderId}` | `DELETE/api/Product/{productId}` | `DELETE/api/User/{userId}` |
+| Listar | `GET/api/Order/ListAll` | `GET/api/Product/ListAll` | `GET/api/User/ListAll` |
 
 ## Pacotes e ferramentas
 
@@ -72,3 +64,7 @@ CREATE DATABASE [BerthaLutzStore];
 ```
 dotnet ef --startup-project ./BerthaLutzStore.API/BerthaLutzStore.API.csproj  migrations add AllTable -p ./BerthaLutzStore.Infra/BerthaLutzStore.Infra.csproj
 ```
+
+### Outros modelos de configuração do BD
+
+- [Connections Strings](https://www.connectionstrings.com)

@@ -40,6 +40,8 @@ namespace BerthaLutzStore.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Injeção de Dependência: evita o alto nível de acoplamento de código dentro de uma aplicação.
+
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IUserRepository, UserRepository>();

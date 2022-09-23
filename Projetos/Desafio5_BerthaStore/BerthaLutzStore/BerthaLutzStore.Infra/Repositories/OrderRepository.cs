@@ -9,13 +9,15 @@ namespace BerthaLutzStore.Infra.Repositories
 {
     public class OrderRepository : IOrderRepository
     {
-        private readonly ApplicationContext _context;
+        //Vincula-se ao BD implementado pelo Migrations
+        private readonly ApplicationContext _context; 
 
         public OrderRepository(ApplicationContext context)
         {
             _context = context;
         }
 
+        //Métodos 
         public async Task New(Order obj)
         {
             _context.Add(obj);
