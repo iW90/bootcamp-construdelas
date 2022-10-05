@@ -1,7 +1,7 @@
 ﻿using BerthaLutzStore.Application.Models.NewOrder;
+using BerthaLutzStore.Application.Models.SearchOrder;
 using BerthaLutzStore.Application.Models.UpdateOrder;
 using BerthaLutzStore.Application.Models.DeleteOrder;
-using BerthaLutzStore.Application.Models.SearchOrder;
 using BerthaLutzStore.Application.Models.SearchAllOrders;
 using BerthaLutzStore.Application.UseCases;
 using Microsoft.AspNetCore.Mvc;
@@ -14,26 +14,28 @@ namespace BerthaStore.API.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
+        //desacomplamento de código
         private readonly IUseCaseAsync<NewOrderRequest, IActionResult> _newOrderCaseAsync;
-        private readonly IUseCaseAsync<UpdateOrderRequest, IActionResult> _updateOrderCaseAsync;
-        private readonly IUseCaseAsync<DeleteOrderRequest, IActionResult> _deleteOrderCaseAsync;
         private readonly IUseCaseAsync<SearchOrderRequest, IActionResult> _searchOrderCaseAsync;
+        private readonly IUseCaseAsync<UpdateOrderRequest, IActionResult> _updateOrderCaseAsync;
+        private readonly DeleteOrderUseCase _deleteOrderCaseAsync;
         private readonly IUseCaseAsync<SearchAllOrdersRequest, IActionResult> _searchAllOrdersCaseAsync;
 
         public OrderController(
             IUseCaseAsync<NewOrderRequest, IActionResult> newOrderCaseAsync,
-            IUseCaseAsync<UpdateOrderRequest, IActionResult> updateOrderCaseAsync,
-            IUseCaseAsync<DeleteOrderRequest, IActionResult> deleteOrderCaseAsync,
             IUseCaseAsync<SearchOrderRequest, IActionResult> searchOrderCaseAsync,
+            IUseCaseAsync<UpdateOrderRequest, IActionResult> updateOrderCaseAsync,
+            DeleteOrderUseCase deleteOrderCaseAsync,
             IUseCaseAsync<SearchAllOrdersRequest, IActionResult> searchAllOrdersCaseAsync)
         {
             _newOrderCaseAsync = newOrderCaseAsync;
+            _searchOrderCaseAsync = searchOrderCaseAsync;
             _updateOrderCaseAsync = updateOrderCaseAsync;
             _deleteOrderCaseAsync = deleteOrderCaseAsync;
-            _searchOrderCaseAsync = searchOrderCaseAsync;
             _searchAllOrdersCaseAsync = searchAllOrdersCaseAsync;
         }
 
+        //Requisições HTTP
         //New Order
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] NewOrderRequest request)
@@ -49,24 +51,25 @@ namespace BerthaStore.API.Controllers
         }
 
         //Delete Order by Id
-        [HttpDelete]
-        public async Task<IActionResult> Put([FromBody] DeleteOrderRequest request)
+        [HttpDelete("{orderId}")]
+        public async Task<IActionResult> Delete([FromRoute] int orderId)
         {
-            return await _deleteOrderCaseAsync.ExecuteAsync(request);
+            return await _deleteOrderCaseAsync.ExecuteAsync(orderId);
         }
 
         //Search Order by Id
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] int id)
+        public async Task<IActionResult> Get([FromQuery] SearchOrderRequest request)
         {
-            return await _searchOrderCaseAsync.ExecuteAsync(new SearchOrderRequest() { IdOrder = id });
+            return await _searchOrderCaseAsync.ExecuteAsync(request);
+
         }
 
         //Search All Orders
-        //[HttpGet("All")]
-        //public async Task<IActionResult<List<SearchAllOrdersResponse>>> Get([FromQuery] SearchAllOrdersRequest request)
-        //{
-        //    return await _searchAllOrdersCaseAsync.ExecuteAsync(request);
-        //}
+        [HttpGet("ListAll")]
+        public async Task<IActionResult> Get([FromQuery] SearchAllOrdersRequest request)
+        {
+            return await _searchAllOrdersCaseAsync.ExecuteAsync(request);
+        }
     }
 }

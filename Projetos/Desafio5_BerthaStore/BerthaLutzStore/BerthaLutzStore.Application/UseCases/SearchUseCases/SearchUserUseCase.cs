@@ -22,26 +22,14 @@ namespace BerthaLutzStore.Application.UseCases
 
         public async Task<IActionResult> ExecuteAsync(SearchUserRequest request)
         {
-            var validator = new SearchUserRequestValidator();
-            var validatorResults = validator.Validate(request);
-
-            if (!validatorResults.IsValid)
-            {
-                var validatorErrors = string.Empty;
-                foreach (var error in validatorResults.Errors)
-                    validatorErrors += error.ErrorMessage;
-
-                throw new Exception(validatorErrors);
-            }
-
             if (request == null)
                 return new BadRequestResult();
 
-            var User = _mapper.Map<User>(request);
+            var user = await _repository.Search(request.IdUser);
 
-            //await _repository.Search(IdUser);
+            var response = _mapper.Map<SearchUserResponse>(user);
 
-            return new OkResult();
+            return new OkObjectResult(response);
         }
     }
 }

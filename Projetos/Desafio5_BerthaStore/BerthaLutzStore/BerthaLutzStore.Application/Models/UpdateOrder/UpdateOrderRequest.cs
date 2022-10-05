@@ -6,9 +6,8 @@ namespace BerthaLutzStore.Application.Models.UpdateOrder
     public class UpdateOrderRequest
     {
         public int IdOrder { get; set; }
-        public int IdUser { get; set; }
         public string PaymentType { get; set; }
-        public List<UpdateItemOrderRequest> OrderedItems { get; set; }
+        public List<UpdateOrderedItemsRequest> OrderedItems { get; set; }
     }
 
     public class UpdateOrderRequestValidator : AbstractValidator<UpdateOrderRequest>
@@ -20,11 +19,6 @@ namespace BerthaLutzStore.Application.Models.UpdateOrder
                 .WithMessage("\'IdOrder\' cannot be empty.")
                 .NotNull()
                 .WithMessage("\'IdOrder\' cannot be null.");
-            RuleFor(r => r.IdUser)
-                .NotEmpty()
-                .WithMessage("\'IdUser\' cannot be empty.")
-                .NotNull()
-                .WithMessage("\'IdUser\' cannot be null.");
             RuleFor(r => r.PaymentType)
                 .NotEmpty()
                 .WithMessage("\'PaymentType\' cannot be empty.")

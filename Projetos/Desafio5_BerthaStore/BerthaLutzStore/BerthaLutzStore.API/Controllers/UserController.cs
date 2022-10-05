@@ -1,11 +1,12 @@
 ﻿using BerthaLutzStore.Application.Models.NewUser;
+using BerthaLutzStore.Application.Models.SearchUser;
 using BerthaLutzStore.Application.Models.UpdateUser;
 using BerthaLutzStore.Application.Models.DeleteUser;
-using BerthaLutzStore.Application.Models.SearchUser;
 using BerthaLutzStore.Application.Models.SearchAllUsers;
 using BerthaLutzStore.Application.UseCases;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace BerthaStore.API.Controllers
 {
@@ -13,26 +14,28 @@ namespace BerthaStore.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        //desacomplamento de código
         private readonly IUseCaseAsync<NewUserRequest, IActionResult> _newUserCaseAsync;
-        private readonly IUseCaseAsync<UpdateUserRequest, IActionResult> _updateUserCaseAsync;
-        private readonly IUseCaseAsync<DeleteUserRequest, IActionResult> _deleteUserCaseAsync;
         private readonly IUseCaseAsync<SearchUserRequest, IActionResult> _searchUserCaseAsync;
+        private readonly IUseCaseAsync<UpdateUserRequest, IActionResult> _updateUserCaseAsync;
+        private readonly DeleteUserUseCase _deleteUserCaseAsync;
         private readonly IUseCaseAsync<SearchAllUsersRequest, IActionResult> _searchAllUsersCaseAsync;
 
         public UserController(
             IUseCaseAsync<NewUserRequest, IActionResult> newUserCaseAsync,
-            IUseCaseAsync<UpdateUserRequest, IActionResult> updateUserCaseAsync,
-            IUseCaseAsync<DeleteUserRequest, IActionResult> deleteUserCaseAsync,
             IUseCaseAsync<SearchUserRequest, IActionResult> searchUserCaseAsync,
+            IUseCaseAsync<UpdateUserRequest, IActionResult> updateUserCaseAsync,
+            DeleteUserUseCase deleteUserCaseAsync,
             IUseCaseAsync<SearchAllUsersRequest, IActionResult> searchAllUsersCaseAsync)
         {
             _newUserCaseAsync = newUserCaseAsync;
+            _searchUserCaseAsync = searchUserCaseAsync;
             _updateUserCaseAsync = updateUserCaseAsync;
             _deleteUserCaseAsync = deleteUserCaseAsync;
-            _searchUserCaseAsync = searchUserCaseAsync;
             _searchAllUsersCaseAsync = searchAllUsersCaseAsync;
         }
 
+        //Requisições HTTP
         //New User
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] NewUserRequest request)
@@ -48,24 +51,24 @@ namespace BerthaStore.API.Controllers
         }
 
         //Delete User by Id
-        [HttpDelete]
-        public async Task<IActionResult> Put([FromBody] DeleteUserRequest request)
+        [HttpDelete("{userId}")]
+        public async Task<IActionResult> Delete([FromRoute] int userId)
         {
-            return await _deleteUserCaseAsync.ExecuteAsync(request);
+            return await _deleteUserCaseAsync.ExecuteAsync(userId);
         }
 
         //Search User by Id
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] int id)
+        public async Task<IActionResult> Get([FromQuery] SearchUserRequest request)
         {
-            return await _searchUserCaseAsync.ExecuteAsync(new SearchUserRequest() { IdUser = id });
+            return await _searchUserCaseAsync.ExecuteAsync(request);
         }
 
-        ////Search All Users
-        //[HttpGet("All")]
-        //public async Task<IActionResult<List<SearchAllUsersResponse>>> Get([FromQuery] SearchAllUsersRequest request)
-        //{
-        //    return await _searchAllUsersCaseAsync.ExecuteAsync(request);
-        //}
+        //Search All Users
+        [HttpGet("ListAll")]
+        public async Task<IActionResult> Get([FromQuery] SearchAllUsersRequest request)
+        {
+            return await _searchAllUsersCaseAsync.ExecuteAsync(request);
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace BerthaLutzStore.Infra.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly ApplicationContext _context;
+        private readonly ApplicationContext _context; //Vincula-se ao BD implementado pelo Migrations
 
         public UserRepository(ApplicationContext context)
         {
@@ -35,14 +35,25 @@ namespace BerthaLutzStore.Infra.Repositories
         {
             return await _context
                 .Users
+                .Include(x => x.Orders)
                 .Where(x => x.IdUser == id)
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
         }
+
+        public async Task<User> SearchAux(int id)
+        {
+            return await _context
+                .Users
+                .Where(x => x.IdUser == id)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<IEnumerable<User>> SearchAll()
         {
             return await _context
                 .Users
+                .Include(x => x.Orders)
                 .AsNoTracking()
                 .ToListAsync();
         }

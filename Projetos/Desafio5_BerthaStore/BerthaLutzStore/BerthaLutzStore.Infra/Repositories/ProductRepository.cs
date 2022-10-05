@@ -9,7 +9,7 @@ namespace BerthaLutzStore.Infra.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly ApplicationContext _context;
+        private readonly ApplicationContext _context; //Vincula-se ao BD implementado pelo Migrations
 
         public ProductRepository(ApplicationContext context)
         {
@@ -39,6 +39,15 @@ namespace BerthaLutzStore.Infra.Repositories
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
         }
+
+        public async Task<Product> SearchAux(int id)
+        {
+            return await _context
+                .Products
+                .Where(x => x.IdProduct == id)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<IEnumerable<Product>> SearchAll()
         {
             return await _context

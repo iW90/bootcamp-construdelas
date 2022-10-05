@@ -5,6 +5,7 @@ using AutoMapper;
 using BerthaLutzStore.Application.Models.NewOrder;
 using BerthaLutzStore.Core.Interfaces;
 using BerthaLutzStore.Core.Entities;
+using System.Linq;
 
 namespace BerthaLutzStore.Application.UseCases
 {
@@ -22,6 +23,9 @@ namespace BerthaLutzStore.Application.UseCases
 
         public async Task<IActionResult> ExecuteAsync(NewOrderRequest request)
         {
+            if (request == null)
+                return new BadRequestResult();
+
             var validator = new NewOrderRequestValidator();
             var validatorResults = validator.Validate(request);
 
@@ -34,10 +38,9 @@ namespace BerthaLutzStore.Application.UseCases
                 throw new Exception(validatorErrors);
             }
 
-            if (request == null)
-                return new BadRequestResult();
-
             var order = _mapper.Map<Order>(request);
+
+            order.Total = order.OrderedItems.Sum(s => s.UnitPrice * s.Quantity);
 
             await _repository.New(order);
 

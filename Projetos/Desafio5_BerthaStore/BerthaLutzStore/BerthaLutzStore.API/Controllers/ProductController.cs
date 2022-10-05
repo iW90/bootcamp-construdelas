@@ -1,11 +1,12 @@
 ﻿using BerthaLutzStore.Application.Models.NewProduct;
+using BerthaLutzStore.Application.Models.SearchProduct;
 using BerthaLutzStore.Application.Models.UpdateProduct;
 using BerthaLutzStore.Application.Models.DeleteProduct;
-using BerthaLutzStore.Application.Models.SearchProduct;
 using BerthaLutzStore.Application.Models.SearchAllProducts;
 using BerthaLutzStore.Application.UseCases;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace BerthaStore.API.Controllers
 {
@@ -13,26 +14,28 @@ namespace BerthaStore.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
+        //desacomplamento de código
         private readonly IUseCaseAsync<NewProductRequest, IActionResult> _newProductCaseAsync;
-        private readonly IUseCaseAsync<UpdateProductRequest, IActionResult> _updateProductCaseAsync;
-        private readonly IUseCaseAsync<DeleteProductRequest, IActionResult> _deleteProductCaseAsync;
         private readonly IUseCaseAsync<SearchProductRequest, IActionResult> _searchProductCaseAsync;
+        private readonly IUseCaseAsync<UpdateProductRequest, IActionResult> _updateProductCaseAsync;
+        private readonly DeleteProductUseCase _deleteProductCaseAsync;
         private readonly IUseCaseAsync<SearchAllProductsRequest, IActionResult> _searchAllProductsCaseAsync;
 
         public ProductController(
             IUseCaseAsync<NewProductRequest, IActionResult> newProductCaseAsync,
-            IUseCaseAsync<UpdateProductRequest, IActionResult> updateProductCaseAsync,
-            IUseCaseAsync<DeleteProductRequest, IActionResult> deleteProductCaseAsync,
             IUseCaseAsync<SearchProductRequest, IActionResult> searchProductCaseAsync,
+            IUseCaseAsync<UpdateProductRequest, IActionResult> updateProductCaseAsync,
+            DeleteProductUseCase deleteProductCaseAsync,
             IUseCaseAsync<SearchAllProductsRequest, IActionResult> searchAllProductsCaseAsync)
         {
             _newProductCaseAsync = newProductCaseAsync;
+            _searchProductCaseAsync = searchProductCaseAsync;
             _updateProductCaseAsync = updateProductCaseAsync;
             _deleteProductCaseAsync = deleteProductCaseAsync;
-            _searchProductCaseAsync = searchProductCaseAsync;
             _searchAllProductsCaseAsync = searchAllProductsCaseAsync;
         }
 
+        //Requisições HTTP
         //New Product
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] NewProductRequest request)
@@ -48,24 +51,26 @@ namespace BerthaStore.API.Controllers
         }
 
         //Delete Product by Id
-        [HttpDelete]
-        public async Task<IActionResult> Put([FromBody] DeleteProductRequest request)
+        [HttpDelete("{productId}")]
+        public async Task<IActionResult> Delete([FromRoute] int productId)
         {
-            return await _deleteProductCaseAsync.ExecuteAsync(request);
+            return await _deleteProductCaseAsync.ExecuteAsync(productId);
         }
 
         //Search Product by Id
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] int id)
+        public async Task<IActionResult> Get([FromQuery] SearchProductRequest request)
         {
-            return await _searchProductCaseAsync.ExecuteAsync(new SearchProductRequest() { IdProduct = id });
+            //var productId = await _searchProductCaseAsync.ExecuteAsync(request);
+            //return new OkObjectResult(productId);
+            return await _searchProductCaseAsync.ExecuteAsync(request);
         }
 
-        ////Search All Products
-        //[HttpGet("All")]
-        //public async Task<IActionResult<List<SearchAllProductsResponse>>> Get([FromQuery] SearchAllProductsRequest request)
-        //{
-        //    return await _searchAllProductsCaseAsync.ExecuteAsync(request);
-        //}
+        //List All Products
+        [HttpGet("ListAll")]
+        public async Task<IActionResult> Get([FromQuery] SearchAllProductsRequest request)
+        {
+            return await _searchAllProductsCaseAsync.ExecuteAsync(request);
+        }
     }
 }

@@ -5,6 +5,7 @@ using AutoMapper;
 using BerthaLutzStore.Application.Models.NewProduct;
 using BerthaLutzStore.Core.Interfaces;
 using BerthaLutzStore.Core.Entities;
+using System.Linq;
 
 namespace BerthaLutzStore.Application.UseCases
 {
@@ -22,6 +23,9 @@ namespace BerthaLutzStore.Application.UseCases
 
         public async Task<IActionResult> ExecuteAsync(NewProductRequest request)
         {
+            if (request == null)
+                return new BadRequestResult();
+
             var validator = new NewProductRequestValidator();
             var validatorResults = validator.Validate(request);
 
@@ -34,12 +38,9 @@ namespace BerthaLutzStore.Application.UseCases
                 throw new Exception(validatorErrors);
             }
 
-            if (request == null)
-                return new BadRequestResult();
+            var product = _mapper.Map<Product>(request);
 
-            var Product = _mapper.Map<Product>(request);
-
-            await _repository.New(Product);
+            await _repository.New(product);
 
             return new OkResult();
         }

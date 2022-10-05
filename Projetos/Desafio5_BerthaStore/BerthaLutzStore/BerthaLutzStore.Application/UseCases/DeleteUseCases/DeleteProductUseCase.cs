@@ -8,7 +8,7 @@ using BerthaLutzStore.Core.Entities;
 
 namespace BerthaLutzStore.Application.UseCases
 {
-    public class DeleteProductUseCase : IUseCaseAsync<DeleteProductRequest, IActionResult>
+    public class DeleteProductUseCase : IUseCaseAsync<int, IActionResult>
     {
         private readonly IProductRepository _repository;
         private readonly IMapper _mapper;
@@ -20,24 +20,12 @@ namespace BerthaLutzStore.Application.UseCases
             _mapper = mapper;
         }
 
-        public async Task<IActionResult> ExecuteAsync(DeleteProductRequest request)
+        public async Task<IActionResult> ExecuteAsync(int idProduct)
         {
-            var validator = new DeleteProductRequestValidator();
-            var validatorResults = validator.Validate(request);
-
-            if (!validatorResults.IsValid)
-            {
-                var validatorErrors = string.Empty;
-                foreach (var error in validatorResults.Errors)
-                    validatorErrors += error.ErrorMessage;
-
-                throw new Exception(validatorErrors);
-            }
-
-            if (request == null)
+            if (idProduct == 0)
                 return new BadRequestResult();
 
-            var product = await _repository.Search(request.IdProduct);
+            var product = await _repository.SearchAux(idProduct);
 
             await _repository.Delete(product);
 

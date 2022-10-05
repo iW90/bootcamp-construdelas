@@ -22,26 +22,14 @@ namespace BerthaLutzStore.Application.UseCases
 
         public async Task<IActionResult> ExecuteAsync(SearchProductRequest request)
         {
-            var validator = new SearchProductRequestValidator();
-            var validatorResults = validator.Validate(request);
-
-            if (!validatorResults.IsValid)
-            {
-                var validatorErrors = string.Empty;
-                foreach (var error in validatorResults.Errors)
-                    validatorErrors += error.ErrorMessage;
-
-                throw new Exception(validatorErrors);
-            }
-
             if (request == null)
                 return new BadRequestResult();
 
-            var Product = _mapper.Map<Product>(request);
+            var product = await _repository.Search(request.IdProduct);
 
-            //await _repository.Search(IdProduct);
+            var response = _mapper.Map<SearchProductResponse>(product);
 
-            return new OkResult();
+            return new OkObjectResult(response);
         }
     }
 }

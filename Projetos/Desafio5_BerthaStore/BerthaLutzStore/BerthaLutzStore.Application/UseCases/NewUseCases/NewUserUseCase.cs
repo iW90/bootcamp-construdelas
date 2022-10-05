@@ -21,6 +21,9 @@ namespace BerthaLutzStore.Application.UseCases
 
         public async Task<IActionResult> ExecuteAsync(NewUserRequest request)
         {
+            if (request == null)
+                return new BadRequestResult();
+
             var validator = new NewUserRequestValidator();
             var validatorResults = validator.Validate(request);
 
@@ -33,15 +36,9 @@ namespace BerthaLutzStore.Application.UseCases
                 throw new Exception(validatorErrors);
             }
 
-            if (request == null)
-                return new BadRequestResult();
+            var user = _mapper.Map<User>(request);
 
-            var resp = _mapper
-                .Map<User>(request);
-
-            //resp.Created = DateTime.Now; //Sequência do DateTime.Now ???
-
-            await _repository.New(resp);
+            await _repository.New(user);
 
             return new OkResult();
         }

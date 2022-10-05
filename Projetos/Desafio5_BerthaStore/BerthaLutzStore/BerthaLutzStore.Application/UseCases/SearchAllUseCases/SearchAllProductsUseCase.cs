@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace BerthaLutzStore.Application.UseCases
 {
-    public class SearchAllProductsUseCase : IUseCaseAsync<SearchAllProductsRequest, List<IActionResult>>
+    public class SearchAllProductsUseCase : IUseCaseAsync<SearchAllProductsRequest, IActionResult>
     {
         private readonly IProductRepository _repository;
         private readonly IMapper _mapper;
@@ -21,12 +21,12 @@ namespace BerthaLutzStore.Application.UseCases
             _mapper = mapper;
         }
 
-        public async Task<List<IActionResult>> ExecuteAsync(SearchAllProductsRequest request)
+        public async Task<IActionResult> ExecuteAsync(SearchAllProductsRequest request)
         {
             var products = await _repository.SearchAll();
-            var productsResponse = _mapper.Map<List<IActionResult>>(products);
+            var productsResponse = _mapper.Map<List<SearchAllProductsResponse>>(products);
 
-            return productsResponse;
+            return new OkObjectResult(productsResponse);
         }
     }
 }

@@ -145,15 +145,15 @@ namespace BerthaLutzStore.Infra.Migrations
             modelBuilder.Entity("BerthaLutzStore.Core.Entities.ItemOrder", b =>
                 {
                     b.HasOne("BerthaLutzStore.Core.Entities.Order", "Order")
-                        .WithMany("OrderedItens")
+                        .WithMany("OrderedItems")
                         .HasForeignKey("IdOrder")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("BerthaLutzStore.Core.Entities.Product", "Product")
-                        .WithMany("OrderedItens")
+                        .WithMany("OrderedItems")
                         .HasForeignKey("IdProduct")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Order");
@@ -166,7 +166,7 @@ namespace BerthaLutzStore.Infra.Migrations
                     b.HasOne("BerthaLutzStore.Core.Entities.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("IdUser")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -174,12 +174,12 @@ namespace BerthaLutzStore.Infra.Migrations
 
             modelBuilder.Entity("BerthaLutzStore.Core.Entities.Order", b =>
                 {
-                    b.Navigation("OrderedItens");
+                    b.Navigation("OrderedItems");
                 });
 
             modelBuilder.Entity("BerthaLutzStore.Core.Entities.Product", b =>
                 {
-                    b.Navigation("OrderedItens");
+                    b.Navigation("OrderedItems");
                 });
 
             modelBuilder.Entity("BerthaLutzStore.Core.Entities.User", b =>

@@ -9,24 +9,24 @@ using System.Collections.Generic;
 
 namespace BerthaLutzStore.Application.UseCases
 {
-    public class SearchAllUsersUseCase : IUseCaseAsync<SearchAllUsersRequest, List<IActionResult>>
+    public class SearchAllUsersUseCase : IUseCaseAsync<SearchAllUsersRequest, IActionResult>
     {
-        private readonly IProductRepository _repository;
+        private readonly IUserRepository _repository;
         private readonly IMapper _mapper;
 
-        public SearchAllUsersUseCase(IProductRepository repository,
+        public SearchAllUsersUseCase(IUserRepository repository,
             IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        public async Task<List<IActionResult>> ExecuteAsync(SearchAllUsersRequest request)
+        public async Task<IActionResult> ExecuteAsync(SearchAllUsersRequest request)
         {
             var users = await _repository.SearchAll();
-            var usersResponse = _mapper.Map<List<IActionResult>>(users);
+            var usersResponse = _mapper.Map<List<SearchAllUsersResponse>>(users);
 
-            return usersResponse;
+            return new OkObjectResult(usersResponse);
         }
     }
 }
