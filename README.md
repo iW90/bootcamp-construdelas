@@ -16,5 +16,5 @@ Este bootcamp possui duração de 21 semanas, sendo mais de 200 horas de capacit
 
 - [x] [Projeto Front-end](https://github.com/iW90/azavital)
 
-- [ ] [Ementa Back-end](./ementa-backend.md)
+- [x] [Ementa Back-end](./ementa-backend.md)
 
